@@ -35,4 +35,17 @@ app.get("/", (req, res) => {
   });
 });
 
+/**
+ * Importing the user routes
+ */
+const userRoutes = require("./Routes/UserRoutes");
+
+/**
+ * Using the user routes
+ *     - /user - is the base route for user routes
+ *    - userRoutes - is the user routes
+ */
+
+app.use("/user", userRoutes);
+
 module.exports = app;

@@ -1,7 +1,7 @@
 /**
  * Importing the User model to perform create operations
  */
-const User = require("../models/UserSchema");
+const User = require("../../models/UserSchema");
 
 /**
  * createUser() - Asynchronous Function

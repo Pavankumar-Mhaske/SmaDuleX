@@ -65,4 +65,4 @@ const UserSchema = new Schema(
  *      - Creating a model from the Schema defined and export
  */
 module.exports = model("user", UserSchema);
-// comment added
+
