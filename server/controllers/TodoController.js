@@ -437,7 +437,7 @@ exports.searchTodos = async (req, res) => {
         ],
        });
 
-       but here we are using dynamic search pattern so we are using the below approach
+       but here we are using dynamic search pattern(search comming dynamically) so we are using the below approach
      */
 
     const unfilteredTodos = await Todo.find({
