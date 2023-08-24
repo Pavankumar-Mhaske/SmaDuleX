@@ -384,3 +384,89 @@ exports.deleteTodo = async (req, res) => {
     });
   }
 };
+
+/**
+ * searchTodos() - Asynchronous Function
+ *      - Destructures the input received in req.query.
+ *      - Validated if userId/appwriteId is received.
+ *      - Validated if userId/appwriteId received is of type string.
+ *      - Validated if search is received.
+ *      - Validated if search received is of type string.
+ *      - Fetch the user using userId/appwriteId - (Asynchronous operation - find())
+ *      - Validate if user exists in DB
+ *      - Finds the todos and tasks which include the search value using regex and $or operation.
+ *      - Validate if todos and tasks returned falsy values.
+ *      - Only filter the todos whose user reference matches with the user we fetched
+ */
+
+exports.searchTodos = async (req, res) => {
+  try {
+    const { userId, search } = req.query;
+
+    if (!userId) {
+      throw new Error("userId required, Please pass userId to search a todo");
+    }
+
+    if (typeof userId !== "string") {
+      throw new Error("userId should be of type string");
+    }
+
+    if (!search) {
+      throw new Error("search required, Please pass 'search' to search a todo");
+    }
+
+    if (typeof search !== "string") {
+      throw new Error("search should be of type string");
+    }
+
+    const user = await User.find({ appwriteId: userId.trim() });
+
+    if (!user) {
+      throw new Error("User not found in DB");
+    }
+
+    /**
+     * 
+     * 
+      If the search pattern is static and not dynamically generated, this approach might be preferable.
+
+        const unfilteredTodos = await Todo.find({
+        $or: [
+        { title: { $regex: search, $options: "i" } },
+        { tasks: { $regex: search, $options: "i" } },
+        ],
+       });
+
+       but here we are using dynamic search pattern so we are using the below approach
+     */
+
+    const unfilteredTodos = await Todo.find({
+      $or: [
+        { title: new RegExp(search, "i") },
+        { tasks: new RegExp(search, "i") },
+      ],
+    });
+
+    if (!unfilteredTodos) {
+      throw new Error("Searched Todo or Tasks not found in DB");
+    }
+
+    const filteredTodos = unfilteredTodos.filter((todo) =>
+      todo.user.equals(user[0]._id)
+    );
+
+    res.status(200).json({
+      success: true,
+      message: "Todos fetched successfully",
+      data: filteredTodos,
+    });
+  } catch (error) {
+    console.log("Error in search todos controller");
+    console.log("ERROR: ", error);
+    res.status(400).json({
+      success: false,
+      messageSrc: "Error in search todos controller",
+      message: error.message,
+    });
+  }
+};
