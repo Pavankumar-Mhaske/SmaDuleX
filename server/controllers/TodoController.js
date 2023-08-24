@@ -74,7 +74,7 @@ exports.createTodo = async (req, res) => {
     if (!user[0]) {
       throw new Error("User not found in DB");
     }
-    Object.defineProperty(todoObj, "userId", {
+    Object.defineProperty(todoObj, "user", {
       value: user[0]._id,
       enumerable: true,
     });
@@ -94,13 +94,13 @@ exports.createTodo = async (req, res) => {
       data: todo,
       user: user[0],
     });
-  } catch (err) {
+  } catch (error) {
     console.log("Error in create todo controller");
     console.log("ERROR: ", error);
     res.status(400).json({
       success: false,
       messageSrc: "Error in create todo controller",
-      message: err.message,
+      message: error.message,
     });
   }
 };
@@ -175,8 +175,8 @@ exports.getTodo = async (req, res) => {
     if (!user) {
       throw new Error("User not found in DB");
     }
-
-    if (todo.user.equals(user._id) === false) {
+    /**mistack in the previous code */
+    if (todo.user.equals(user[0]._id) === false) {
       throw new Error("User is not the owner of todo");
     }
 
@@ -222,7 +222,7 @@ exports.getTodo = async (req, res) => {
 
 exports.editTodo = async (req, res) => {
   try {
-    const { todoId, userId } = req.params;
+    const { userId, todoId } = req.params;
 
     if (!todoId) {
       throw new Error("todoId required, Please pass todoId to edit a todo");
@@ -243,6 +243,10 @@ exports.editTodo = async (req, res) => {
     const todo = await Todo.findById(todoId.trim());
     const user = await User.find({ appwriteId: userId.trim() });
 
+    console.log(todo);
+    console.log(user);
+    // console.log("user id is ", user[0]._id);
+
     if (!todo) {
       throw new Error("Todo not found in DB");
     }
@@ -256,6 +260,12 @@ exports.editTodo = async (req, res) => {
     }
 
     const { title, tasks, isImportant, isCompleted } = req.body;
+
+    console.log(`
+    title is ", title
+    tasks is ", tasks
+    isImportant is ", isImportant
+    isCompleted is ", isCompleted`);
 
     if (title && typeof title !== "string") {
       throw new Error("title should be of type string");

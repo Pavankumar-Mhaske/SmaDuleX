@@ -11,6 +11,7 @@ const mongoose = require("mongoose");
  */
 const { Schema, model } = mongoose;
 
+/**************definition of User Model********************************************** */
 /**
  * UserSchema - Creating a schema for Todo
  *     - role: String value, By default holds user as value.
@@ -29,7 +30,7 @@ const UserSchema = new Schema(
     },
     name: {
       type: String,
-      required: [true, "Title of the todo is required"], // Custom error message  
+      required: [true, "Title of the todo is required"], // Custom error message
       maxlength: [50, "Title of the todo can not be more than 50 charecters"],
       trim: true,
     },
@@ -60,6 +61,7 @@ const UserSchema = new Schema(
   }
 );
 
+/***************Registration of User Model**************************************** */
 /**
  * Exporting model
  *      - Creating a model from the Schema defined and export

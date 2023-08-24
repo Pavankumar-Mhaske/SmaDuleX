@@ -17,12 +17,17 @@ exports.getUserTodos = async (req, res) => {
 
     if (userId) {
       if (typeof userId === "string") {
-        const user = await User.find({ appwriteId: userId }).populate("todos");
+        const user = await User.findOne({ appwriteId: userId }).populate(
+          "todos"
+        );
+
         if (user) {
           return res.status(200).json({
             success: true,
             message: "User Todos fetched successfully",
-            user: user[0],
+            user: user.todos,
+            status: 200,
+            
           });
         } else {
           return res.status(400).json({

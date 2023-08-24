@@ -10,6 +10,7 @@ const mongoose = require("mongoose");
  */
 const { Schema, model } = mongoose;
 
+/**************definition of Todo Model********************************************** */
 /**
  * TodoSchema - Creating a schema for Todo
  *      - title: String value, Its required field, Can have maximum 30 charecters.
@@ -58,8 +59,9 @@ const TodoSchema = new Schema(
   }
 );
 
+/**************Registration of Todo model********************************************** */
 /**
  * Exporting model
  *      - Creating a model from the Schema defined and export
  */
-module.exports = model("todo", TodoSchema);
+module.exports = model("Todo", TodoSchema);

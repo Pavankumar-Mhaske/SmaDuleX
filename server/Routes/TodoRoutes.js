@@ -41,17 +41,15 @@ router.route("/search").get(searchTodos);
  *            - uses get() to fetch todo
  *            - uses put() to update todo
  *            - uses delete() to delete todo
- */ 
+ */
 
-router
-    .route("/:userId/:todoId")
-    .get(getTodo)
-    .put(editTodo)
-    .delete(deleteTodo);
+router.
+    route("/:userId/:todoId").
+    get(getTodo).
+    put(editTodo).
+    delete(deleteTodo);
 
 /**
  * Exporting the router
  */
 module.exports = router;
-
-
