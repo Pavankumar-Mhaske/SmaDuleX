@@ -43,6 +43,8 @@ exports.getUserTodos = async (req, res) => {
       });
     }
   } catch (error) {
+    console.log("Error in get user todos controller");
+    console.log("ERROR: ", error);
     return res.status(500).json({
       success: false,
       message: "Internal Server Error",

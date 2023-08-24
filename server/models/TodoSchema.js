@@ -18,7 +18,7 @@ const { Schema, model } = mongoose;
  *      - isCompleted: It is a flag use to mark todo as completed, Stores boolean value, By default its false.
  *      - user: It is a reference to the User model, Stores ObjectId of user.
  *     - timestamps: true, It creates two fields createdAt and updatedAt.
- * 
+ *
  */
 
 const TodoSchema = new Schema(
@@ -29,12 +29,16 @@ const TodoSchema = new Schema(
       maxlength: [30, "Title of todo can have maximum 30 charecters"],
       trim: true,
     },
-    tasks: [
-      {
-        type: String,
-        trim: true,
-      },
-    ],
+
+    tasks: {
+      type: [
+        {
+          type: String,
+          trim: true,
+        },
+      ],
+    },
+
     isImportant: {
       type: Boolean,
       default: false,

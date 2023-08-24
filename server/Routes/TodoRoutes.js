@@ -1,5 +1,5 @@
 /**
- * Importing Express to instantiated a rotuer to define routes .
+ * Importing Express to instantiated a router to define routes .
  */
 const express = require("express");
 const router = express.Router();

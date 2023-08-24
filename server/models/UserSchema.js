@@ -29,13 +29,13 @@ const UserSchema = new Schema(
     },
     name: {
       type: String,
-      required: true,
-      maxlength: 50,
+      required: [true, "Title of the todo is required"], // Custom error message  
+      maxlength: [50, "Title of the todo can not be more than 50 charecters"],
       trim: true,
     },
     email: {
       type: String,
-      required: true,
+      required: [true, "Email is required to create a user"],
       unique: true,
       trim: true,
     },
@@ -45,13 +45,13 @@ const UserSchema = new Schema(
     },
     appwriteId: {
       type: String,
-      required: true,
+      required: [true, "Appwrite Id is required to create a user"],
     },
     todos: [
       {
         type: Schema.Types.ObjectId, // This is a reference to the Todo model
         ref: "Todo",
-        required: [true, "Todo is required to store todo for user"],
+        required: [true, "Todo I'd is required to store todo for user"],
       },
     ],
   },

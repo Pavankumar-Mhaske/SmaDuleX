@@ -24,7 +24,9 @@ const User = require("../../models/UserSchema");
 exports.createUser = async (req, res) => {
   try {
     const { name, email, profession, appwriteId } = req.body;
+
     console.log(name, email, profession, appwriteId);
+    
     const userObj = {};
 
     if (name) {
