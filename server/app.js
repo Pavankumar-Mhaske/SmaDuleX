@@ -39,13 +39,20 @@ app.get("/", (req, res) => {
  * Importing the user routes
  */
 const userRoutes = require("./Routes/UserRoutes");
+const todoRoutes = require("./Routes/TodoRoutes");
 
 /**
  * Using the user routes
  *     - /user - is the base route for user routes
  *    - userRoutes - is the user routes
  */
-
 app.use("/user", userRoutes);
+
+/**
+ * Using the todo routes
+ *    - /todo - is the base route for todo routes
+ *   - todoRoutes - is the todo routes
+ */
+app.use("/todo", todoRoutes);
 
 module.exports = app;
