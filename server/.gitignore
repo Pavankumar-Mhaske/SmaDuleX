@@ -1,5 +1,8 @@
 
 
-/node_modules
+# node_modules folder is not commited to the repository
+node_modules/
 
-/.env
+
+#   .env file is not commited to the repository
+.env
