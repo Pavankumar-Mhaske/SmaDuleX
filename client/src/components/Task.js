@@ -1,3 +1,6 @@
+// Importint the images
+import bin from "../assets/icons/delete.png";
+
 /**
  *
  * @param body - Task Body.
@@ -6,7 +9,40 @@
  * @returns Task Element.
  */
 
-const Task = () => {
+const Task = ({ body, tasks, setTasks }) => {
+  /**
+   * deleteTask() - It deletes the task from tasks array.
+   *              - Finds the task index and splices the array.
+   *              - Sets the updated array object to tasks.
+   */
+  const deleteTask = () => {
+    /** 
+    * const array = tasks
+    * const index = array.indexOf(body)
+
+    * 
+    but we use below code:
+    Because - The below code allows you to define a custom condition based on the body property of each task, 
+      enabling more versatile and specific searching within the array.
+    */
+
+    const index = tasks.findIndex((task) => task.body === body);
+
+    /**
+     * 
+     *  array.splice(index, 1);
+        setTasks([...array])
+
+    but we use below code:
+    because - it makes the intent clear and reduces the risk of introducing unintentional bugs related to 
+      modifying the original array.
+
+     */
+    const array = [...tasks];
+    array.splice(index, 1);
+    setTasks(array);
+  };
+
   return (
     <div className="inline-block m-2 flex max-w-[91%]">
       <p
@@ -23,14 +59,18 @@ const Task = () => {
             rounded-l 
             p-0.5 
             bg-violet-100"
-      ></p>
+      >
+        {body}
+      </p>
+
       <button
         className="border border-red-500 rounded-r p-0.5 active:bg-red-200 pl-2 pr-1"
+        onClick={deleteTask}
         type="button"
       >
         <img
           className="inline-block mb-1"
-          src={deleteIcon}
+          src={bin}
           alt="Delete icon"
           width="16"
         />
