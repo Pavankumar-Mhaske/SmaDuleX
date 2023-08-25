@@ -4,7 +4,18 @@
  * @returns Title Input Element.
  */
 
-const TitleInput = () => {
+const TitleInput = ({ title, setTitle }) => {
+  /**
+   * handleChange() - Updates the title value.
+   * @param e - Event Object.
+   * @returns Updated title value.
+   *        - Sets the updated title value to title.
+   */
+
+  const handleChange = (e) => {
+    setTitle(e.target.value);
+  };
+
   return (
     <label htmlFor="title">
       <input
@@ -14,6 +25,13 @@ const TitleInput = () => {
         id="title"
         name="title"
         placeholder="Todo Title"
+        value={title}
+        onChange={handleChange}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            e.preventDefault();
+          }
+        }}
       />
     </label>
   );
