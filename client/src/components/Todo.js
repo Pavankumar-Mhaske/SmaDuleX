@@ -8,29 +8,107 @@ import { useTodoContext } from "../context/userContext";
 
 // import images
 /**
- * 
- * bin 
+ *
+ * bin
  * edit
  * start
  * starFill
  * check
- * ckecked 
+ * ckecked
  */
 
-import bin from "../assets/icons/delete.png"
-import edit from "../assets/icons/edit.png"
-import start from "../assets/icons/star.png"
-import starFill from "../assets/icons/starFill.png"
-import check from "../assets/icons/redCheck.png"
-import checked from "../assets/icons/check.png"
-
+import bin from "../assets/icons/delete.png";
+import edit from "../assets/icons/edit.png";
+import star from "../assets/icons/star.png";
+import starFill from "../assets/icons/starFill.png";
+import check from "../assets/icons/redCheck.png";
+import checked from "../assets/icons/check.png";
 
 // import components
+import TodoModal from "./TodoModal";
+import EditTodo from "./EditTodo";
+import DeleteModal from "./DeleteModal";
 
+/**
+ * @param todo - Todo Object to populate values.
+ * @returns A Todo element.
+ */
 
+const Todo = (todo, makeRequest, setMakeRequest) => {
+  /**
+   * It is used to pass appwrite Id in DB request parmas
+   */
+  const { user } = useTodoContext();
 
+  /**
+   * Used to display Todo Modal (tasks) when todo title is clicked
+   */
 
-const Todo = () => {
+  // const [showTodoModal, setShowTodoModal] = useState(false);
+  const [popup, setPopup] = useState(false); // for todo modal
+
+  /**
+   * Used to display EditForm Modal when todo edit button is clicked
+   */
+
+  // const [showEditModal, setShowEditModal] = useState(false);
+  const [editTodo, setEditTodo] = useState(false); // for edit modal
+
+  /**
+   * Used to display EditForm Modal when todo edit button is clicked
+   */
+
+  // const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [deleteTodo, setDeleteTodo] = useState(false); // for delete modal
+
+  /**
+   * @param todo - stores todo object which has to update its isImportant field
+   * handleHighlight() - Prevent default behaviour of form submission (reloading).
+   *                   - Destructure id and isImportant field from todo
+   *                   - Inverse the value of isImportant
+   *                   - Make PUT request to database to update todo value.
+   *                   - Updates makeRequest state
+   */
+
+  const handleHighlight = async (event, todo) => {
+    try {
+      // prevent default behaviour of form submission (reloading)
+      event.preventDefault();
+      let { _id, isImportant } = todo;
+      isImportant = !isImportant;
+      // /api/todo/${user.uid}/${_id}
+      await axios.put(`/todo/${user.$id}/${_id}`, { isImportant });
+      setMakeRequest(!makeRequest);
+    } catch (error) {
+      console.log("Error while updating a todo in handleHightlight method");
+      console.log("Error: ", error);
+    }
+  };
+
+  /**
+   * @param todo - stores todo object which has to update its isImportant field
+   * handleCompleted() - Prevent default behaviour of form submission (reloading).
+   *                   - Destructure id and isCompleted field from todo
+   *                   - Inverse the value of isCompleted
+   *                   - Make PUT request to database to update todo value.
+   *                   - Updates makeRequest state
+   */
+
+  const handleCompleted = async (event, todo) => {
+    try {
+      // prevent default behaviour of form submission (reloading)
+      event.preventDefault();
+      let { _id, isCompleted } = todo;
+      isCompleted = !isCompleted;
+      // /api/todo/${user.uid}/${_id}
+      await axios.put(`/todo/${user.$id}/${_id}`, { isCompleted });
+      setMakeRequest(!makeRequest);
+    } catch (error) {
+      console.log("Error while updating a todo in handleCompleted method");
+      console.log("Error: ", error);
+    }
+  };
+
   return (
     <>
       <div className="flex my-2 justify-center">
@@ -43,43 +121,88 @@ const Todo = () => {
                 active:bg-violet-100 
                 mx-3
             `}
+          onClick={(e) => handleHighlight(e, todo)}
         >
-          <img src={jfdkj} alt="Star Todo" />
+          <img src={todo.isImportant ? starFill : star} alt="Star Todo" />
         </button>
         <p
-          className={`
-            w-5/6 
-            border-2 
-            p-1
-            md:p-2 
-            rounded
-            text-[14px]
-            sm:text-[16px]
-            md:text-lg 
-            lg:text-xl 
-            font-medium
-            break-all
-        `}
+          className={` w-5/6  border-2  p-1 md:p-2  rounded text-[14px] sm:text-[16px] md:text-lg  lg:text-xl  font-medium break-all 
+          bg-${todo.isCompleted ? "green" : "gray"}-100
+          hover:bg-${todo.isCompleted ? "green" : "gray"}-200
+          hover:border-${todo.isCompleted ? "green" : "gray"}-300
+          text-${todo.isCompleted ? "green-600" : "gray-800"}-700`}
+          onClick={() => setPopup(!popup)}
           // add some more properties here....
-        ></p>
-        <button
-          className={`
-                p-2
-                border-2 
-                rounded 
-                active:bg-violet-100
-                ml-3
-            `}
         >
-          <img src={jd} alt="Star Todo" />
+          {todo.title}
+        </p>
+
+        <button
+          className={` 
+                    p-2 border-2
+                    border-${todo.isCompleted ? "green" : "red"}-500
+                    hover:bg-${todo.isCompleted ? "green" : "red"}-100
+                    rounded  
+                    active:bg-violet-100 ml-3 
+                    ml-3
+                  `}
+          onClick={(e) => handleCompleted(e, todo)}
+        >
+          <img src={todo.isCompleted ? checked : check} alt="Star Todo" />
         </button>
-        <button className="p-2 border-2 border-blue-700 rounded mx-2 hover:bg-blue-200">
+        <button
+          className="p-2 border-2 border-blue-700 rounded mx-2 hover:bg-blue-200"
+          onClick={() => {
+            window.scrollTo({
+              top: 0,
+              bahaivior: "auto",
+            });
+            document.body.style.overflow = "hidden";
+            setEditTodo(true);
+          }}
+        >
           <img src={edit} alt="Edit Todo" />
         </button>
-        <button className="p-2 border-2 border-red-500 rounded active:bg-red-200">
-          <img src={dfh} alt="Delete Todo" className="w-6" />
+        <button
+          className="p-2 border-2 border-red-500 rounded active:bg-red-200"
+          onClick={() => {
+            window.scrollTo({
+              top: 0,
+              bahaivior: "auto",
+            });
+            document.body.style.overflow = "hidden";
+            setDeleteTodo(true);
+          }}
+        >
+          <img src={bin} alt="Delete Todo" className="w-6" />
         </button>
       </div>
+
+      <TodoModal
+        popup={popup}
+        todoId={todo._id}
+        makeRequest={makeRequest}
+        created={todo.createdAt}
+        updated={todo.updatedAt}
+      />
+
+      <EditTodo
+        editTodo={editTodo}
+        setEditTodo={setEditTodo}
+        todo={todo}
+        makeRequest={makeRequest}
+        setMakeRequest={setMakeRequest}
+      />
+
+      <DeleteModal
+        deleteTodo={deleteTodo}
+        setDeleteTodo={setDeleteTodo}
+        todo={todo}
+        makeRequest={makeRequest}
+        setMakeRequest={setMakeRequest}
+      />
     </>
   );
 };
+
+export default Todo;
