@@ -169,7 +169,7 @@ const SignupPage = () => {
                     placeholder-violet-700
                 "
             placeholder="Confirm Password"
-            type="password"
+            type={showPassword ? "text" : "password"}
             name="passwordConfirm"
             id="passwordConfirm"
             value={passwordConfirm}
