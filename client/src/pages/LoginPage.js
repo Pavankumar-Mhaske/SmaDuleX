@@ -142,7 +142,7 @@ const LoginPage = () => {
         if matched then redirect to the login page
         if not matched then redirect to the same page */}
 
-        <TodoButton name="Login" passwordMatched={passwordMatched} />
+        <TodoButton name="Login" />
       </form>
     </div>
   );
