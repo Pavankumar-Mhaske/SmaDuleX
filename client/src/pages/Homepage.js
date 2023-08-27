@@ -1,10 +1,10 @@
-import { userContext, useState } from "react";
+import { useContext, useState } from "react";
 
 // router
 import { Navigate } from "react-router-dom";
 
 // context
-import { useContext } from "../context/userContext";
+import { userContext } from "../context/userContext";
 
 // components
 import TodoForm from "../components/TodoForm";
