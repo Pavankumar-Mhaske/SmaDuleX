@@ -2,7 +2,7 @@
 import { useState, useContext } from "react";
 
 // appwrite
-import { account } from "../config/appwriteConfig";
+import account from "../config/appwriteConfig";
 
 // context
 import userContext from "../context/userContext";
@@ -28,7 +28,9 @@ const LoginPage = () => {
    */
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordConfirm, setPasswordConfirm] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [passwordMatched, setPasswordMatched] = useState(false);
 
   /**
    * handleLogin(e) - Asynchronous Function
@@ -42,9 +44,9 @@ const LoginPage = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const appwriteUser = await account.createSession(email, password);
+      const appwriteUser = await account.createEmailSession(email, password);
       console.log(appwriteUser);
-      console.log("USER LOGGED IN SUCCESSFULLY IN APPWRITE");
+      console.log("USER LOGGEDIN SUCCESSFULLY IN APPWRITE");
       setUser(await account.get());
     } catch (error) {
       console.log("Error in handle login appwrite service");
@@ -60,8 +62,29 @@ const LoginPage = () => {
    */
 
   const handleChange = (e, stateUpdate) => {
-    stateUpdate(e.target.value);
+    const newValue = e.target.value;
+    stateUpdate(newValue);
+
+    /**
+     * If the stateUpdate is either password or passwordConfirm then we check if both the values are same
+     * and set the passwordMatched state to true or false accordingly.
+     */
+    if (stateUpdate === setPassword || stateUpdate === setPasswordConfirm) {
+      setPasswordMatched(password === passwordConfirm);
+    }
   };
+
+  /**  
+   * will replace the current entry in the navigation history with the new route, 
+      preventing the user from going back to the previous page using the browser's navigation controls.
+   */
+
+  /**   
+   <Navigate replace={true} to="/" />;
+                but
+   * if you're using a newer version of React Router
+        In this case, the prop is implicitly set to true
+  */
 
   if (user) return <Navigate to="/" />;
 
@@ -123,7 +146,11 @@ const LoginPage = () => {
           {showPassword ? "👁️" : "👁️‍🗨️"}
         </span>
 
-        <TodoButton name="Login" />
+        {/* check password and passwordConfirm matched 
+        if matched then redirect to the login page
+        if not matched then redirect to the same page */}
+
+        <TodoButton name="Login" passwordMatched={passwordMatched} />
       </form>
     </div>
   );
