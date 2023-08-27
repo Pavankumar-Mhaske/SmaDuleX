@@ -4,7 +4,7 @@ import { useContext, useState } from "react";
 import axios from "axios";
 
 // import context
-import { useTodoContext } from "../context/userContext";
+import useTodoContext from "../context/userContext";
 
 // import images
 /**
@@ -38,7 +38,7 @@ const Todo = (todo, makeRequest, setMakeRequest) => {
   /**
    * It is used to pass appwrite Id in DB request parmas
    */
-  const { user } = useTodoContext();
+  const { user } = useContext(useTodoContext);
 
   /**
    * Used to display Todo Modal (tasks) when todo title is clicked
