@@ -4,7 +4,7 @@ import { useContext } from "react";
 import axios from "axios";
 
 // import context
-import { userTodoContext } from "../context/userContext";
+import userTodoContext from "../context/userContext";
 
 const DeleteModal = ({
   deleteTodo,
