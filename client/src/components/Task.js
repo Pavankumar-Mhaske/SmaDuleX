@@ -1,4 +1,4 @@
-// Importint the images
+// Importing the images
 import bin from "../assets/icons/delete.png";
 
 /**
