@@ -1,10 +1,10 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useContext } from "react";
 
 // axios
 import axios from "axios";
 
 // context
-import { useTodoContext } from "../context/userContext";
+import useTodoContext from "../context/userContext";
 
 // components
 import TaskInput from "./TaskInput";
@@ -133,7 +133,7 @@ const TodoForm = ({
           </div>
         </div>
         {/* Button for Creading Todo (Submitting the data) */}
-        <TodoButton buttonName={buttonName} />
+        <TodoButton name={buttonName} />
         // button for reseting data.
       </div>
     </form>
