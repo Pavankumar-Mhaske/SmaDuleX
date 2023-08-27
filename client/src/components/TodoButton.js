@@ -3,7 +3,7 @@
  * @returns A Button element to submit the data in  form.
  */
 
-const TodoButton = ({ name = "Todo Button", passwordMatched }) => {
+const TodoButton = ({ name = "Todo Button", passwordMatched = true }) => {
   return (
     <button
       className={`mt-2 rounded w-full border-2 px-6 py-2 font-semibold ${
