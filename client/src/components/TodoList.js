@@ -4,7 +4,7 @@ import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 
 // context
-import { useTodoContext } from "../context/userContext";
+import  useTodoContext  from "../context/userContext";
 
 // images
 import searchIcon from "../assets/icons/search.png";
@@ -12,7 +12,6 @@ import closeIcon from "../assets/icons/close.png";
 
 // components
 import Todo from "./Todo";
-import { set } from "mongoose";
 
 /**
  * @param setMakeRequest - To make DB call and populate todos in todoList. When we delete, update todo.
@@ -23,7 +22,7 @@ const TodoList = ({ makeRequest, setMakeRequest }) => {
   /**
    * It is used to pass appwrite Id in DB request parmas
    */
-  const { user } = useTodoContext();
+  const { user } = useContext(useTodoContext);
 
   /**
    * To store the todos received from a server request.
@@ -127,7 +126,8 @@ const TodoList = ({ makeRequest, setMakeRequest }) => {
   return (
     <>
       <div className="flex flex-wrap items-center justify-between my-4 w-full sm:w-2/3 m-auto">
-        {closeSearch ? (
+        {
+          (closeSearch) ? (
           <button
             className="border border-red-700 rounded p-2 ml-6 sm:ml-3 md:p-3 my-4 lg:my-0"
             type="button"
