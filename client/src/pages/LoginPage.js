@@ -28,9 +28,9 @@ const LoginPage = () => {
    */
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [passwordConfirm, setPasswordConfirm] = useState("");
+  // const [passwordConfirm, setPasswordConfirm] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [passwordMatched, setPasswordMatched] = useState(false);
+  // const [passwordMatched, setPasswordMatched] = useState(false);
 
   /**
    * handleLogin(e) - Asynchronous Function
@@ -64,14 +64,6 @@ const LoginPage = () => {
   const handleChange = (e, stateUpdate) => {
     const newValue = e.target.value;
     stateUpdate(newValue);
-
-    /**
-     * If the stateUpdate is either password or passwordConfirm then we check if both the values are same
-     * and set the passwordMatched state to true or false accordingly.
-     */
-    if (stateUpdate === setPassword || stateUpdate === setPasswordConfirm) {
-      setPasswordMatched(password === passwordConfirm);
-    }
   };
 
   /**  
@@ -122,14 +114,14 @@ const LoginPage = () => {
         <input
           className="w-fullroundedborder-violet-700text-lgmd:text-xlmb-4focus:outline-nonefocus:ring-0focus:border-violet-800placeholder-violet-700"
           placeholder="Password"
-          type="password"
+          type={showPassword ? "text" : "password"}
           name="password"
           id="password"
           value={password}
           onChange={(e) => handleChange(e, setPassword)}
         />
 
-        <input
+        {/* <input
           className="w-fullroundedborder-violet-700text-lgmd:text-xlmb-4focus:outline-nonefocus:ring-0focus:border-violet-800placeholder-violet-700"
           placeholder="Confirm Password"
           type={showPassword ? "text" : "password"}
@@ -137,7 +129,7 @@ const LoginPage = () => {
           id="passwordConfirm"
           value={passwordConfirm}
           onChange={(e) => handleChange(e, setPasswordConfirm)}
-        />
+        /> */}
 
         <span
           className="toggle-password-icon"
