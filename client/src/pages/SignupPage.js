@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 
 // appwrite
 import account from "../config/appwriteConfig";
+import { ID } from "appwrite";
 
 // axios
 import axios from "axios";
@@ -35,6 +36,7 @@ const SignupPage = () => {
   const [passwordConfirm, setPasswordConfirm] = useState("");
   const [professions, setProfessions] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [passwordMatched, setPasswordMatched] = useState(false);
 
   /**
    * handleSignup(e) - Asynchronous Function
@@ -84,7 +86,16 @@ const SignupPage = () => {
    */
 
   const handleChange = (e, stateUpdate) => {
-    stateUpdate(e.target.value);
+    const newValue = e.target.value;
+    stateUpdate(newValue);
+
+    /**
+     * If the stateUpdate is either password or passwordConfirm then we check if both the values are same
+     * and set the passwordMatched state to true or false accordingly.
+     */
+    if (stateUpdate === setPassword || stateUpdate === setPasswordConfirm) {
+      setPasswordMatched(password === passwordConfirm);
+    }
   };
 
   if (user) return <Navigate to="/" />;
@@ -204,7 +215,7 @@ const SignupPage = () => {
             onChange={(e) => handleChange(e, setProfessions)}
           />
 
-          <TodoButton name="Signup" />
+          <TodoButton name="Signup" passwordMatched={passwordMatched} />
         </form>
       </div>
     </div>
