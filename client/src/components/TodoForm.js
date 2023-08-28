@@ -4,7 +4,7 @@ import { useState, useContext } from "react";
 import axios from "axios";
 
 // context
-import useTodoContext from "../context/userContext";
+import userContext from "../context/userContext";
 
 // components
 import TaskInput from "./TaskInput";
@@ -30,7 +30,7 @@ const TodoForm = ({
   /**
    * It is used to pass appwrite Id in DB request parmas
    */
-  const { user } = useContext(useTodoContext);
+  const { user } = useContext(userContext);
 
   /**
    * title - To store the title of todo.
@@ -134,7 +134,7 @@ const TodoForm = ({
         </div>
         {/* Button for Creading Todo (Submitting the data) */}
         <TodoButton name={buttonName} />
-        // button for reseting data.
+        {/* // button for reseting data. */}
       </div>
     </form>
   );
