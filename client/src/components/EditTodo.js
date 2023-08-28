@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 // import components
 import TodoForm from "./TodoForm";
 
-import {useNavigate} from "react-router-dom";
+// import {useNavigate} from "react-router-dom";
 
 /**
  *
@@ -33,7 +33,14 @@ const EditTodo = ({
         <button className="w-[95%] sm:w-5/6 md:w-full mx-auto py-2 px-4 bg-white bg-red-600 font-bold text-xl text-white rounded-t">
           Cancel
         </button>
-        <TodoForm task="update" buttonName="Update Todo" todo={todo} makeRequest={makeRequest} setMakeRequest={setMakeRequest} setEditTodo={setEditTodo} />
+        <TodoForm
+          task="update"
+          buttonName="Update Todo"
+          todo={todo}
+          makeRequest={makeRequest}
+          setMakeRequest={setMakeRequest}
+          setEditTodo={setEditTodo}
+        />
       </div>
     </div>
   );
