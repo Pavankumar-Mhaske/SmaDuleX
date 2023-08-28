@@ -4,7 +4,7 @@ import { useContext } from "react";
 import axios from "axios";
 
 // import context
-import userTodoContext from "../context/userContext";
+import userContext from "../context/userContext";
 
 const DeleteModal = ({
   deleteTodo,
@@ -13,7 +13,7 @@ const DeleteModal = ({
   makeRequest,
   setMakeRequest,
 }) => {
-  const { user } = useContext(userTodoContext);
+  const { user } = useContext(userContext);
   /**
    * @param todoId - ._id value of a todo .
    * handleDelete() - Asynchronous Function (Server Request).
@@ -26,6 +26,7 @@ const DeleteModal = ({
       event.preventDefault();
       // /api/todo/${user._id}/${todoId}
       const response = await axios.delete(`/todo/${user.$id}/${todoId}`);
+      console.log("Response from handleDelete method: ", response);
       setMakeRequest(!makeRequest);
       // setDeleteTodo(!deleteTodo);
     } catch (error) {
