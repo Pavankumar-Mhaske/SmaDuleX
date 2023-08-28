@@ -1,10 +1,10 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, useCallback } from "react";
 
 // axios
 import axios from "axios";
 
 // context
-import  useTodoContext  from "../context/userContext";
+import userContext from "../context/userContext";
 
 // images
 import searchIcon from "../assets/icons/search.png";
@@ -22,7 +22,7 @@ const TodoList = ({ makeRequest, setMakeRequest }) => {
   /**
    * It is used to pass appwrite Id in DB request parmas
    */
-  const { user } = useContext(useTodoContext);
+  const { user } = useContext(userContext);
 
   /**
    * To store the todos received from a server request.
@@ -42,20 +42,39 @@ const TodoList = ({ makeRequest, setMakeRequest }) => {
   /**
    * To display cancel button after searching todo.
    */
-  const getTodos = async () => {
+  const getTodos = useCallback(async () => {
     try {
-      const response = await axios.get("/user/todos", {
-        params: { userId: user.$id },
-      });
+      // console.log("type of setMakeRequest", typeof setMakeRequest);
+      console.log("inside the gettodos method in");
+      const response = await axios.get(`/user/todos?userId=${user.$id}`);
+      // const response = await axios.get("/user/todos", {
+      //   params: { userId: user.$id },
+      // });
+      console.log("just before the response");
       const { data } = response;
-      data.user.todos.sort((a, b) => b.isImportant - a.isImportant);
-      //  return new Date(b.createdAt) - new Date(a.createdAt);
-      setTodos([...data.user.todos]);
+      console.log(data);
+
+      if (data && data.user) {
+        const todos = data.user;
+        console.log(todos);
+        if (todos.length > 0) {
+          const response = todos.sort((a, b) => b.isImportant - a.isImportant);
+
+          console.log(response);
+          setTodos([...response]);
+        } else {
+          setTodos([]);
+          console.log("User has no todos.");
+        }
+        //  return new Date(b.createdAt) - new Date(a.createdAt);
+      } else {
+        console.log("Data or required properties are undefined.");
+      }
     } catch (error) {
       console.log("Error while fetching todos in getTodos method");
       console.log("Error: ", error);
     }
-  };
+  }, [user.$id]);
 
   /**
    * handleSearch() - Asynchronous Function
@@ -67,24 +86,41 @@ const TodoList = ({ makeRequest, setMakeRequest }) => {
    *            - Sets the closeSearch state to true stating to render the cancel button
    */
 
-  const handleSearch = async (e) => {
+  // const handleSearch = async (e) => {
+
+  const handleSearch = async () => {
     try {
-      e.preventDefault();
+      // e.preventDefault();
       setSearch(search.trim());
+
       if (!search) return;
       const response = await axios.get("/todo/search", {
         params: { userId: user.$id, search },
       });
-      const { data } = response;
-      console.log(data);
-      data.todos.sort((a, b) => b.isImportant - a.isImportant);
-      setTodos([...data.todos]);
+
+      const { data } = response.data;
+      console.log("data inside the handlesearch", data);
+      // const result = todos.sort((a, b) => b.isImportant - a.isImportant);
+      setTodos([...data]);
+      console.log("todos inside the handlesearch", todos);
       setCloseSearch(true);
     } catch (error) {
       console.log("Error while fetching search todos in getTodos method");
       console.log("Error: ", error);
     }
   };
+
+  useEffect(() => {
+    // Fetch filtered todos only if there's a search query
+    if (search) {
+      handleSearch();
+    }
+  }, [search, user.$id]);
+
+  // Effect to update filtered todos when search changes
+  // useEffect(() => {
+  //   handleSearch();
+  // }, [search]);
 
   /**
    *  @param - sort: takes the string value to know what parameter to sort.
@@ -121,13 +157,12 @@ const TodoList = ({ makeRequest, setMakeRequest }) => {
   useEffect(() => {
     getTodos();
     setCloseSearch(false);
-  }, [makeRequest]);
+  }, [getTodos, makeRequest]);
 
   return (
     <>
       <div className="flex flex-wrap items-center justify-between my-4 w-full sm:w-2/3 m-auto">
-        {
-          (closeSearch) ? (
+        {closeSearch ? (
           <button
             className="border border-red-700 rounded p-2 ml-6 sm:ml-3 md:p-3 my-4 lg:my-0"
             type="button"
@@ -177,10 +212,13 @@ const TodoList = ({ makeRequest, setMakeRequest }) => {
             name="search"
             id="search"
             value={search}
-            onChange={(e) => setSearch(e.target.value)}
+            onChange={(e) => {
+              setSearch(e.target.value);
+            }}
             onKeyDown={(e) => {
               if (e.key === "Enter") {
-                handleSearch(e);
+                e.preventDefault();
+                handleSearch();
               }
             }}
             required
@@ -211,7 +249,14 @@ const TodoList = ({ makeRequest, setMakeRequest }) => {
                     lg:p-3
                 "
             type="button"
-            onClick={(e) => handleSearch(e)}
+            onClick={() => {
+              if (search.trim() === "") {
+                setCloseSearch(false);
+                getTodos();
+              } else {
+                handleSearch();
+              }
+            }}
           >
             <img src={searchIcon} alt="search button" />
           </button>
@@ -232,9 +277,9 @@ const TodoList = ({ makeRequest, setMakeRequest }) => {
           todos.map((todo) => (
             <Todo
               todo={todo}
-              key={todo._id}
               makeRequest={makeRequest}
               setMakeRequest={setMakeRequest}
+              key={todo._id}
             />
           ))
         )}
