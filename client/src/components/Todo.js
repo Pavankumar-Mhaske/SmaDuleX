@@ -4,7 +4,7 @@ import { useContext, useState } from "react";
 import axios from "axios";
 
 // import context
-import useTodoContext from "../context/userContext";
+import userContext from "../context/userContext";
 
 // import images
 /**
@@ -34,11 +34,13 @@ import DeleteModal from "./DeleteModal";
  * @returns A Todo element.
  */
 
-const Todo = (todo, makeRequest, setMakeRequest) => {
+const Todo = ({ todo, makeRequest, setMakeRequest }) => {
+  // console.log("type of setMakeRequest", typeof setMakeRequest);
+  console.log("Inside Todo.js todo is ", todo);
   /**
    * It is used to pass appwrite Id in DB request parmas
    */
-  const { user } = useContext(useTodoContext);
+  const { user } = useContext(userContext);
 
   /**
    * Used to display Todo Modal (tasks) when todo title is clicked
@@ -73,11 +75,23 @@ const Todo = (todo, makeRequest, setMakeRequest) => {
   const handleHighlight = async (event, todo) => {
     try {
       // prevent default behaviour of form submission (reloading)
+      console.log("inside the handleHighlight");
+      console.log("todo is ", todo);
+
       event.preventDefault();
       let { _id, isImportant } = todo;
+
+      console.log("todo is ", todo);
       isImportant = !isImportant;
+      console.log(`before the put request,${user.$id} ${_id}, ${isImportant}`);
       // /api/todo/${user.uid}/${_id}
-      await axios.put(`/todo/${user.$id}/${_id}`, { isImportant });
+
+      const response = await axios.put(`/todo/${user.$id}/${_id}`, {
+        isImportant,
+      });
+      console.log("before the setMakeRequest");
+      console.log(response);
+      // console.log(makeRequest, "type of setMakeRequest", typeof setMakeRequest);
       setMakeRequest(!makeRequest);
     } catch (error) {
       console.log("Error while updating a todo in handleHightlight method");
@@ -185,7 +199,6 @@ const Todo = (todo, makeRequest, setMakeRequest) => {
         created={todo.createdAt}
         updated={todo.updatedAt}
       />
-
       <EditTodo
         editTodo={editTodo}
         setEditTodo={setEditTodo}
@@ -193,7 +206,6 @@ const Todo = (todo, makeRequest, setMakeRequest) => {
         makeRequest={makeRequest}
         setMakeRequest={setMakeRequest}
       />
-
       <DeleteModal
         deleteTodo={deleteTodo}
         setDeleteTodo={setDeleteTodo}
