@@ -4,7 +4,7 @@ import { useContext, useState } from "react";
 import { Navigate } from "react-router-dom";
 
 // context
-import { userContext } from "../context/userContext";
+import userContext from "../context/userContext";
 
 // components
 import TodoForm from "../components/TodoForm";
@@ -17,6 +17,7 @@ const Homepage = () => {
    */
   const [makeRequest, setMakeRequest] = useState(false);
 
+  // console.log("type of setMakeRequest", typeof setMakeRequest);
   /**
    * Used to display homepage only if user is logged in else redirect to login page.
    */
