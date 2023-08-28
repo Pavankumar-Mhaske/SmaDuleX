@@ -1,10 +1,10 @@
-import { useContext, useEffect, useState } from "react";
+import { useCallback, useContext, useEffect, useState } from "react";
 
 // import axios
 import axios from "axios";
 
 // import context
-import useTodoContext  from "../context/userContext";
+import userContext from "../context/userContext";
 
 /**
  *
@@ -20,7 +20,7 @@ const TodoModal = ({ popup, todoId, makeRequest, created, updated }) => {
   /**
    * It is used to pass appwrite Id in DB request parmas
    */
-  const { user } = useContext(useTodoContext);
+  const { user } = useContext(userContext);
 
   /**
    * To maintain concurrency in tasks of todo. (When we have a unsuccessful update)
@@ -32,24 +32,27 @@ const TodoModal = ({ popup, todoId, makeRequest, created, updated }) => {
    *      - Fetches all the tasks of user's todo
    */
 
-  const getTodoTasks = async () => {
+  const getTodoTasks = useCallback(async () => {
     try {
       // /api/v1/todos/${todoId}/tasks
-      const { response } = await axios.get(`/todo/${user.$id}/${todoId}`);
-      console.log(response);
+      console.log("inside the getTodoTasks method in", todoId);
+      const response = await axios.get(`/todo/${user.$id}/${todoId}`);
 
-      if (response.data.todo.tasks) {
-        setTasks(response.data.todo.tasks);
+      console.log("Tasks Fetched Successfully");
+      console.log(response);
+      console.log(response.data.data.tasks);
+      if (response.data.data.tasks) {
+        setTasks(response.data.data.tasks);
       }
     } catch (error) {
       console.log("Error in Fetching Tasks of Todo");
       console.log("Error", error);
     }
-  };
+  }, [user.$id, todoId]);
 
   useEffect(() => {
     getTodoTasks();
-  }, [makeRequest]);
+  }, [getTodoTasks, makeRequest]);
 
   /**
    * Conditional rendering: Check if param pop is true and display tasks else display "".
@@ -65,13 +68,19 @@ const TodoModal = ({ popup, todoId, makeRequest, created, updated }) => {
             <p>No Tasks Available</p>
           ) : (
             tasks.map((task, index) =>
-              task ? 
-                <p className="inline-block m-1 border-2 border-violet-800 rounded p-1" key={index}>{task}</p>
-               : 
+              task ? (
+                <p
+                  className="inline-block m-1 border-2 border-violet-800 rounded p-1"
+                  key={index}
+                >
+                  {task}
+                </p>
+              ) : (
                 ""
-            ))
+              )
+            )
+          )
         }
-        
       </div>
       <div className="flex justify-between text-base mt-4">
         <p>
