@@ -262,10 +262,10 @@ exports.editTodo = async (req, res) => {
     const { title, tasks, isImportant, isCompleted } = req.body;
 
     console.log(`
-    title is ", title
-    tasks is ", tasks
-    isImportant is ", isImportant
-    isCompleted is ", isCompleted`);
+    title is ", ${title}
+    tasks is ", ${tasks}
+    isImportant is ", ${isImportant}
+    isCompleted is ", ${isCompleted}`);
 
     if (title && typeof title !== "string") {
       throw new Error("title should be of type string");
