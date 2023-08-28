@@ -22,7 +22,8 @@ const TaskInput = ({ tasks, setTasks }) => {
 
   const addTask = (e) => {
     e.preventDefault();
-    if(taskInput === "") return;
+    console.log("taskinput:", taskInput);
+    if (taskInput === "") return;
     setTasks([...tasks, taskInput]);
     setTaskInput("");
   };
@@ -33,6 +34,7 @@ const TaskInput = ({ tasks, setTasks }) => {
 
   const handleChange = (e) => {
     setTaskInput(e.target.value);
+    console.log(taskInput);
   };
 
   return (
@@ -68,7 +70,7 @@ const TaskInput = ({ tasks, setTasks }) => {
           />
         </label>
         <button
-          onclick={addTask}
+          onClick={addTask}
           className="bg-violet-600  mt-2 md:mt-0 sm:ml-2  px-5  py-2 text-md  lg:text-lg   text-white  font-medium  rounded  active:bg-violet-400  active:text-gray-500"
         >
           Add Task
