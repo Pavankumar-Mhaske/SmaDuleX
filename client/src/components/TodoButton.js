@@ -14,7 +14,7 @@ const TodoButton = ({ name = "Todo Button", passwordMatched = true }) => {
           : `border-gray-400 text-gray-400 cursor-not-allowed`
       } text-lg `}
       type="submit"
-      disabled={!passwordMatched} // button will activate only if passwordMatched is true
+      // disabled={!passwordMatched} // button will activate only if passwordMatched is true
     >
       {name}
     </button>
