@@ -26,7 +26,7 @@ exports.createUser = async (req, res) => {
     const { name, email, profession, appwriteId } = req.body;
 
     console.log(name, email, profession, appwriteId);
-    
+
     const userObj = {};
 
     if (name) {
@@ -92,7 +92,8 @@ exports.createUser = async (req, res) => {
     // include this line in try catch block -> const savedUser = await User.create(userObj);
 
     const savedUser = await User.create(userObj);
-
+    console.log("User created successfully");
+    console.log(savedUser);
     res.status(200).json({
       success: true,
       message: "User created successfully",
