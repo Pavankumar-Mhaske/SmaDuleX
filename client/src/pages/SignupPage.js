@@ -86,15 +86,18 @@ const SignupPage = () => {
    */
 
   const handleChange = (e, stateUpdate) => {
-    const newValue = e.target.value;
-    stateUpdate(newValue);
+    console.log(name, email, password, passwordConfirm, professions);
+    // const newValue = e.target.value;
+    stateUpdate(e.target.value);
 
     /**
      * If the stateUpdate is either password or passwordConfirm then we check if both the values are same
      * and set the passwordMatched state to true or false accordingly.
      */
     if (stateUpdate === setPassword || stateUpdate === setPasswordConfirm) {
-      setPasswordMatched(password === passwordConfirm);
+      // console.log(password, passwordConfirm);
+      console.log(name, email, password, passwordConfirm, professions);
+      if (password === passwordConfirm) setPasswordMatched(true);
     }
   };
 
