@@ -1,4 +1,4 @@
-import { userContext } from "react";
+import { useContext } from "react";
 
 // appwrite
 import account from "../config/appwriteConfig.js";
