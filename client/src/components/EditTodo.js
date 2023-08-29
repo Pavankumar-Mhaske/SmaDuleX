@@ -14,12 +14,12 @@ import TodoForm from "./TodoForm";
 
 const EditTodo = ({
   todo,
-  editTodo,
+  editTodoc,
   setEditTodo,
   makeRequest,
   setMakeRequest,
 }) => {
-  if (!editTodo) return "";
+  if (!editTodoc) return "";
   return (
     <div
       className={`w-full h-screen absolute top-0 left-0 `}
