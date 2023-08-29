@@ -36,17 +36,31 @@ const TodoModal = ({ popup, todoId, makeRequest, created, updated }) => {
     try {
       // /api/v1/todos/${todoId}/tasks
       console.log("inside the getTodoTasks method in", todoId);
+      // if (!user.$id) return;
+      // if (!todoId) return;
+      // find the todo with todoId if exists then only fetch the tasks of todo.
+
+      // const todoExist = await axios.get(`/user/todos?userId=${user.$id}`);
+      // console.log("todoExist:", todoExist.data.user);
+      // const deletedTodoFound = false;
+      // deletedTodoFound = todoExist.data.user.filter((todo) => {
+      //   if (todo._id === todoId) return true;
+      // });
+      // if (deletedTodoFound) {
+
       const response = await axios.get(`/todo/${user.$id}/${todoId}`);
 
       console.log("Tasks Fetched Successfully");
       console.log(response);
-      console.log(response.data.data.tasks);
+      console.log("tasks : ", response.data.data.tasks);
+
       if (response.data.data.tasks) {
+        console.log("inside the if condition");
         setTasks(response.data.data.tasks);
       }
     } catch (error) {
       console.log("Error in Fetching Tasks of Todo");
-      console.log("Error", error);
+      console.log("Custom error message: Unable to fetch tasks");
     }
   }, [user.$id, todoId]);
 
