@@ -36,7 +36,7 @@ import DeleteModal from "./DeleteModal";
 
 const Todo = ({ todo, makeRequest, setMakeRequest }) => {
   // console.log("type of setMakeRequest", typeof setMakeRequest);
-  console.log("Inside Todo.js todo is ", todo);
+  // console.log("Inside Todo.js todo is ", todo);
   /**
    * It is used to pass appwrite Id in DB request parmas
    */
@@ -54,7 +54,7 @@ const Todo = ({ todo, makeRequest, setMakeRequest }) => {
    */
 
   // const [showEditModal, setShowEditModal] = useState(false);
-  const [editTodo, setEditTodo] = useState(false); // for edit modal
+  const [editTodoc, setEditTodo] = useState(false); // for edit modal
 
   /**
    * Used to display EditForm Modal when todo edit button is clicked
@@ -200,7 +200,7 @@ const Todo = ({ todo, makeRequest, setMakeRequest }) => {
         updated={todo.updatedAt}
       />
       <EditTodo
-        editTodo={editTodo}
+        editTodoc={editTodoc}
         setEditTodo={setEditTodo}
         todo={todo}
         makeRequest={makeRequest}
