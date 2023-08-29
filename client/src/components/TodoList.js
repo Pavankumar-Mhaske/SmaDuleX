@@ -88,7 +88,7 @@ const TodoList = ({ makeRequest, setMakeRequest }) => {
 
   // const handleSearch = async (e) => {
 
-  const handleSearch = async () => {
+  const handleSearch = useCallback(async () => {
     try {
       // e.preventDefault();
       setSearch(search.trim());
@@ -102,20 +102,21 @@ const TodoList = ({ makeRequest, setMakeRequest }) => {
       console.log("data inside the handlesearch", data);
       // const result = todos.sort((a, b) => b.isImportant - a.isImportant);
       setTodos([...data]);
-      console.log("todos inside the handlesearch", todos);
+      // console.log("todos inside the handlesearch", todos);
       setCloseSearch(true);
     } catch (error) {
       console.log("Error while fetching search todos in getTodos method");
       console.log("Error: ", error);
     }
-  };
+  }
+  , [search, user.$id]);
 
   useEffect(() => {
     // Fetch filtered todos only if there's a search query
     if (search) {
       handleSearch();
     }
-  }, [search, user.$id]);
+  }, [search, handleSearch]);
 
   // Effect to update filtered todos when search changes
   // useEffect(() => {
