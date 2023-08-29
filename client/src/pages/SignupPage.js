@@ -1,5 +1,5 @@
-import { useContext, useState } from "react";
-
+import { useCallback, useContext, useEffect, useState } from "react";
+import "./customStyles.css";
 // appwrite
 import account from "../config/appwriteConfig";
 import { ID } from "appwrite";
@@ -30,11 +30,11 @@ const SignupPage = () => {
    * These states are used to store user values from input and pass it to appwrite service
    */
 
-  const [name, setName] = useState(""); // [state, setState
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [passwordConfirm, setPasswordConfirm] = useState("");
-  const [professions, setProfessions] = useState("");
+  const [name, setName] = useState(``); // [state, setState
+  const [email, setEmail] = useState(``);
+  const [password, setPassword] = useState(``);
+  const [passwordConfirm, setPasswordConfirm] = useState(``);
+  const [profession, setProfession] = useState(``);
   const [showPassword, setShowPassword] = useState(false);
   const [passwordMatched, setPasswordMatched] = useState(false);
 
@@ -65,7 +65,7 @@ const SignupPage = () => {
         name: appwriteUser.name,
         email: appwriteUser.email,
         appwriteId: appwriteUser.$id,
-        professions: professions,
+        profession: profession,
       });
 
       console.log("USER CREATED SUCCESSFULLY IN DB");
@@ -85,137 +85,129 @@ const SignupPage = () => {
    *      - This function updates the state based on the state updation function passed hence follows DRY.
    */
 
-  const handleChange = (e, stateUpdate) => {
-    console.log(name, email, password, passwordConfirm, professions);
+  const handleChange = useCallback(() => {
+    console.log(name, email, password, passwordConfirm, profession);
+    // printing length of password and passwordConfirm
+    console.log(password.length, passwordConfirm.length);
+
     // const newValue = e.target.value;
-    stateUpdate(e.target.value);
+    // stateUpdate(e.target.value);
 
     /**
      * If the stateUpdate is either password or passwordConfirm then we check if both the values are same
      * and set the passwordMatched state to true or false accordingly.
      */
-    if (stateUpdate === setPassword || stateUpdate === setPasswordConfirm) {
-      // console.log(password, passwordConfirm);
-      console.log(name, email, password, passwordConfirm, professions);
-      if (password === passwordConfirm) setPasswordMatched(true);
-    }
-  };
+    // (stateUpdate === setPassword || stateUpdate === setPasswordConfirm)
+    // if (stateUpdate === setPassword || stateUpdate === setPasswordConfirm) {
+    // console.log(password, passwordConfirm);
+    console.log(name, email, password, passwordConfirm, profession);
+    if (passwordConfirm.length > 7 && password === passwordConfirm)
+      setPasswordMatched(true);
+    else setPasswordMatched(false);
+  }, [name, email, password, passwordConfirm, profession]);
+
+  useEffect(() => {
+    handleChange();
+  }, [handleChange, name, email, password, passwordConfirm, profession]);
 
   if (user) return <Navigate to="/" />;
 
   return (
-    <div className=" h-[90vh] flex flex-col justify-center items-center   gap-6 -mt-8 lg:flex-row lg:justify-around ">
+    <div className="bg-[#F5F5F7] h-[90vh] flex flex-col justify-center items-center   gap-6 -mt-8 lg:flex-row lg:justify-around ">
       <div className="w-3/5 lg:w-2/5 mx-auto">
         <img
           src={logo}
           alt="TodoApp Logo"
-          className="w-full mx-auto max-w-lg"
+          className="w-full mx-auto max-w-lg rounded-2xl"
         />
       </div>
       <div className="w-5/6 md:w-2/3 lg:w-2/5 mx-auto">
         <form
-          className="border border-violet-500 rounded py-4 px-2"
+          className="border border-violet-500 rounded py-4 px-5"
           onSubmit={(e) => handleSignup(e)}
         >
           <input
-            className=" w-full rounded border-violet-700 text-lg md:text-xl mb-4 focus:outline-none focus:ring-0 focus:border-violet-800 placeholder-violet-700 "
+            className="custom-input w-full rounded border-violet-700 text-lg md:text-xl mb-4 focus:outline-none focus:ring-1/5 focus:border-violet-800 placeholder-violet-700"
             placeholder="Name"
             type="text"
             name="name"
             id="name"
             value={name}
-            onChange={(e) => handleChange(e, setName)}
+            onChange={(e) => {
+              setName(e.target.value);
+            }}
+            // style={{
+            //   boxShadow:
+            //     "2px 2px 2px #cfcfcf, 3px 3px 3px #dbdbdb, 5px 5px 5px #e7e7e7, 6px 6px 6px #f3f3f3",
+            //   transition: "transform 0.2s",
+            // }}
+            // onMouseOver={(e) => {
+            //   e.currentTarget.style.transform = "scale(1.01)";
+            // }}
+            // onMouseOut={(e) => {
+            //   e.currentTarget.style.transform = "scale(1)";
+            // }}
+            // onFocus={(e) => {
+            //   e.currentTarget.style.transform = "scale(1.01)";
+            // }}
+            // onBlur={(e) => {
+            //   e.currentTarget.style.transform = "scale(1)";
+            // }}
           />
 
           <input
-            className="
-                    w-full
-                    rounded
-                    border-violet-700
-                    text-lg
-                    md:text-xl
-                    mb-4
-                    focus:outline-none
-                    focus:ring-0
-                    focus:border-violet-800
-                    placeholder-violet-700
-                "
+            className="custom-input w-full rounded border-violet-700 text-lg md:text-xl mb-4 focus:outline-none focus:ring-0 focus:border-violet-800 placeholder-violet-700"
             placeholder="Email"
             type="email"
             name="email"
             id="email"
             value={email}
-            onChange={(e) => handleChange(e, setEmail)}
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
           />
 
           <input
-            className="
-                    w-full
-                    rounded
-                    border-violet-700
-                    text-lg
-                    md:text-xl
-                    mb-4
-                    focus:outline-none
-                    focus:ring-0
-                    focus:border-violet-800
-                    placeholder-violet-700
-                "
+            className="custom-input w-full rounded border-violet-700 text-lg md:text-xl mb-4 focus:outline-none focus:ring-0 focus:border-violet-800 placeholder-violet-700 "
             placeholder="Password"
             type="password"
             name="password"
             id="password"
             value={password}
-            onChange={(e) => handleChange(e, setPassword)}
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
           />
 
           <input
-            className="
-                    w-full
-                    rounded
-                    border-violet-700
-                    text-lg
-                    md:text-xl
-                    mb-4
-                    focus:outline-none
-                    focus:ring-0
-                    focus:border-violet-800
-                    placeholder-violet-700
-                "
+            className="custom-input w-full rounded border-violet-700 text-lg md:text-xl mb-4 focus:outline-none focus:ring-0 focus:border-violet-800 placeholder-violet-700 "
             placeholder="Confirm Password"
             type={showPassword ? "text" : "password"}
             name="passwordConfirm"
             id="passwordConfirm"
             value={passwordConfirm}
-            onChange={(e) => handleChange(e, setPasswordConfirm)}
+            onChange={(e) => {
+              setPasswordConfirm(e.target.value);
+            }}
           />
 
-          <span
+          {/* <span
             className="toggle-password-icon"
             onClick={() => setShowPassword(!showPassword)}
           >
             {showPassword ? "👁️" : "👁️‍🗨️"}
-          </span>
+          </span> */}
 
           <input
-            className="
-                    w-full
-                    rounded
-                    border-violet-700
-                    text-lg
-                    md:text-xl
-                    mb-4
-                    focus:outline-none
-                    focus:ring-0
-                    focus:border-violet-800
-                    placeholder-violet-700
-                "
+            className="custom-input w-full rounded border-violet-700 text-lg md:text-xl mb-4 focus:outline-none focus:ring-0 focus:border-violet-800 placeholder-violet-700 "
             placeholder="Profession"
             type="text"
             name="profession"
             id="profession"
-            value={professions}
-            onChange={(e) => handleChange(e, setProfessions)}
+            value={profession}
+            onChange={(e) => {
+              setProfession(e.target.value);
+            }}
           />
 
           <TodoButton name="Signup" passwordMatched={passwordMatched} />
