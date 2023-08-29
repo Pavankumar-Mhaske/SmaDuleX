@@ -1,0 +1,16 @@
+/* styles.css */
+
+.custom-input {
+  width: 100%;
+  outline: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 2px 2px 2px #cfcfcf, 3px 3px 3px #dbdbdb, 5px 5px 5px #e7e7e7,
+    6px 6px 6px #f3f3f3;
+}
+
+.custom-input:focus,
+.custom-input:hover {
+  transform: scale(1.03);
+  box-shadow: 2px 2px 2px #cfcfcf, 3px 3px 3px #dbdbdb, 5px 5px 5px #e7e7e7,
+    6px 6px 6px #f3f3f3;
+}
