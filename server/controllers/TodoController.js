@@ -186,13 +186,18 @@ exports.getTodo = async (req, res) => {
       data: todo,
     });
   } catch (error) {
-    console.log("Error in get todo controller");
-    console.log("ERROR: ", error);
-    res.status(400).json({
-      success: false,
-      messageSrc: "Error in get todo controller",
-      message: error.message,
-    });
+    if (error.message === "Todo not found in DB") {
+      console.log(`Todo not found in DB: 
+      Todo with given todoId not exist in DB or probably deleted by user or admin`);
+    } else {
+      console.log("Error in get todo controller");
+      console.log("ERROR: ", error);
+      res.status(400).json({
+        success: false,
+        messageSrc: "Error in get todo controller",
+        message: error.message,
+      });
+    }
   }
 };
 
