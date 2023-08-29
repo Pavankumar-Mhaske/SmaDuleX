@@ -61,11 +61,13 @@ const TodoForm = ({
           userId: user.$id,
         });
       } else {
-        await axios.put(`todo/${user.$id}/${todo.$id}`, {
+        console.log("inside the update todo,userId  todoId is ", todo);
+        const updatedUser = await axios.put(`todo/${user.$id}/${todo._id}`, {
           title,
           tasks,
           isImportant,
         });
+        console.log("updatedUser is ", updatedUser);
         setEditTodo(false);
         document.body.style.overflow = "auto";
       }
