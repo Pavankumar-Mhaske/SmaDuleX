@@ -35,7 +35,7 @@ const SignupPage = () => {
   const [password, setPassword] = useState(``);
   const [passwordConfirm, setPasswordConfirm] = useState(``);
   const [profession, setProfession] = useState(``);
-  const [showPassword, setShowPassword] = useState(false);
+  // const [showPassword, setShowPassword] = useState(false);
   const [passwordMatched, setPasswordMatched] = useState(false);
 
   /**
@@ -182,7 +182,7 @@ const SignupPage = () => {
           <input
             className="custom-input w-full rounded border-violet-700 text-lg md:text-xl mb-4 focus:outline-none focus:ring-0 focus:border-violet-800 placeholder-violet-700 "
             placeholder="Confirm Password"
-            type={showPassword ? "text" : "password"}
+            type="password"
             name="passwordConfirm"
             id="passwordConfirm"
             value={passwordConfirm}
