@@ -28,7 +28,7 @@ const DeleteModal = ({
       const response = await axios.delete(`/todo/${user.$id}/${todoId}`);
       console.log("Response from handleDelete method: ", response);
       setMakeRequest(!makeRequest);
-      // setDeleteTodo(!deleteTodo);
+      setDeleteTodo(!deleteTodo);
     } catch (error) {
       console.log("Error while deleting a todo in handleDelete method");
       console.log("Error: ", error);
@@ -42,7 +42,7 @@ const DeleteModal = ({
     <div
       className={`w-full h-screen absolute top-0 left-0 flex justify-center items-center`}
       style={{ background: "rgba(0, 0, 0, 0.8)" }}
-      onclick={() => {
+      onClick={() => {
         setDeleteTodo(!deleteTodo);
         //  setDeleteTodo(false)
         document.body.style.overflow = "auto";
@@ -50,7 +50,7 @@ const DeleteModal = ({
     >
       <div
         className="bg-white w-11/12 md:w-1/4 h-2/5 md:h-2/5 rounded-xl flex justify-center"
-        onclick={(event) => event.stopPropagation()}
+        onClick={(event) => event.stopPropagation()}
       >
         <div className="flex flex-col justify-center gap-3">
           <p className="px-2 py-1 font-medium text-red-500 w-5/6 mx-auto text-lg">
@@ -59,7 +59,7 @@ const DeleteModal = ({
           <p className="w-5/6 border-2 mx-auto text-center p-2 font-semibold rounded"></p>
           <button
             className=" w-5/6  bg-gray-200  font-semibold  tracking-wide  border-2  mx-auto  p-1  rounded "
-            onclick={() => {
+            onClick={() => {
               setDeleteTodo(!deleteTodo);
               document.body.style.overflow = "auto";
             }}
@@ -69,7 +69,7 @@ const DeleteModal = ({
 
           <button
             className=" w-5/6  bg-red-500  text-white  font-semibold  tracking-wide  border-2  border-red-500  mx-auto  p-1  rounded "
-            onclick={(event) => handleDelete(event, todo._id)}
+            onClick={(event) => handleDelete(event, todo._id)}
           >
             Delete
           </button>
