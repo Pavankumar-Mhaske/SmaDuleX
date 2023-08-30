@@ -1,5 +1,5 @@
 // import useState and useContext hooks
-import { useState, useContext } from "react";
+import { useState, useContext, useCallback, useEffect } from "react";
 
 // appwrite
 import account from "../config/appwriteConfig";
@@ -9,6 +9,8 @@ import userContext from "../context/userContext";
 
 // images
 import logo from "../assets/logo.png";
+import passwordHide from "../assets/icons/hidden.png";
+import passwordVisible from "../assets/icons/visible.png";
 
 // router
 import { Navigate } from "react-router-dom";
@@ -30,7 +32,7 @@ const LoginPage = () => {
   const [password, setPassword] = useState("");
   // const [passwordConfirm, setPasswordConfirm] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  // const [passwordMatched, setPasswordMatched] = useState(false);
+  const [bothFieldsPresent, setBothFieldsPresent] = useState(false);
 
   /**
    * handleLogin(e) - Asynchronous Function
@@ -61,9 +63,25 @@ const LoginPage = () => {
    *      - This function updates the state based on the state updation function passed hence follows DRY.
    */
 
-  const handleChange = (e, stateUpdate) => {
-    const newValue = e.target.value;
-    stateUpdate(newValue);
+  const handleChange = useCallback(() => {
+    console.log(email, password);
+    if (email && password) {
+      setBothFieldsPresent(true);
+    } else {
+      setBothFieldsPresent(false);
+    }
+  }, [email, password]);
+
+  useEffect(() => {
+    handleChange();
+  }, [handleChange, email, password]);
+
+  const handlePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+    // After 3 seconds, toggle the password visibility back
+    setTimeout(() => {
+      setShowPassword(false);
+    }, 1000); // 3000 milliseconds = 3 seconds
   };
 
   /**  
@@ -81,68 +99,54 @@ const LoginPage = () => {
   if (user) return <Navigate to="/" />;
 
   return (
-    <div
-      className="
-            w-5/6
-            md:w-3/4 
-            lg:w-2/3
-            xl:w-1/3
-            h-[86vh] 
-            m-auto 
-            flex 
-            flex-col 
-            justify-center 
-            items-center
-            gap-6
-        "
-    >
-      <img src={logo} alt="TodoApp" className="-mt-10 w-5/6 max-w-md" />
+    <div className="h-screen flex flex-col justify-center items-center px-4">
+      <img src={logo} alt="TodoApp" className="w-2/3 md:w-1/2 mb-10" />
       <form
-        className="border border-violet-500 rounded py-4 px-2"
+        className="w-full max-w-md border border-violet-500 rounded py-4 px-6"
         onSubmit={(e) => handleLogin(e)}
       >
-        <input
-          className="w-fullroundedborder-violet-700text-lgmd:text-xlmb-4focus:outline-nonefocus:ring-0focus:border-violet-800placeholder-violet-700"
-          placeholder="Email"
-          type="email"
-          name="email"
-          id="email"
-          value={email}
-          onChange={(e) => handleChange(e, setEmail)}
-        />
-
-        <input
-          className="w-fullroundedborder-violet-700text-lgmd:text-xlmb-4focus:outline-nonefocus:ring-0focus:border-violet-800placeholder-violet-700"
-          placeholder="Password"
-          type={showPassword ? "text" : "password"}
-          name="password"
-          id="password"
-          value={password}
-          onChange={(e) => handleChange(e, setPassword)}
-        />
-
-        {/* <input
-          className="w-fullroundedborder-violet-700text-lgmd:text-xlmb-4focus:outline-nonefocus:ring-0focus:border-violet-800placeholder-violet-700"
-          placeholder="Confirm Password"
-          type={showPassword ? "text" : "password"}
-          name="passwordConfirm"
-          id="passwordConfirm"
-          value={passwordConfirm}
-          onChange={(e) => handleChange(e, setPasswordConfirm)}
-        /> */}
-
-        <span
-          className="toggle-password-icon"
-          onClick={() => setShowPassword(!showPassword)}
-        >
-          {showPassword ? "👁️" : "👁️‍🗨️"}
-        </span>
-
-        {/* check password and passwordConfirm matched 
-        if matched then redirect to the login page
-        if not matched then redirect to the same page */}
-
-        <TodoButton name="Login" />
+        <div className="mb-4">
+          <input
+            className="w-full border border-violet-800 rounded py-2 px-4 text-lg focus:outline-none focus:ring-0 focus:border-violet-800 placeholder-violet-700"
+            placeholder="Email"
+            type="email"
+            name="email"
+            id="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            autoComplete="off"
+          />
+        </div>
+        <div className="relative mb-4">
+          <input
+            className="w-full border border-violet-800 rounded py-2 px-4 text-lg focus:outline-none focus:ring-0 focus:border-violet-800 placeholder-violet-700 pr-12"
+            placeholder="Password"
+            type={showPassword ? "text" : "password"}
+            name="password"
+            id="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            autoComplete="off"
+          />
+          <div className="absolute inset-y-0 right-0 flex items-center pr-3">
+            <button type="button" onClick={handlePasswordVisibility}>
+              {showPassword ? (
+                <img
+                  src={passwordHide}
+                  alt="passwordHide"
+                  className="w-6 h-6"
+                />
+              ) : (
+                <img
+                  src={passwordVisible}
+                  alt="passwordVisible"
+                  className="w-6 h-6"
+                />
+              )}
+            </button>
+          </div>
+        </div>
+        <TodoButton name="Login" passwordMatched={bothFieldsPresent} />
       </form>
     </div>
   );
