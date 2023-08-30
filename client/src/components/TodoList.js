@@ -12,7 +12,7 @@ import closeIcon from "../assets/icons/close.png";
 
 // components
 import Todo from "./Todo";
-
+import "../pages/customStyles.css";
 /**
  * @param setMakeRequest - To make DB call and populate todos in todoList. When we delete, update todo.
  * @returns Collection of todos received from server request.
@@ -108,8 +108,7 @@ const TodoList = ({ makeRequest, setMakeRequest }) => {
       console.log("Error while fetching search todos in getTodos method");
       console.log("Error: ", error);
     }
-  }
-  , [search, user.$id]);
+  }, [search, user.$id]);
 
   useEffect(() => {
     // Fetch filtered todos only if there's a search query
@@ -207,7 +206,7 @@ const TodoList = ({ makeRequest, setMakeRequest }) => {
             </select>
           </label>
         </div>
-        <div className="flex items-center w-full mx-5 sm:mx-2 lg:mx-3 lg:w-7/12 lg:mx-0 xl:w-5/12">
+        <div className="border border-violet-700 rounded flex items-center w-full mx-5 sm:mx-2 lg:mx-3 lg:w-7/12 lg:mx-0 xl:w-5/12">
           <input
             type="text"
             name="search"
@@ -224,31 +223,10 @@ const TodoList = ({ makeRequest, setMakeRequest }) => {
             }}
             required
             placeholder="Search for your todos / tasks"
-            className="
-                    w-full 
-                    border-r-transparent 
-                    border-violet-700 
-                    rounded-l
-                    text-sm 
-                    lg:text-lg 
-                    placeholder-violet-700 
-                    leading-4
-                    lg:leading-7 
-                    py-2 
-                    text-violet-800 
-                    font-medium 
-                    outline-none 
-                    focus:ring-0
-                "
+            className="w-full  border-r-transparent  border-none  rounded-l text-sm  lg:text-lg  placeholder-violet-700  leading-4 lg:leading-7  py-2  text-violet-800  font-medium  outline-none  focus:ring-0 border-r-0 "
           />
           <button
-            className="
-                    border 
-                    border-violet-700 
-                    rounded-r
-                    p-[5.3px]
-                    lg:p-3
-                "
+    
             type="button"
             onClick={() => {
               if (search.trim() === "") {
@@ -259,7 +237,11 @@ const TodoList = ({ makeRequest, setMakeRequest }) => {
               }
             }}
           >
-            <img src={searchIcon} alt="search button" />
+            <img
+              src={searchIcon}
+              alt="search button"
+              className="border-none rounded-r p-[5.25px] lg:p-3 border-l-0"
+            />
           </button>
         </div>
       </div>
