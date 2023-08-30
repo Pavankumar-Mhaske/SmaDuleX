@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import "../pages/customStyles.css";
 import Task from "./Task";
 /**
  *
@@ -71,7 +71,7 @@ const TaskInput = ({ tasks, setTasks }) => {
         </label>
         <button
           onClick={addTask}
-          className="bg-violet-600  mt-2 md:mt-0 sm:ml-2  px-5  py-2 text-md  lg:text-lg   text-white  font-medium  rounded  active:bg-violet-400  active:text-gray-500"
+          className="custom-input-auto-width bg-violet-600  mt-2 md:mt-0 sm:ml-2  px-5  py-2 text-md  lg:text-lg   text-white  font-medium  rounded  active:bg-violet-400  active:text-gray-500"
         >
           Add Task
         </button>
