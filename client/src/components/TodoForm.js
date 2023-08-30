@@ -117,7 +117,14 @@ const TodoForm = ({
               className=" block  mt-10 text-lg  md:text-xl  text-violet-800  font-medium"
             >
               <input
-                className=" p-3  -mt-1  focus:ring-0  border-2  border-violet-800  text-violet-800"
+                className={`
+                p-3  -mt-1  focus:ring-0  border-2  border-violet-800  text-violet-800
+                transition-transform duration-300
+                hover:scale-110
+                hover:bg-violet-200
+                rounded
+                mr-2
+          `}
                 type="checkbox"
                 name="isImportant"
                 id="isImportant"
