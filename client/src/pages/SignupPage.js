@@ -44,7 +44,8 @@ const SignupPage = () => {
   const [passwordMatched, setPasswordMatched] = useState(false);
   const [isValidationVisible, setIsValidationVisible] = useState(false);
   const [passwordValidationsMet, setPasswordValidationsMet] = useState(false);
-  const [validationTimeout, setValidationTimeout] = useState(null);
+  // const [validationTimeout, setValidationTimeout] = useState(false);
+  // const [bothFieldsPresent, setBothFieldsPresent] = useState(false);
   /**
    * handleSignup(e) - Asynchronous Function
    *          - Prevents the default reloading of the webpage
@@ -92,10 +93,12 @@ const SignupPage = () => {
    *      - This function updates the state based on the state updation function passed hence follows DRY.
    */
 
-  const handlePasswordValidation = () => {
+  const handlePasswordValidation = useCallback(() => {
+    console.log("inside the handlePasswordValidation");
     const hasUppercase = /[A-Z]/.test(password);
     const hasLowercase = /[a-z]/.test(password);
-    const hasSpecialCharacter = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(
+    //                          /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/
+    const hasSpecialCharacter = /[ `!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?~]/.test(
       password
     );
     const hasNumber = /[0-9]/.test(password);
@@ -117,33 +120,37 @@ const SignupPage = () => {
 
     if (allValidationsMet) {
       setPasswordValidationsMet(true);
+      setIsValidationVisible(false);
     }
     return allValidationsMet;
-  };
+  }, [password]);
 
-  const monitorPassword = useCallback(() => {
-    if (password.length > 0) {
+  const monitorPassword = useCallback((length) => {
+    console.log("inside the monitor password");
+    if (length > 0) {
       setIsValidationVisible(true);
 
       // clear the previous timeout (if any)
-      if (validationTimeout) {
-        clearTimeout(validationTimeout);
-      }
+      //   if (validationTimeout) {
+      //     clearTimeout(validationTimeout);
+      //     console.log("cleared the previous timeout");
+      //   }
 
-      // Set a new timeout
-      const newTimeout = setTimeout(() => {
-        setIsValidationVisible(false);
-      }, 3000);
+      //   // Set a new timeout
+      //   const newTimeout = setTimeout(() => {
+      //     setIsValidationVisible(false);
+      //   }, 3000);
 
-      setValidationTimeout(newTimeout);
-    } else {
-      setIsValidationVisible(false);
+      //   console.log("validation timeout :", validationTimeout);
+      //   setValidationTimeout(newTimeout);
+      // } else {
+      //   setIsValidationVisible(false);
     }
-  }, [password]);
+  }, []);
 
   useEffect(() => {
-    monitorPassword();
-  }, [monitorPassword, password]);
+    monitorPassword(password.length);
+  }, [monitorPassword, password.length]);
 
   const handleChange = useCallback(() => {
     console.log(name, email, password, passwordConfirm, profession);
@@ -168,7 +175,15 @@ const SignupPage = () => {
     else setPasswordMatched(false);
 
     // setIsValidationVisible(password.length > 0 ? true : false);
-  }, [name, email, password, passwordConfirm, profession]);
+  }, [
+    handlePasswordValidation,
+    name,
+    email,
+    password,
+    passwordConfirm,
+    profession,
+    passwordValidationsMet,
+  ]);
 
   useEffect(() => {
     handleChange();
@@ -335,7 +350,7 @@ const SignupPage = () => {
                     password.match(/[a-z]/) ? "text-green-500" : "text-red-500"
                   }`}
                 >
-                  - 1 lowercase character
+                  1 lowercase character
                 </p>
               </div>
 
@@ -358,7 +373,7 @@ const SignupPage = () => {
                     password.match(/[A-Z]/) ? "text-green-500" : "text-red-500"
                   }`}
                 >
-                  - 1 uppercase character
+                  1 uppercase character
                 </p>
               </div>
             </div>
@@ -368,7 +383,7 @@ const SignupPage = () => {
             >
               <div className={`flex flex-row items-center`}>
                 <div className="w-4 h-4 mr-2">
-                  {password.match(/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/) ? (
+                  {password.match(/[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/) ? (
                     <img src={okay} alt="okay" className="w-full h-full" />
                   ) : (
                     <img
@@ -380,12 +395,13 @@ const SignupPage = () => {
                 </div>
                 <p
                   className={`text-gray-400 ${
-                    password.match(/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/)
+                    // const regex =/[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/;
+                    password.match(/[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/)
                       ? "text-green-500"
                       : "text-red-500"
                   }`}
                 >
-                  - 1 special character
+                  1 special character
                 </p>
               </div>
               <div className={`flex flex-row items-center `}>
@@ -405,7 +421,7 @@ const SignupPage = () => {
                     password.length >= 8 ? "text-green-500" : "text-red-500"
                   }`}
                 >
-                  - Minimum 8 characters
+                  Minimum 8 characters
                 </p>
               </div>
             </div>
@@ -430,7 +446,7 @@ const SignupPage = () => {
                     password.match(/[0-9]/) ? "text-green-500" : "text-red-500"
                   }`}
                 >
-                  - 1 number
+                  1 number
                 </p>
               </div>
             </div>
