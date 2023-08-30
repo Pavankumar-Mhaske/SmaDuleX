@@ -6,6 +6,7 @@ import axios from "axios";
 // import context
 import userContext from "../context/userContext";
 
+import "../pages/customStyles.css";
 // import images
 /**
  *
@@ -128,23 +129,32 @@ const Todo = ({ todo, makeRequest, setMakeRequest }) => {
       <div className="flex my-2 justify-center">
         <button
           className={`
-                p-2
-                border-2 
-                border-violet-800
-                rounded 
-                active:bg-violet-100 
-                mx-3
-            `}
+          p-2
+    border-2 
+    border-violet-800
+    rounded 
+    active:bg-violet-100 
+    mx-3
+    transition-transform duration-300
+    hover:scale-110
+    hover:bg-violet-200
+    `}
           onClick={(e) => handleHighlight(e, todo)}
         >
-          <img src={todo.isImportant ? starFill : star} alt="Star Todo" />
+          <img
+            src={todo.isImportant ? starFill : star}
+            alt="Star Todo"
+            className={`bg-transparent`}
+          />
         </button>
         <p
           className={` w-5/6  border-2  p-1 md:p-2  rounded text-[14px] sm:text-[16px] md:text-lg  lg:text-xl  font-medium break-all 
           bg-${todo.isCompleted ? "green" : "gray"}-100
           hover:bg-${todo.isCompleted ? "green" : "gray"}-200
           hover:border-${todo.isCompleted ? "green" : "gray"}-300
-          text-${todo.isCompleted ? "green-600" : "gray-800"}-700`}
+          text-${todo.isCompleted ? "green-600" : "gray-800"}-700
+          custom-todo
+          `}
           onClick={() => setPopup(!popup)}
           // add some more properties here....
         >
@@ -159,13 +169,21 @@ const Todo = ({ todo, makeRequest, setMakeRequest }) => {
                     rounded  
                     active:bg-violet-100 ml-3 
                     ml-3
+                    transition-transform duration-300
+                    hover:scale-110
+                    hover:bg-violet-200
                   `}
           onClick={(e) => handleCompleted(e, todo)}
         >
           <img src={todo.isCompleted ? checked : check} alt="Star Todo" />
         </button>
         <button
-          className="p-2 border-2 border-blue-700 rounded mx-2 hover:bg-blue-200"
+          className={`
+          p-2 border-2 border-blue-700 rounded mx-2 hover:bg-blue-200
+          transition-transform duration-300
+          hover:scale-110
+          hover:bg-violet-200
+                    `}
           onClick={() => {
             window.scrollTo({
               top: 0,
@@ -178,7 +196,11 @@ const Todo = ({ todo, makeRequest, setMakeRequest }) => {
           <img src={edit} alt="Edit Todo" />
         </button>
         <button
-          className="p-2 border-2 border-red-500 rounded active:bg-red-200"
+          className={`
+          p-2 border-2 border-red-500 rounded  
+          transition-transform duration-300
+          hover:scale-110
+          hover:bg-violet-200`}
           onClick={() => {
             window.scrollTo({
               top: 0,
