@@ -15,6 +15,7 @@ const Task = ({ body, tasks, setTasks }) => {
    *              - Finds the task index and splices the array.
    *              - Sets the updated array object to tasks.
    */
+  // console.log("outside body:", body);
   const deleteTask = () => {
     /** 
     * const array = tasks
@@ -25,9 +26,11 @@ const Task = ({ body, tasks, setTasks }) => {
     Because - The below code allows you to define a custom condition based on the body property of each task, 
       enabling more versatile and specific searching within the array.
     */
+    // console.log("body:", body);
+    // task.body === body
+    const index = tasks.findIndex((task) => task === body);
 
-    const index = tasks.findIndex((task) => task.body === body);
-
+    console.log("index:", index);
     /**
      * 
      *  array.splice(index, 1);
@@ -39,8 +42,12 @@ const Task = ({ body, tasks, setTasks }) => {
 
      */
     const array = [...tasks];
+    // console.log(" before the splice array:", array);
     array.splice(index, 1);
+
+    // console.log("after the splice array:", array);
     setTasks(array);
+    // console.log("tasks:", tasks);
   };
 
   return (
