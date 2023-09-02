@@ -13,6 +13,7 @@ import closeIcon from "../assets/icons/close.png";
 // components
 import Todo from "./Todo";
 import "../pages/styles/customStyles.css";
+import "./styles/TodoLists.css";
 /**
  * @param setMakeRequest - To make DB call and populate todos in todoList. When we delete, update todo.
  * @returns Collection of todos received from server request.
@@ -160,7 +161,7 @@ const TodoList = ({ makeRequest, setMakeRequest }) => {
   }, [getTodos, makeRequest]);
 
   return (
-    <>
+    <div className="todolist">
       <div className="flex flex-wrap items-center justify-between my-4 w-full sm:w-2/3 m-auto">
         {closeSearch ? (
           <button
@@ -266,7 +267,7 @@ const TodoList = ({ makeRequest, setMakeRequest }) => {
           ))
         )}
       </div>
-    </>
+    </div>
   );
 };
 
