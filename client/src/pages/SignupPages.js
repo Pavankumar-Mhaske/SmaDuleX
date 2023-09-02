@@ -1,5 +1,5 @@
 import { useCallback, useContext, useEffect, useState } from "react";
-import "./styles/customStyles.css";
+
 // appwrite
 import account from "../config/appwriteConfig";
 import { ID } from "appwrite";
@@ -8,11 +8,13 @@ import { ID } from "appwrite";
 import axios from "axios";
 
 // images
-import logo from "../assets/logo.png";
-import passwordHide from "../assets/icons/hidden.png";
-import passwordVisible from "../assets/icons/visible.png";
+// import logo from "../assets/logo.png";
+// import passwordHide from "../assets/icons/hidden.png";
+// import passwordVisible from "../assets/icons/visible.png";
 import okay from "../assets/icons/okay.png";
 import notOkay from "../assets/icons/notOkay.png";
+
+import "./styles/SignupPages.css";
 
 // context
 import userContext from "../context/userContext";
@@ -21,7 +23,8 @@ import userContext from "../context/userContext";
 import { Navigate } from "react-router-dom";
 
 // components
-import TodoButton from "../components/TodoButton";
+// import TodoButton from "../components/TodoButton";
+import TodoButton from "../components/TodoButtons";
 
 const SignupPage = () => {
   /**
@@ -207,116 +210,83 @@ const SignupPage = () => {
   if (user) return <Navigate to="/" />;
 
   return (
-    <div className="bg-[#F5F5F7] h-[90vh] flex flex-col justify-center items-center   gap-6 -mt-8 lg:flex-row lg:justify-around ">
-      {/* logo to the app */}
-      <div className="w-3/5 lg:w-2/5 mx-auto">
-        <img
-          src={logo}
-          alt="TodoApp Logo"
-          className="w-full mx-auto max-w-lg rounded-2xl"
-        />
-      </div>
-      {/* signup form */}
-      <div className="w-5/6 md:w-2/3 lg:w-2/5 mx-auto">
-        <form
-          className="border border-violet-500 rounded py-4 px-5"
-          onSubmit={(e) => handleSignup(e)}
-        >
-          <input
-            className="custom-input w-full rounded border-violet-700 text-lg md:text-xl mb-4 focus:outline-none focus:ring-1/5 focus:border-violet-800 placeholder-violet-700"
-            placeholder="Name"
-            type="text"
-            name="name"
-            id="name"
-            value={name}
-            onChange={(e) => {
-              setName(e.target.value);
-            }}
-            // style={{
-            //   boxShadow:
-            //     "2px 2px 2px #cfcfcf, 3px 3px 3px #dbdbdb, 5px 5px 5px #e7e7e7, 6px 6px 6px #f3f3f3",
-            //   transition: "transform 0.2s",
-            // }}
-            // onMouseOver={(e) => {
-            //   e.currentTarget.style.transform = "scale(1.01)";
-            // }}
-            // onMouseOut={(e) => {
-            //   e.currentTarget.style.transform = "scale(1)";
-            // }}
-            // onFocus={(e) => {
-            //   e.currentTarget.style.transform = "scale(1.01)";
-            // }}
-            // onBlur={(e) => {
-            //   e.currentTarget.style.transform = "scale(1)";
-            // }}
-          />
-          <input
-            className="custom-input w-full rounded border-violet-700 text-lg md:text-xl mb-4 focus:outline-none focus:ring-0 focus:border-violet-800 placeholder-violet-700"
-            placeholder="Email"
-            type="email"
-            name="email"
-            id="email"
-            value={email}
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-          />
-          {/* <div className="relative mb-4 flex flex-row">
-          <input
-            className="custom-input w-full rounded border-violet-700 text-lg md:text-xl mb-4 focus:outline-none focus:ring-0 focus:border-violet-800 placeholder-violet-700 "
-            placeholder="Password"
-            type="password"
-            name="password"
-            id="password"
-            value={password}
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-          /> */}
-          <div className="custom-input relative mb-4">
+    <section className="w-screen ">
+      <div className="signup-box ">
+        <form id="signup-form" action="" onSubmit={(e) => handleSignup(e)}>
+          <h2>SignUp</h2>
+
+          {/* Name */}
+          <div className="input-box">
+            <span className="icon">
+              {/* <ion-icon name="mail"></ion-icon> */}
+
+              {/* <Mail color={"#00000"} height="250px" width="250px" /> */}
+            </span>
             <input
-              className="w-full border border-violet-800 rounded py-2 px-4 text-lg focus:outline-none focus:ring-0 focus:border-violet-800 placeholder-violet-700 pr-12"
+              placeholder="Name"
+              type="text"
+              name="name"
+              id="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              autoComplete="off"
+              required
+            />
+            <label>Name</label>
+          </div>
+
+          {/* email */}
+          <div className="input-box">
+            <span className="icon">
+              {/* <ion-icon name="mail"></ion-icon> */}
+
+              {/* <Mail color={"#00000"} height="250px" width="250px" /> */}
+            </span>
+            <input
+              placeholder="Email"
+              type="email"
+              name="email"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              autoComplete="off"
+              required
+            />
+            <label>Email</label>
+          </div>
+
+          {/* password  */}
+          <div className="input-box">
+            <span className="icon" onClick={handlePasswordVisibility}>
+              {/* {passwordFocus ? (
+                showPassword ? (
+                  <Eye color={"#00000"} height="250px" width="250px" />
+                ) : (
+                  <EyeOff color={"#00000"} height="250px" width="250px" />
+                )
+              ) : (
+                <LockClosed color={"#00000"} height="250px" width="250px" />
+              )} */}
+            </span>
+
+            <input
               placeholder="Password"
               type={showPassword ? "text" : "password"}
               name="password"
               id="password"
               value={password}
-              onChange={(e) => {
-                setPassword(e.target.value);
-              }}
+              onChange={(e) => setPassword(e.target.value)}
               autoComplete="off"
+              required
+              // onFocus={setPasswordFocus(true)}
+              // onBlur={setPasswordFocus(false)}
             />
-
-            <button
-              type="button"
-              onClick={handlePasswordVisibility}
-              className=" absolute inset-y-0 right-0 flex items-center pr-3"
-            >
-              {showPassword ? (
-                <img
-                  src={passwordHide}
-                  alt="passwordHide"
-                  className="w-6 h-6"
-                />
-              ) : (
-                <img
-                  src={passwordVisible}
-                  alt="passwordVisible"
-                  className="w-6 h-6"
-                />
-              )}
-            </button>
+            <label>Password</label>
           </div>
-          {/* showing which check of the password are matched */}
-          {/*  1 uppercase character , 
-          1 lovercase character ,
-          1 special character,
-          1 number 
-          at least 8 character
-           */}
 
+          {/* validation check */}
           <div
-            className={`
+            className={` validation-check
           transition-all duration-300
           text-sm border border-red-200
           flex flex-col justify-between mb-4
@@ -330,12 +300,8 @@ const SignupPage = () => {
             {/* Password strength checks */}
 
             {/*  first row */}
-            <div
-              className={`flex flex-row justify-around items-center border border-red-200`}
-            >
-              <div
-                className={`flex flex-row items-center border border-red-200`}
-              >
+            <div className={`flex flex-row justify-around items-center  `}>
+              <div className={`flex flex-row items-center `}>
                 <div className="w-4 h-4 mr-2 ">
                   {password.match(/[a-z]/) ? (
                     <img src={okay} alt="okay" className="w-full h-full" />
@@ -348,17 +314,15 @@ const SignupPage = () => {
                   )}
                 </div>
                 <p
-                  className={`text-gray-400 ${
-                    password.match(/[a-z]/) ? "text-green-500" : "text-red-500"
+                  className={` text-gray-400 ${
+                    password.match(/[a-z]/) ? "valid-color" : "invalid-color"
                   }`}
                 >
                   1 lowercase character
                 </p>
               </div>
 
-              <div
-                className={`flex flex-row items-center border border-red-200`}
-              >
+              <div className={`flex flex-row items-center`}>
                 <div className="w-4 h-4 mr-2">
                   {password.match(/[A-Z]/) ? (
                     <img src={okay} alt="okay" className="w-full h-full" />
@@ -372,7 +336,7 @@ const SignupPage = () => {
                 </div>
                 <p
                   className={`text-gray-400 ${
-                    password.match(/[A-Z]/) ? "text-green-500" : "text-red-500"
+                    password.match(/[A-Z]/) ? "valid-color" : "invalid-color"
                   }`}
                 >
                   1 uppercase character
@@ -380,9 +344,7 @@ const SignupPage = () => {
               </div>
             </div>
             {/* second rwo  */}
-            <div
-              className={`flex flex-row justify-around items-center border border-red-200`}
-            >
+            <div className={`flex flex-row justify-around items-center`}>
               <div className={`flex flex-row items-center`}>
                 <div className="w-4 h-4 mr-2">
                   {password.match(/[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/) ? (
@@ -399,8 +361,8 @@ const SignupPage = () => {
                   className={`text-gray-400 ${
                     // const regex =/[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/;
                     password.match(/[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/)
-                      ? "text-green-500"
-                      : "text-red-500"
+                      ? "valid-color"
+                      : "invalid-color"
                   }`}
                 >
                   1 special character
@@ -420,7 +382,7 @@ const SignupPage = () => {
                 </div>
                 <p
                   className={`text-gray-400 ${
-                    password.length >= 8 ? "text-green-500" : "text-red-500"
+                    password.length >= 8 ? "valid-color" : "invalid-color"
                   }`}
                 >
                   Minimum 8 characters
@@ -428,9 +390,7 @@ const SignupPage = () => {
               </div>
             </div>
             {/* thired row */}
-            <div
-              className={`flex flex-row justify-around items-center border border-red-200`}
-            >
+            <div className={`flex flex-row justify-around items-center`}>
               <div className={`flex flex-row items-center`}>
                 <div className="w-4 h-4 mr-2">
                   {password.match(/[0-9]/) ? (
@@ -445,7 +405,7 @@ const SignupPage = () => {
                 </div>
                 <p
                   className={`text-gray-400 ${
-                    password.match(/[0-9]/) ? "text-green-500" : "text-red-500"
+                    password.match(/[0-9]/) ? "valid-color" : "invalid-color"
                   }`}
                 >
                   1 number
@@ -454,66 +414,71 @@ const SignupPage = () => {
             </div>
           </div>
 
-          {/* <input
-            className="custom-input w-full rounded border-violet-700 text-lg md:text-xl mb-4 focus:outline-none focus:ring-0 focus:border-violet-800 placeholder-violet-700 "
-            placeholder="Confirm Password"
-            type="password"
-            name="passwordConfirm"
-            id="passwordConfirm"
-            value={passwordConfirm}
-            onChange={(e) => {
-              setPasswordConfirm(e.target.value);
-            }} */}
-          {/* /> */}
-          <div className="custom-input relative mb-4">
+          {/* password confirm */}
+          <div className="input-box">
+            <span className="icon" onClick={handlePasswordVisibility}>
+              {/* {passwordFocus ? (
+                showPassword ? (
+                  <Eye color={"#00000"} height="250px" width="250px" />
+                ) : (
+                  <EyeOff color={"#00000"} height="250px" width="250px" />
+                )
+              ) : (
+                <LockClosed color={"#00000"} height="250px" width="250px" />
+              )} */}
+            </span>
+
             <input
-              className=" w-full border border-violet-800 rounded py-2 px-4 text-lg focus:outline-none focus:ring-0 focus:border-violet-800 placeholder-violet-700 pr-12"
               placeholder="Confirm Password"
-              type={showPasswordConfirm ? "text" : "password"}
+              type={showPassword ? "text" : "password"}
               name="passwordConfirm"
               id="passwordConfirm"
               value={passwordConfirm}
-              onChange={(e) => {
-                setPasswordConfirm(e.target.value);
-              }}
+              onChange={(e) => setPasswordConfirm(e.target.value)}
               autoComplete="off"
+              required
+              // onFocus={setPasswordFocus(true)}
+              // onBlur={setPasswordFocus(false)}
             />
-
-            <button
-              type="button"
-              onClick={handleConfirmPasswordVisibility}
-              className=" absolute inset-y-0 right-0 flex items-center pr-3"
-            >
-              {showPasswordConfirm ? (
-                <img
-                  src={passwordHide}
-                  alt="passwordHide"
-                  className="w-6 h-6"
-                />
-              ) : (
-                <img
-                  src={passwordVisible}
-                  alt="passwordVisible"
-                  className="w-6 h-6"
-                />
-              )}
-            </button>
+            <label>Confirm Password</label>
           </div>
-          <input
-            className="custom-input w-full rounded border-violet-700 text-lg md:text-xl mb-4 focus:outline-none focus:ring-0 focus:border-violet-800 placeholder-violet-700 "
-            placeholder="Profession"
-            type="text"
-            name="profession"
-            id="profession"
-            value={profession}
-            onChange={(e) => {
-              setProfession(e.target.value);
-            }}
-          />
-          <TodoButton name="Signup" passwordMatched={passwordMatched} />
+
+          {/* profession */}
+          <div className="input-box">
+            <span className="icon">
+              {/* <ion-icon name="mail"></ion-icon> */}
+
+              {/* <Mail color={"#00000"} height="250px" width="250px" /> */}
+            </span>
+            <input
+              placeholder="profession"
+              type="text"
+              name="profession"
+              id="profession"
+              value={profession}
+              onChange={(e) => setProfession(e.target.value)}
+              autoComplete="off"
+              required
+            />
+            <label>profession</label>
+          </div>
+
+          {/* <div className="remember-forgot">
+            <label>
+              <input type="checkbox" />
+              Remember me
+            </label>
+            <a href="#signup-form">Forgot Password?</a>
+          </div> */}
+          {/* <button type="submit">Login</button> */}
+          <TodoButton name="SignUp" passwordMatched={passwordMatched} />
+          <div className="register-link">
+            <p>Already have account ?</p>
+            <a href="/login">Login</a>
+          </div>
         </form>
       </div>
-    </div>
+    </section>
   );
 };
 
