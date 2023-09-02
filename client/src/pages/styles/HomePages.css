@@ -1,0 +1,126 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+/* .homepagePro{
+  background: #000;
+} */
+
+.homepagePro {
+  height: 100%;
+  width: 100%;
+  padding: 0, 20px;
+  background: rgba(255, 255, 255, 0.1);
+  z-index: 10;
+  border-radius: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(20px);
+  box-shadow: -15px 17px 17px rgba(10, 10, 10, 0.25);
+  background: #000;
+}
+
+.homepagePro .hbig-ball-1 {
+  position: absolute;
+  content: "";
+  height: 35vh;
+  width: 19vw;
+  border-radius: 50%;
+  background: linear-gradient(#08ffe6, #fcd200);
+  top: 1%;
+  left: 5%;
+}
+
+.homepagePro .hbig-ball-2 {
+  position: absolute;
+  content: "";
+  height: 30vh;
+  width: 18vw;
+  border-radius: 50%;
+  background: linear-gradient(#fcd200, #fc002e);
+  top: 35%;
+  right: 5%;
+}
+.homepagePro .hbig-ball-3 {
+  position: absolute;
+  content: "";
+  height: 30vh;
+  width: 18vw;
+  border-radius: 50%;
+  background: linear-gradient(#fcd200, #fc002e);
+  top: 65%;
+  right: 5%;
+}
+
+/* .welcome-page-container::before {
+  content: "";
+  position: absolute;
+  height: 330px;
+  width: 330px;
+  border-radius: 50%;
+  background: linear-gradient(#08ffe6, #fcd200);
+
+  transform: translate(-540px, -200px);
+}
+.welcome-page-container::after {
+  content: "";
+  position: absolute;
+  height: 300px;
+  width: 300px;
+  border-radius: 50%;
+  background: linear-gradient(#fcd200, #fc002e);
+  transform: translate(510px, 200px);
+} */
+
+.homepagePro .hball-1 {
+  position: absolute;
+  height: 7vh;
+  width: 4vw;
+  border-radius: 50%;
+  background: #04f504;
+  top: 30%;
+  left: 30%;
+}
+.homepagePro .hball-2 {
+  position: absolute;
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  background: #08e2ff;
+  /* transform: translate(-10px, -220px); */
+  top: 6%;
+  left: 50%;
+}
+.homepagePro .hball-3 {
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background: #ffc404;
+
+  top: 20%;
+  left: 81%;
+}
+
+.homepagePro .hball-4 {
+  position: absolute;
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  background: #08e2ff;
+  /* transform: translate(-10px, -220px); */
+  top: 70%;
+  left: 50%;
+}
+.homepagePro .hball-5 {
+  position: absolute;
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  background: #04f504;
+  /* transform: translate(-10px, -220px); */
+  top: 90%;
+  left: 25%;
+}
