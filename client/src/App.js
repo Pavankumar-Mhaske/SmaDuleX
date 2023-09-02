@@ -10,8 +10,11 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
  */
 
 import HomePage from "./pages/Homepage";
-import LoginPage from "./pages/LoginPage";
-import SignupPage from "./pages/SignupPage";
+// import LoginPage from "./pages/LoginPage";
+import LoginPages from "./pages/LoginPages";
+// import SignupPage from "./pages/SignupPage";
+import SignupPages from "./pages/SignupPages";
+import WelcomePage from "./pages/WelcomePage";
 
 /**
  * Importing layouts which has to be wrapped for every route
@@ -35,13 +38,17 @@ const App = () => {
     <>
       <userContext.Provider value={{ user, setUser }}>
         <Router>
-          <Header />
+          {/* <Header /> */}
           <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/signup" element={<SignupPage />} />
+            <Route path="/" element={<WelcomePage />} />
+            {/* <Route path="/" element={<HomePage />} /> */}
+            <Route path="/home" element={<HomePage />} />
+            {/* <Route path="/login" element={<LoginPage />} /> */}
+            <Route path="/login" element={<LoginPages />} />
+            {/* <Route path="/signup" element={<SignupPage />} /> */}
+            <Route path="/signup" element={<SignupPages />} />
           </Routes>
-          <Footer />
+          {/* <Footer /> */}
         </Router>
       </userContext.Provider>
     </>
