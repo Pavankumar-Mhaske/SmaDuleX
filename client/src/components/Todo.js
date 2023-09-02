@@ -6,7 +6,7 @@ import axios from "axios";
 // import context
 import userContext from "../context/userContext";
 
-import "../pages/customStyles.css";
+import "../pages/styles/customStyles.css";
 // import images
 /**
  *
