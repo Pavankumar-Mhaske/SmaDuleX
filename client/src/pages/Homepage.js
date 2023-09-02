@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 // router
 import { Navigate } from "react-router-dom";
@@ -44,6 +44,7 @@ const Homepage = () => {
       </>
     );
   }
+  // return <Navigate to="/login" />;
   return <Navigate to="/login" />;
 };
 
