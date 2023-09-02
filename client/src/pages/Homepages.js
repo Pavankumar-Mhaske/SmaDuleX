@@ -7,8 +7,9 @@ import { Navigate } from "react-router-dom";
 import userContext from "../context/userContext";
 
 // components
-import TodoForm from "../components/TodoForm";
-import TodoList from "../components/TodoList";
+import TodoForm from "../components/TodoForms";
+import TodoList from "../components/TodoLists";
+import "./styles/HomePages.css";
 
 const Homepage = () => {
   /**
@@ -25,11 +26,20 @@ const Homepage = () => {
 
   if (user) {
     return (
-      <>
+      <div className="homepagePro">
+        {/* <div className="hbig-ball-1"></div>
+        <div className="hbig-ball-2"></div>
+        <div className="hbig-ball-3"></div>
+        <div className="hball-1"></div>
+        <div className="hball-2"></div>
+        <div className="hball-3"></div>
+        <div className="hball-4"></div>
+        <div className="hball-5"></div> */}
         <h1 className="my-6 text-2xl md:text-4xl font-medium text-violet-800 text-center">
           Create New Todo
         </h1>
-        <div className="w-full md:w-2/3 mx-auto">
+
+        <div className="  w-full md:w-2/3 mx-auto">
           <TodoForm
             task="create"
             buttonName="Create Todo"
@@ -41,11 +51,11 @@ const Homepage = () => {
           Your Todos!
         </h1>
         <TodoList makeRequest={makeRequest} setMakeRequest={setMakeRequest} />
-      </>
+      </div>
     );
   }
-  // return <Navigate to="/login" />;
   return <Navigate to="/login" />;
+  // return <Navigate to="/home" />;
 };
 
 export default Homepage;
