@@ -1,0 +1,243 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #000;
+} */
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background: url("bg.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  animation: animate 5s linear infinite;
+}
+
+@keyframes animate {
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+.login-box {
+  position: relative;
+  width: 400px;
+  height: 450px;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(15px);
+}
+
+.login-box h2 {
+  font-size: 2em;
+  color: #fff;
+  text-align: center;
+}
+
+.login-box .input-box {
+  position: relative;
+  width: 310px;
+  margin: 30px 0;
+  border-bottom: 2px solid #fff;
+}
+
+.login-box .input-box label {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  font-size: 1em;
+  color: #fff;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.login-box .input-box input:focus ~ label,
+.login-box .input-box input:valid ~ label {
+  top: -5px;
+}
+
+.login-box .input-box input {
+  width: 100%;
+  height: 50px;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  color: #fff;
+  position: relative;
+  padding: 0 35px 0 5px;
+}
+
+.login-box .input-box .icon {
+  position: absolute;
+  right: 8px;
+  color: #fff;
+  font-size: 1.2em;
+  line-height: 57px;
+}
+
+.remember-forgot {
+  margin: -15px 0 15px 0;
+  font-size: 0.9em;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.remember-forgot lable input {
+  margin-right: 3px;
+}
+
+.remember-forgot a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.9em;
+}
+
+.remember-forgot a:hover {
+  text-decoration: underline;
+}
+
+/* button {
+  width: 100%;
+  height: 40px;
+  background: #fff;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 1.2em;
+  color: #000;
+  font-weight: 500;
+} */
+
+.register-link {
+  font-size: 0.9em;
+  color: #fff;
+  text-align: center;
+  margin: 25px 0 10px;
+}
+
+.register-link a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 260) {
+  .login-box .login-box {
+    width: 100px;
+    height: 100vh;
+    border: none;
+    border-radius: 0;
+  }
+
+  .login-box .input-box {
+    width: 290px;
+  }
+}
+
+/*************************************************************************************
+************       fliping button         ********************
+*************************************************************************************/
+section .backButton .btn-flip {
+  position: absolute;
+  bottom: 8%;
+  left: 46%;
+  opacity: 0.5;
+  background: #1946fc;
+  outline: 0;
+  color: #fff;
+  padding: 10px;
+  line-height: 60px;
+  text-align: center;
+  letter-spacing: 1px;
+  display: inline-block;
+  text-decoration: none;
+  font-family: "Open Sans";
+  text-transform: uppercase;
+  perspective: 1000px; /* Add perspective for 3D effect */
+  /* border-left: 1px solid #fff;
+  border-right: 1px solid #fff; */
+
+  &:hover {
+    &:after {
+      opacity: 1;
+      color: #fff;
+      background: #000;
+      border-left: 1px solid #fff;
+      border-right: 1px solid #fff;
+      transform: translateY(0) rotateX(0);
+    }
+
+    &:before {
+      opacity: 0;
+
+      transform: translateY(50%) rotateX(90deg);
+    }
+  }
+
+  &:after {
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    color: #323237;
+    display: block;
+    transition: 0.5s; /* Use 0.5s instead of $speed */
+    position: absolute;
+    background: #adadaf;
+    content: attr(data-back);
+    transform: translateY(-50%) rotateX(90deg);
+    transform-origin: top center;
+    color: #fff;
+    background: #000;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #fff;
+  }
+
+  &:before {
+    top: 0;
+    left: 0;
+    opacity: 1;
+    color: #ffffff;
+    display: block;
+    padding: 0 30px;
+    line-height: 40px;
+    transition: 0.5s; /* Use 0.5s instead of $speed */
+    position: relative;
+    background: #323237;
+    content: attr(data-front);
+    transform: translateY(0) rotateX(0);
+    transform-origin: top center;
+    color: #fff;
+    background: #000;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #fff;
+  }
+}
