@@ -7,11 +7,12 @@ import axios from "axios";
 import userContext from "../context/userContext";
 
 // components
-import TaskInput from "./TaskInput";
 import TitleInput from "./TitleInput";
+// import TaskInput from "./TaskInput";
+import TaskInput from "./TaskInputs";
 import TodoButton from "./TodoButton";
 // import TodoButton from "./TodoButtons";
-
+import "./styles/TodoForms.css";
 /**
  * @param  task - Denotes the purpose of the form (create Todo / update Todo).
  * @param  buttonName - Denotes the name of submitting button (Create Todo / Update Todo).
@@ -101,24 +102,25 @@ const TodoForm = ({
 
   return (
     // Form containing todo input fields
-    <form
-      className="flex flex-col w-[95%] sm:w-5/6 md:w-full m-auto bg-white"
-      onSubmit={handleSubmit}
-      onClick={(e) => e.stopPropagation()}
-    >
-      <div className="border-2 rounded border-violet-600 p-3 m-4 md:p-4 md:m-6 lg:m-0">
-        <div className="w-full flex flex-col lg:flex-row p-0 lg:p-2 mb-4 lg:mb-0">
-          <div className="w-full lg:w-1/2">
-            {/* Title Input */}
-            <TitleInput title={title} setTitle={setTitle} />
+    <div className="formblock glow w-[95%] sm:w-5/6 md:w-full m-auto">
+      <form
+        className=" flex flex-col w-[100%] sm:w-6/6 md:w-full m-auto "
+        onSubmit={handleSubmit}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className=" p-3 m-4 md:p-4 md:m-6 lg:m-0">
+          <div className="w-full flex flex-col lg:flex-row p-0 lg:p-2 mb-4 lg:mb-0">
+            <div className="w-full lg:w-1/2">
+              {/* Title Input */}
+              <TitleInput title={title} setTitle={setTitle} />
 
-            {/* Checkbox for marking a todo as important */}
-            <label
-              htmlFor="isImportant"
-              className=" block  mt-10 text-lg  md:text-xl  text-violet-800  font-medium"
-            >
-              <input
-                className={`
+              {/* Checkbox for marking a todo as important */}
+              <label
+                htmlFor="isImportant"
+                className=" block  mt-10 text-lg  md:text-xl  text-violet-800  font-medium"
+              >
+                <input
+                  className={`
                 p-3  -mt-1  focus:ring-0  border-2  border-violet-800  text-violet-800
                 transition-transform duration-300
                 hover:scale-110
@@ -126,27 +128,28 @@ const TodoForm = ({
                 rounded
                 mr-2
           `}
-                type="checkbox"
-                name="isImportant"
-                id="isImportant"
-                checked={isImportant}
-                value={isImportant}
-                onChange={handleHighlightTodo}
-              />
-              Highlight Todo
-            </label>
-          </div>
+                  type="checkbox"
+                  name="isImportant"
+                  id="isImportant"
+                  checked={isImportant}
+                  value={isImportant}
+                  onChange={handleHighlightTodo}
+                />
+                Highlight Todo
+              </label>
+            </div>
 
-          <div className="w-full lg:w-1/2 mt-6 lg:mt-0">
-            {/* Input for adding tasks */}
-            <TaskInput tasks={tasks} setTasks={setTasks} />
+            <div className="w-full lg:w-1/2 mt-6 lg:mt-0">
+              {/* Input for adding tasks */}
+              <TaskInput tasks={tasks} setTasks={setTasks} />
+            </div>
           </div>
+          {/* Button for Creading Todo (Submitting the data) */}
+          <TodoButton name={buttonName} />
+          {/* // button for reseting data. */}
         </div>
-        {/* Button for Creading Todo (Submitting the data) */}
-        <TodoButton name={buttonName} />
-        {/* // button for reseting data. */}
-      </div>
-    </form>
+      </form>
+    </div>
   );
 };
 
