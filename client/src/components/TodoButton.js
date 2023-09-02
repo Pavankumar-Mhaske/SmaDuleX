@@ -2,7 +2,7 @@
  * @param name - String, Used to receive a value of button (Button Text) .
  * @returns A Button element to submit the data in  form.
  */
-import "../pages/customStyles.css";
+import "../pages/styles/customStyles.css";
 
 const TodoButton = ({ name = "Todo Button", passwordMatched = true }) => {
   return (
