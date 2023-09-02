@@ -12,7 +12,7 @@ import closeIcon from "../assets/icons/close.png";
 
 // components
 import Todo from "./Todo";
-import "../pages/customStyles.css";
+import "../pages/styles/customStyles.css";
 /**
  * @param setMakeRequest - To make DB call and populate todos in todoList. When we delete, update todo.
  * @returns Collection of todos received from server request.
