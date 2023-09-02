@@ -7,7 +7,7 @@ import account from "../config/appwriteConfig.js";
 import userContext from "../context/userContext.js";
 
 // router
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 const Header = () => {
   /**
@@ -37,17 +37,21 @@ const Header = () => {
       <nav className="flex py-1 border-b-2 text-violet-800">
         <span className="text-3xl font-medium ml-3 md:ml-40">TodoApp</span>
         <ul className="w-full flex items-center flex-wrap justify-end gap-4">
-          {user ? (
-            <>
-              <li className="text-sm lg:text-xl font-medium">{user.name}</li>
-              <li
-                className="text-sm lg:text-xl font-medium mr-3 md:mr-10 lg:mr-20 "
-                onClick={handleLogout}
-              >
-                Logout
-              </li>
-            </>
-          ) : (
+          {
+            user ? (
+              <>
+                <li className="text-sm lg:text-xl font-medium">{user.name}</li>
+                <li
+                  className="text-sm lg:text-xl font-medium mr-3 md:mr-10 lg:mr-20 "
+                  onClick={handleLogout}
+                >
+                  Logout
+                </li>
+              </>
+            ) : (
+              ""
+            )
+            /*(
             <>
               <li className="text-sm lg:text-xl font-medium">
                 <Link to="/signup">SignUp</Link>
@@ -56,7 +60,8 @@ const Header = () => {
                 <Link to="/login">LogIn</Link>
               </li>
             </>
-          )}
+          )} */
+          }
         </ul>
       </nav>
     </header>
