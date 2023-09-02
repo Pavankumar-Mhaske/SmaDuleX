@@ -9,7 +9,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
  * Importing pages which has to be assigned with route
  */
 
-import HomePage from "./pages/Homepage";
+// import HomePage from "./pages/Homepage";
+import HomePage from "./pages/Homepages";
 // import LoginPage from "./pages/LoginPage";
 import LoginPages from "./pages/LoginPages";
 // import SignupPage from "./pages/SignupPage";
