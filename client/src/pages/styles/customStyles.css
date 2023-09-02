@@ -1,0 +1,82 @@
+/* styles.css */
+
+
+.custom-input {
+  width: 100%;
+
+  outline: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 2px 2px 2px #cfcfcf, 3px 3px 3px #dbdbdb, 5px 5px 5px #e7e7e7,
+    6px 6px 6px #f3f3f3;
+}
+
+.custom-input:focus,
+.custom-input:hover {
+  transform: scale(1.03);
+  box-shadow: 2px 2px 2px #cfcfcf, 3px 3px 3px #dbdbdb, 5px 5px 5px #e7e7e7,
+    6px 6px 6px #f3f3f3;
+}
+
+.custom-input-auto-width {
+  width: auto;
+  outline: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+  /* box-shadow: inset -2px -2px 2px #cfcfcf, inset -3px -3px 3px #dbdbdb,
+    inset -5px -5px 5px #e7e7e7, inset -6px -6px 6px #f3f3f3; */
+  box-shadow: 2px 2px 2px #cfcfcf, 3px 3px 3px #dbdbdb, 5px 5px 5px #e7e7e7,
+    6px 6px 6px #f3f3f3;
+}
+.custom-input-auto-width:focus,
+.custom-input-auto-width:hover {
+  transform: scale(1.05);
+  /* box-shadow: inset 2px 2px 2px #cfcfcf, 3px 3px 3px #dbdbdb,
+    5px 5px 5px #e7e7e7, 6px 6px 6px #f3f3f3; */
+  box-shadow: 2px 2px 2px #cfcfcf, 3px 3px 3px #dbdbdb, 5px 5px 5px #e7e7e7,
+    6px 6px 6px #f3f3f3;
+}
+
+.custom-todo {
+  width: 100%;
+
+  outline: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 2px 2px 2px #cfcfcf, 3px 3px 3px #dbdbdb, 5px 5px 5px #e7e7e7,
+    6px 6px 6px #f3f3f3;
+}
+
+.custom-todo:focus,
+.custom-todo:hover {
+  transform: scale(1.02);
+  box-shadow: 2px 2px 2px #cfcfcf, 3px 3px 3px #dbdbdb, 5px 5px 5px #e7e7e7,
+    6px 6px 6px #f3f3f3;
+}
+
+/* .hidden-element div {
+  display: none;
+  
+  transition: all 2s ease; 
+}
+
+
+.hidden-element:hover div,
+.hidden-element:focus div,
+.hidden-element:focus div + input:valid + div {
+  display: block;
+ 
+} */
+
+.validation-container {
+  position: absolute;
+
+  transform: translate(-50%, -50%);
+  max-height: 0;
+
+  overflow: hidden;
+  /* transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out; */
+}
+
+.validation-container.active {
+  max-height: 1000px; /* Adjust this value as needed */
+  opacity: 1;
+  transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
