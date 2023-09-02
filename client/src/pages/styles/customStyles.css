@@ -23,8 +23,11 @@
   transition: transform 0.2s, box-shadow 0.2s;
   /* box-shadow: inset -2px -2px 2px #cfcfcf, inset -3px -3px 3px #dbdbdb,
     inset -5px -5px 5px #e7e7e7, inset -6px -6px 6px #f3f3f3; */
-  box-shadow: 2px 2px 2px #cfcfcf, 3px 3px 3px #dbdbdb, 5px 5px 5px #e7e7e7,
-    6px 6px 6px #f3f3f3;
+  /* box-shadow: 2px 2px 2px #cfcfcf, 3px 3px 3px #dbdbdb, 5px 5px 5px #e7e7e7,
+    6px 6px 6px #f3f3f3; */
+    box-shadow: 2px 2px 2px #0074e4, 3px 3px 3px #0074e4, 5px 5px 5px #0074e4,
+    6px 6px 6px #0074e4;
+
 }
 .custom-input-auto-width:focus,
 .custom-input-auto-width:hover {
