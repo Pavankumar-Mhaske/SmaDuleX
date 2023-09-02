@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../pages/customStyles.css";
+import "../pages/styles/customStyles.css";
 import Task from "./Task";
 /**
  *
