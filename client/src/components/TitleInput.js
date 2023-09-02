@@ -16,6 +16,11 @@ const TitleInput = ({ title, setTitle }) => {
     setTitle(e.target.value);
   };
 
+  const inputStyle = {
+    backgroundColor: "transparent", // Set the background color to transparent
+    border: "1px solid #ccc", // Add a border for visibility
+  };
+
   return (
     <label htmlFor="title">
       <input
@@ -32,6 +37,7 @@ const TitleInput = ({ title, setTitle }) => {
             e.preventDefault();
           }
         }}
+        style={inputStyle}
       />
     </label>
   );
