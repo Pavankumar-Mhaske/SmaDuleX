@@ -40,7 +40,7 @@ app.get("/", (req, res) => {
  */
 const userRoutes = require("./Routes/UserRoutes");
 const todoRoutes = require("./Routes/TodoRoutes");
-
+const eventRoutes = require("./Routes/EventRoutes");
 /**
  * Using the user routes
  *     - /user - is the base route for user routes
@@ -54,5 +54,21 @@ app.use("/user", userRoutes);
  *   - todoRoutes - is the todo routes
  */
 app.use("/todo", todoRoutes);
+
+/**
+ * Using the Event routes
+ *   - /event - is the base route for event routes
+ *  - eventRoutes - is the event routes
+ */
+app.use("/event", eventRoutes);
+
+/**
+ * exporting the app
+ * so that it can be used in server.js
+ * @exports app
+ * @requires express
+ * @requires cors
+ * @requires dotenv
+ */
 
 module.exports = app;
