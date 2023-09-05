@@ -55,6 +55,13 @@ const UserSchema = new Schema(
         required: [true, "Todo I'd is required to store todo for user"],
       },
     ],
+    events: [
+      {
+        type: Schema.Types.ObjectId, // This is a reference to the Todo model
+        ref: "Event",
+        required: [true, "Event I'd is required to store Event for user"],
+      },
+    ],
   },
   {
     timestamps: true,
