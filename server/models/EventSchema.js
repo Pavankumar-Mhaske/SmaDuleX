@@ -10,20 +10,31 @@ const mongoose = require("mongoose");
  */
 const { Schema, model } = mongoose;
 
-const reminder = new Schema({
-  reminderMsg: {
-    type: String,
-    required: true,
+const Reminder = new Schema(
+  {
+    reminderMsg: {
+      type: String,
+      required: [true, "Reminder message is required"],
+    },
+    remindAt: {
+      // type: Date ,
+      type: String,
+      required: [true, "Reminder time is required"],
+    },
+    isReminded: {
+      type: Boolean,
+      default: false,
+    },
+    // Keeping the reference of the use who created the reminder
+    user: {
+      type: Schema.Types.ObjectId, // This is a reference to the User model
+      ref: "User",
+      required: [true, "User is required to store Event"],
+    },
   },
-  remindAt: {
-    // type: Date ,
-    type: String,
-    required: true,
-  },
-  isReminded: {
-    type: Boolean,
-    default: false,
-  },
-});
+  {
+    timestamps: true,
+  }
+);
 
-module.exports = model("Reminder", reminder);
+module.exports = model("Reminder", Reminder);
