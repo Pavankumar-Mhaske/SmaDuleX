@@ -9,7 +9,7 @@
   align-items: center;
   font-family: Arial, sans-serif;
   border-radius: 20px;
-  border: 2px solid rgba(247, 0, 0, 0.985);
+  /* border: 2px solid rgba(247, 0, 0, 0.985); */
 }
 
 .eventPage .eventsBox {
@@ -22,7 +22,7 @@
   flex-direction: column;
   align-items: center;
   border-radius: 20px;
-  border: 2px solid rgba(255, 255, 255, 0.5);
+  /* border: 2px solid rgba(255, 255, 255, 0.5); */
   /* background: rgba(0, 0, 0, 0.9); */
   /* background: linear-gradient(
     to bottom right,
@@ -31,6 +31,28 @@
     rgb(253, 209, 158)
   ); */
   position: relative;
+}
+
+.eventPage .eventsBox .header_gradient_text {
+  background-image: linear-gradient(
+    to right,
+    #ff9d00,
+    #00ff00
+  ); /* Replace with your desired gradient colors */
+  -webkit-background-clip: text; /* For webkit-based browsers like Chrome and Safari */
+  background-clip: text; /* Standard property for modern browsers */
+  color: transparent;
+}
+.eventPage .eventsBox .body_gradient_text {
+  background-image: linear-gradient(
+    to right,
+    #0074e4,
+    #74c0e4,
+    #ffffff
+  ); /* Replace with your desired gradient colors */
+  -webkit-background-clip: text; /* For webkit-based browsers like Chrome and Safari */
+  background-clip: text; /* Standard property for modern browsers */
+  color: transparent;
 }
 
 .eventPage .eventsBox_header {
@@ -47,7 +69,8 @@
   /* background: white; */
   position: relative;
   color: #fff;
-  border: 2px solid rgba(255, 255, 255, 0.5);
+  /* border: 2px solid rgba(255, 255, 255, 0.5); */
+  /* border: 1px solid rgba(255, 255, 255, 0.989); */
   animation: header_glowingBorder 1s infinite alternate;
   box-shadow: 0 0 10px rgba(0, 255, 0, 0.5); /* Change the color to green (rgba(0, 255, 0, ...)) */
 }
@@ -167,6 +190,8 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
 }
 
 .eventPage .reminder_card {
@@ -176,7 +201,9 @@
   /* background: white; */
   color: #fff;
   border-radius: 8px;
-  border: 2px solid rgba(255, 255, 255, 0.5);
+  /* border: 2px solid rgba(255, 255, 255, 0.5); */
+  /* border: 1px solid rgba(255, 255, 255, 0.989); */
+
   margin: 2rem;
   padding: 1rem;
   max-width: 350px !important ;
