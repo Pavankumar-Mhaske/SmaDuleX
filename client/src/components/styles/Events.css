@@ -1,28 +1,39 @@
-.App {
+.eventPage {
+  position: relative;
   display: flex;
-  width: 100%;
-  height: 100%;
+  /* width: 100%;
+  height: 100%; */
+  width: calc(100vw - 4px);
+  /* height: calc(100vh - 4px); */
   justify-content: center;
   align-items: center;
   font-family: Arial, sans-serif;
+  border-radius: 20px;
+  border: 2px solid rgba(247, 0, 0, 0.985);
 }
 
-.homepage {
-  min-width: 100%;
-  min-height: 100%;
+.eventPage .eventsBox {
+  /* min-width: 100%;
+  min-height: 100%; */
+  width: 100%;
+  height: 100%;
   background: inherit;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: linear-gradient(
+  border-radius: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  /* background: rgba(0, 0, 0, 0.9); */
+  /* background: linear-gradient(
     to bottom right,
     rgb(255, 253, 125),
     rgb(151, 250, 184),
     rgb(253, 209, 158)
-  );
+  ); */
+  position: relative;
 }
 
-.homepage_header {
+.eventPage .eventsBox_header {
   margin: 2rem;
   padding: 2rem;
   display: flex;
@@ -33,11 +44,97 @@
   min-height: fit-content;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
-  background: white;
+  /* background: white; */
   position: relative;
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  animation: header_glowingBorder 1s infinite alternate;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.5); /* Change the color to green (rgba(0, 255, 0, ...)) */
 }
 
-.homepage_header > .button {
+@keyframes header_glowingBorder {
+  0% {
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.7), 0 0 30px rgba(0, 255, 0, 0.5),
+      0 0 40px rgba(0, 255, 0, 0.3);
+  }
+}
+
+/* Background color for the input field */
+.eventsBox_header input {
+  background: transparent;
+  /* border: 1px solid #ccc;  */
+  padding: 0.5rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  /* color: #fff;  */
+  width: 100%;
+
+  /* border: 1px solid grey; */
+  outline: none;
+  color: #fff;
+  margin: 0.5rem 0;
+  padding: 0.4rem 0;
+  width: 100%;
+  font-size: 1rem;
+}
+
+.eventsBox_header input::placeholder {
+  color: #999;
+  /* font-size: 14px; */
+  background-color: #0b130a;
+}
+
+/* Background color for the calendar block */
+.eventsBox_header .calender {
+  background-color: #a0f896;
+  background: transparent;
+  /* border: 1px solid #00bcd4; */
+  outline: none;
+  border: 0;
+  padding: 0.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #000;
+  width: 100%;
+  /* background: linear-gradient(#385d44, #06ff23); */
+}
+
+/* Background color for the submit button */
+.eventsBox_header .button {
+  background-color: #5af146;
+
+  border: 1px solid #4df242;
+
+  color: #fff;
+  width: 100%;
+  color: #000;
+  font-size: 1.25rem;
+  width: 100%;
+  text-align: center;
+  padding: 0.5rem 0;
+  margin: 0.5rem;
+  border-radius: 8px;
+  outline: none;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, background-color 0.2s ease; /* Smooth background color transition */
+}
+
+/* Change button background color on hover for interactivity */
+.eventsBox_header .button:hover {
+  background-color: #04ff19; /* Slightly darker blue on hover */
+  transform: scale(1.04);
+}
+
+.eventPage .eventsBox_header .calender {
+  /* color: #fff; */
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  /* background-color: rgb(246, 246, 246); */
+}
+
+/* .eventPage .eventsBox_header > .button {
   background: #1877f2;
   border: 1px solid #1877f2;
   color: #fff;
@@ -49,52 +146,72 @@
   border-radius: 8px;
   outline: none;
   cursor: pointer;
-}
+} */
 
-.homepage_header > input {
+/* .eventPage .eventsBox_header > input {
   border: 1px solid grey;
   outline: none;
-  color: #1d2129;
+  color: #fff;
+  placeholder-color: #fff;
   margin: 0.5rem 0;
   padding: 0.4rem 0;
   width: 100%;
   font-size: 1rem;
-}
+} */
 
-.react-datetime-picker {
+.eventPage .react-datetime-picker {
   width: 100% !important;
 }
 
-.homepage_body {
+.eventPage .eventsBox_body {
   width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
-.reminder_card {
+.eventPage .reminder_card {
   display: flex;
   flex-direction: column;
   display: inline-block;
-  background: white;
+  /* background: white; */
+  color: #fff;
   border-radius: 8px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
   margin: 2rem;
   padding: 1rem;
-  max-width: 350px;
+  max-width: 350px !important ;
+
   box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+  position: relative;
+
+  animation: glowingBorder 1s infinite alternate;
+  box-shadow: 0 0 10px rgba(0, 0, 255, 0.5); /* Adjust the color and intensity as needed */
 }
 
-.reminder_card > h2 {
+@keyframes glowingBorder {
+  0% {
+    box-shadow: 0 0 10px rgba(0, 0, 255, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(0, 0, 255, 0.7), 0 0 30px rgba(0, 0, 255, 0.5),
+      0 0 40px rgba(0, 0, 255, 0.3);
+  }
+}
+
+.eventPage .reminder_card > h2 {
   margin-bottom: 1rem;
   color: #1877f2;
 }
 
-.reminder_card > p {
+.eventPage .reminder_card > p {
   color: grey;
   margin-bottom: 1rem;
 }
 
-.reminder_card > .button {
+.eventPage .reminder_card .button {
   background: #1877f2;
   border: 1px solid #1877f2;
-  color: #fff;
+  color: #000;
   font-size: 1.25rem;
   width: inherit;
   text-align: center;
@@ -103,9 +220,54 @@
   border-radius: 8px;
   outline: none;
   cursor: pointer;
+  transition: transform 0.2s ease-in-out, background-color 0.2s ease; /* Smooth background color transition */
 }
 
-.homepage .homepage_body .flex-container {
+.eventPage .reminder_card .button:hover {
+  background-color: #043fff;
+  transform: scale(1.04);
+}
+
+.eventPage .eventsBox_body .flex-container {
   display: flex;
   justify-content: space-evenly;
+
+  /* justify-content: space-between; */
+}
+
+/* New CSS for responsiveness */
+/* Show a maximum of 4 cards per row on full screen */
+@media (min-width: 1201px) {
+  .eventPage .eventsBox_body {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .eventPage .reminder_card {
+    max-width: calc(25% - 4rem); /* Four cards per row with spacing */
+  }
+}
+
+/* Adjust the maximum width of each card and define the number of cards per row using media queries */
+@media (max-width: 1200px) {
+  .eventPage .eventsBox_body {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .eventPage .reminder_card {
+    max-width: calc(33.33% - 4rem); /* Three cards per row with spacing */
+  }
+}
+
+@media (max-width: 800px) {
+  .eventPage .reminder_card {
+    max-width: calc(50% - 4rem); /* Two cards per row with spacing */
+  }
+}
+
+@media (max-width: 600px) {
+  .eventPage .reminder_card {
+    max-width: calc(100% - 4rem); /* One card per row with spacing */
+  }
 }
