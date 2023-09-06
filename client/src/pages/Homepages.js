@@ -36,8 +36,8 @@ const Homepage = () => {
         <div className="hball-3"></div>
         <div className="hball-4"></div>
         <div className="hball-5"></div> */}
-        <h1 className="my-6 text-2xl md:text-4xl font-medium text-violet-800 text-center">
-          Create New Todo
+        <h1 className="header_createTodos my-6 text-2xl md:text-4xl font-medium text-violet-800 text-center">
+          Create New Todo!
         </h1>
 
         <div className="  w-full md:w-2/3 mx-auto">
@@ -48,13 +48,12 @@ const Homepage = () => {
             setMakeRequest={setMakeRequest}
           />
         </div>
-        <h1 className="mt-12 mb-6 text-2xl md:text-4xl font-medium text-violet-800 text-center">
+        <h1 className="header_todos mt-12 mb-6 text-2xl md:text-4xl font-medium text-violet-800 text-center">
           Your Todos!
         </h1>
         <TodoList makeRequest={makeRequest} setMakeRequest={setMakeRequest} />
 
         <div className="w-[98%] sm:w-5/6 md:w-full">
-          hello new container it's time to enjoy....
           <EventList />
         </div>
       </div>
