@@ -122,10 +122,10 @@ function EventList() {
   };
 
   return (
-    <div className="App">
+    <div className="eventPage">
       {/* {console.log("reminderList is : ", reminderList)} */}
-      <div className="homepage">
-        <div className="homepage_header">
+      <div className="eventsBox">
+        <div className="eventsBox_header">
           <h1>remind me 🙋🏻‍♂️</h1>
           <input
             type="text"
@@ -133,14 +133,15 @@ function EventList() {
             value={reminderMsg}
             onChange={(e) => setReminderMsg(e.target.value)}
           />
-
-          <Calender setRemindeAt={setRemindeAt} />
+          <div className="calender">
+            <Calender setRemindeAt={setRemindeAt}  />
+          </div>
           <div className="button" onClick={addReminder}>
             submit
           </div>
         </div>
 
-        <div className="homepage_body">
+        <div className="eventsBox_body">
           {console.log("inside the reminder List: ", reminderList)}
           {reminderList.data ? (
             reminderList.data.map((reminder) => (
