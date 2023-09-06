@@ -53,7 +53,7 @@ const Homepage = () => {
         </h1>
         <TodoList makeRequest={makeRequest} setMakeRequest={setMakeRequest} />
 
-        <div className="border border-red-500 bg-white">
+        <div className="w-[98%] sm:w-5/6 md:w-full">
           hello new container it's time to enjoy....
           <EventList />
         </div>
