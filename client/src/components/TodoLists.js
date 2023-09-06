@@ -179,7 +179,7 @@ const TodoList = ({ makeRequest, setMakeRequest }) => {
           <div></div>
         )}
 
-        <div className="order-2 ml-6 sm:ml-2 my-4 lg:order-none md:ml-0">
+        <div className=" order-2 ml-6 sm:ml-2 my-4 lg:order-none md:ml-0">
           <label htmlFor="sort">
             <span className="font-medium text-violet-800">Sort by: </span>
             <select
@@ -187,21 +187,21 @@ const TodoList = ({ makeRequest, setMakeRequest }) => {
               onChange={(event) => {
                 handleSort(event.target.value);
               }}
-              className="border-violet-500 rounded text-violet-800 font-semibold py-0.5"
+              className="TodoList_Selector border-violet-500 rounded text-violet-800 font-semibold py-0.5"
             >
-              <option value="isImportant" className="px-2">
+              <option value="isImportant" className="select_options px-2">
                 Priority
               </option>
-              <option value="isCompleted" className="px-2">
+              <option value="isCompleted" className="select_options px-2">
                 Completed
               </option>
-              <option value="createdAt" className="px-2">
+              <option value="createdAt" className="select_options px-2">
                 Created Date
               </option>
-              <option value="updatedAt" className="px-2">
+              <option value="updatedAt" className="select_options px-2">
                 Updated Date
               </option>
-              <option value="title" className="px-2">
+              <option value="title" className="select_options px-2">
                 Alphabetical
               </option>
             </select>
@@ -224,7 +224,7 @@ const TodoList = ({ makeRequest, setMakeRequest }) => {
             }}
             required
             placeholder="Search for your todos / tasks"
-            className="w-full  border-r-transparent  border-none  rounded-l text-sm  lg:text-lg  placeholder-violet-700  leading-4 lg:leading-7  py-2  text-violet-800  font-medium  outline-none  focus:ring-0 border-r-0 "
+            className="TodoList_inputs w-full  border-r-transparent  border-none  rounded-l text-sm  lg:text-lg  placeholder-violet-700  leading-4 lg:leading-7  py-2  text-violet-800  font-medium  outline-none  focus:ring-0 border-r-0 "
           />
           <button
             type="button"
