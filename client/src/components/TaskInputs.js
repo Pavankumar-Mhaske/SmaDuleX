@@ -55,7 +55,7 @@ const TaskInput = ({ tasks, setTasks }) => {
       <div className="w-1/2 inline">
         <label htmlFor="taskInput">
           <input
-            className=" pb-1  pl-2  border-t-0 border-l-0 border-r-0 border-b-2 border-violet-400 focus:border-violet-800  focus:outline-none  text-md md:text-lg w-full  sm:w-[70%] lg:w-[60%]  xl:w-2/3 placeholder-violet-600 focus:ring-0"
+            className="Todoform_inputs pb-1  pl-2  border-t-0 border-l-0 border-r-0 border-b-2 border-violet-400 focus:border-violet-800  focus:outline-none  text-md md:text-lg w-full  sm:w-[70%] lg:w-[60%]  xl:w-2/3 placeholder-violet-600 focus:ring-0"
             type="text"
             id="taskInput"
             name="taskInput"
