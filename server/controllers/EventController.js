@@ -259,6 +259,7 @@ exports.getEvent = async (req, res) => {
  */
 
 exports.deleteEvent = async (req, res) => {
+  console.log("inside the delete event controller");
   try {
     const { eventId, userId } = req.params;
     if (!eventId) {
