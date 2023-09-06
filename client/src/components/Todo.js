@@ -130,15 +130,15 @@ const Todo = ({ todo, makeRequest, setMakeRequest }) => {
         <button
           className={`
           p-2
-    border-2 
-    border-violet-800
-    rounded 
-    active:bg-violet-100 
-    mx-3
-    transition-transform duration-300
-    hover:scale-110
-    hover:bg-violet-200
-    `}
+          border-2 
+          border-violet-800
+          rounded 
+          active:bg-violet-100 
+          mx-3
+          transition-transform duration-300
+          hover:scale-110
+          hover:bg-violet-200
+          `}
           onClick={(e) => handleHighlight(e, todo)}
         >
           <img
