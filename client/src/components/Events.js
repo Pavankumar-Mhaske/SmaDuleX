@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import Calender from "./Calender";
-import "./Events.css";
+import "./styles/Events.css";
 import axios from "axios";
 
 import userContext from "../context/userContext";
