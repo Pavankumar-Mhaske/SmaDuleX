@@ -125,6 +125,9 @@ function EventList() {
     <div className="eventPage">
       {/* {console.log("reminderList is : ", reminderList)} */}
       <div className="eventsBox">
+        <h1 className="header_gradient_text mt-12 mb-6 text-2xl md:text-4xl font-medium text-violet-800 text-center">
+          Create New Events!
+        </h1>
         <div className="eventsBox_header">
           <h1>remind me 🙋🏻‍♂️</h1>
           <input
@@ -134,12 +137,16 @@ function EventList() {
             onChange={(e) => setReminderMsg(e.target.value)}
           />
           <div className="calender">
-            <Calender setRemindeAt={setRemindeAt}  />
+            <Calender setRemindeAt={setRemindeAt} />
           </div>
           <div className="button" onClick={addReminder}>
             submit
           </div>
         </div>
+
+        <h1 className="body_gradient_text mt-12 mb-6 text-2xl md:text-4xl font-medium text-violet-800 text-center">
+          Your Events!
+        </h1>
 
         <div className="eventsBox_body">
           {console.log("inside the reminder List: ", reminderList)}
@@ -148,7 +155,12 @@ function EventList() {
               <div className="reminder_card" key={reminder._id}>
                 <h2>{reminder.reminderMsg}</h2>
                 <div className={`flex-container`}>
-                  <h3>Remind me at:</h3>
+                  {reminder.isReminded ? (
+                    <h3> ✅Reminded at :</h3>
+                  ) : (
+                    <h3>Remind me at :</h3>
+                  )}
+
                   <h5>
                     {new Date(
                       reminder.remindAt.toLocaleString("en-IN", {
