@@ -7,7 +7,7 @@ import "../pages/styles/customStyles.css";
 const TodoButton = ({ name = "Todo Button", passwordMatched = true }) => {
   return (
     <button
-      className={`mt-2 rounded w-full border-2 px-6 py-2 font-semibold ${
+      className={`todobutton_in_form mt-2 rounded w-full px-6 py-2 font-semibold ${
         // if passwordMatched is true then button will be green
         // if passwordMatched is false then button will be gray
         passwordMatched
