@@ -5,7 +5,7 @@
   border-radius: 20px;
 
   /* backdrop-filter: blur(20px); */
-  box-shadow: -15px 17px 17px rgba(171, 171, 171, 0.25);
+  box-shadow: -15px 17px 17px #ababab40;
 
   position: relative;
 
@@ -58,4 +58,15 @@
 .glow::after {
   filter: blur(50px);
   opacity: 0.8;
+}
+
+.formblock .Todoform_inputs {
+  background: transparent;
+  color: #fff;
+  /* border: 2px solid #fff; */
+}
+
+.formblock .todoform__checkbox {
+  border: 0px;
+  outline: none;
 }
