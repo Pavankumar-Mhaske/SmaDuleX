@@ -74,7 +74,7 @@ const TodoModal = ({ popup, todoId, makeRequest, created, updated }) => {
 
   if (!popup) return "";
   return (
-    <div className=" w-[95%] border-2  hover:border-violet-400  p-2  rounded text-sm sm:text-md md:text-lg xl:text-xl  text-violet-800  font-medium m-auto max-h-24 md:max-h-44 overflow-auto my-4">
+    <div className=" w-[95%] border-2  hover:border-violet-300  p-2  rounded text-sm sm:text-md md:text-lg xl:text-xl  text-blue-300  font-medium m-auto max-h-24 md:max-h-44 overflow-auto my-4">
       <div>
         {
           // Conditional Rendering
@@ -84,7 +84,7 @@ const TodoModal = ({ popup, todoId, makeRequest, created, updated }) => {
             tasks.map((task, index) =>
               task ? (
                 <p
-                  className="inline-block m-1 border-2 border-violet-800 rounded p-1"
+                  className="inline-block m-1 border-2 border-blue-500 rounded p-1"
                   key={index}
                 >
                   {task}
