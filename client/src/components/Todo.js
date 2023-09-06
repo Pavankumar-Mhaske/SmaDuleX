@@ -136,9 +136,12 @@ const Todo = ({ todo, makeRequest, setMakeRequest }) => {
           active:bg-violet-100 
           mx-3
           transition-transform duration-300
+          hover:bg-yellow-400
           hover:scale-110
-          hover:bg-violet-200
-          `}
+          
+          rounded-15
+          ${todo.isImportant ? "hilight" : "nothilight"} 
+        `}
           onClick={(e) => handleHighlight(e, todo)}
         >
           <img
@@ -148,12 +151,12 @@ const Todo = ({ todo, makeRequest, setMakeRequest }) => {
           />
         </button>
         <p
-          className={` w-5/6  border-2  p-1 md:p-2  rounded text-[14px] sm:text-[16px] md:text-lg  lg:text-xl  font-medium break-all 
+          className={`todotitles w-5/6  border-2  p-1 md:p-2  rounded text-[14px] sm:text-[16px] md:text-lg  lg:text-xl  font-medium break-all 
           bg-${todo.isCompleted ? "green" : "gray"}-100
           hover:bg-${todo.isCompleted ? "green" : "gray"}-200
           hover:border-${todo.isCompleted ? "green" : "gray"}-300
           text-${todo.isCompleted ? "green-600" : "gray-800"}-700
-          custom-todo
+          
           `}
           onClick={() => setPopup(!popup)}
           // add some more properties here....
@@ -171,7 +174,12 @@ const Todo = ({ todo, makeRequest, setMakeRequest }) => {
                     ml-3
                     transition-transform duration-300
                     hover:scale-110
-                    hover:bg-violet-200
+                    ${
+                      todo.isCompleted
+                        ? "hover:bg-red-700 border-green-700"
+                        : "hover:bg-green-700 border-red-700"
+                    }
+                    
                   `}
           onClick={(e) => handleCompleted(e, todo)}
         >
@@ -179,10 +187,10 @@ const Todo = ({ todo, makeRequest, setMakeRequest }) => {
         </button>
         <button
           className={`
-          p-2 border-2 border-blue-700 rounded mx-2 hover:bg-blue-200
-          transition-transform duration-300
-          hover:scale-110
-          hover:bg-violet-200
+                      p-2 border-2 border-blue-700 rounded mx-2 hover:bg-blue-200
+                      transition-transform duration-300
+                      hover:scale-110
+                      hover:bg-blue-200
                     `}
           onClick={() => {
             window.scrollTo({
@@ -200,7 +208,7 @@ const Todo = ({ todo, makeRequest, setMakeRequest }) => {
           p-2 border-2 border-red-500 rounded  
           transition-transform duration-300
           hover:scale-110
-          hover:bg-violet-200`}
+          hover:bg-red-200`}
           onClick={() => {
             window.scrollTo({
               top: 0,
