@@ -6,3 +6,31 @@
   border: 2px solid rgba(255, 255, 255, 0.5);
   color: #11ff04;
 }
+
+.todolist .TodoList_inputs {
+  background: transparent;
+  color: #fffb03;
+  /* border: 2px solid #fff; */
+}
+
+.todolist .TodoList_Selector {
+  /* Define the background color of the selected option */
+  background-color: #000000;
+  /* Define the color of the text inside the select element */
+  color: #ff0501;
+  /* Define the appearance of the dropdown arrow */
+  appearance: none; /* Hide the default dropdown arrow */
+
+  background-position: right center;
+  background-repeat: no-repeat;
+  padding-right: 20px; /* Adjust the padding to make space for the custom arrow icon */
+  /* Add any other desired styles */
+}
+
+.todolist .TodoList_Selector:focus {
+  background-color: #000000;
+}
+
+.todolist .TodoList_inputs .select_options {
+  background: transparent;
+}
