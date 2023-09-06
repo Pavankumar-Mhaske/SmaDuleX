@@ -9,6 +9,7 @@ import userContext from "../context/userContext";
 // components
 import TodoForm from "../components/TodoForms";
 import TodoList from "../components/TodoLists";
+import EventList from "../components/Events";
 import "./styles/HomePages.css";
 
 const Homepage = () => {
@@ -51,6 +52,11 @@ const Homepage = () => {
           Your Todos!
         </h1>
         <TodoList makeRequest={makeRequest} setMakeRequest={setMakeRequest} />
+
+        <div className="border border-red-500 bg-white">
+          hello new container it's time to enjoy....
+          <EventList />
+        </div>
       </div>
     );
   }
