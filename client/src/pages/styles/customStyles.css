@@ -1,6 +1,5 @@
 /* styles.css */
 
-
 .custom-input {
   width: 100%;
 
@@ -25,33 +24,45 @@
     inset -5px -5px 5px #e7e7e7, inset -6px -6px 6px #f3f3f3; */
   /* box-shadow: 2px 2px 2px #cfcfcf, 3px 3px 3px #dbdbdb, 5px 5px 5px #e7e7e7,
     6px 6px 6px #f3f3f3; */
-    box-shadow: 2px 2px 2px #0074e4, 3px 3px 3px #0074e4, 5px 5px 5px #0074e4,
-    6px 6px 6px #0074e4;
-
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+  background: transparent;
+  border: 1px solid rgba(0, 255, 0, 0.5);
+  /* animation: header_glowingBorder 1s infinite alternate; */
 }
 .custom-input-auto-width:focus,
 .custom-input-auto-width:hover {
   transform: scale(1.05);
   /* box-shadow: inset 2px 2px 2px #cfcfcf, 3px 3px 3px #dbdbdb,
     5px 5px 5px #e7e7e7, 6px 6px 6px #f3f3f3; */
-  box-shadow: 2px 2px 2px #cfcfcf, 3px 3px 3px #dbdbdb, 5px 5px 5px #e7e7e7,
-    6px 6px 6px #f3f3f3;
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.7), 0 0 30px rgba(0, 255, 0, 0.5),
+    0 0 40px rgba(0, 255, 0, 0.3);
 }
 
-.custom-todo {
-  width: 100%;
+.todobutton_in_form {
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+  background: transparent;
+  border: 1px solid rgba(0, 255, 0, 0.5);
+}
 
+.todobutton_in_form:focus,
+.todobutton_in_form:hover {
+  transform: scale(1.05);
+}
+
+.todotitles {
+  width: 100%;
   outline: none;
   transition: transform 0.2s, box-shadow 0.2s;
-  box-shadow: 2px 2px 2px #cfcfcf, 3px 3px 3px #dbdbdb, 5px 5px 5px #e7e7e7,
-    6px 6px 6px #f3f3f3;
+  box-shadow: 0 0 7px rgba(0, 255, 0, 0.5);
+  border: 1px solid rgba(0, 255, 0, 0.5);
 }
 
-.custom-todo:focus,
-.custom-todo:hover {
+.todotitles:focus,
+.todotitles:hover {
   transform: scale(1.02);
-  box-shadow: 2px 2px 2px #cfcfcf, 3px 3px 3px #dbdbdb, 5px 5px 5px #e7e7e7,
-    6px 6px 6px #f3f3f3;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.7), 0 0 15px rgba(0, 255, 0, 0.5),
+    0 0 20px rgba(0, 255, 0, 0.3);
 }
 
 /* .hidden-element div {
@@ -82,4 +93,65 @@
   max-height: 1000px; /* Adjust this value as needed */
   opacity: 1;
   transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+/* Neon light effect for the button */
+/* .hilight {
+  border: 2px solid rgb(6, 6, 247);
+} */
+
+/* Neon light glowing effect for the div */
+/* .hilight {
+  
+  background-color: transparent;
+  border: 2px solid #00f;
+  border-radius: 10px;
+  animation: neon 1.5s linear infinite;
+}
+
+@keyframes neon {
+  0% {
+    box-shadow: 0 0 10px rgba(0, 0, 255, 0.7), 0 0 20px rgba(0, 0, 255, 0.5),
+      0 0 30px rgba(0, 0, 255, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(0, 0, 255, 0.7), 0 0 30px rgba(0, 0, 255, 0.5),
+      0 0 40px rgba(0, 0, 255, 0.3);
+  }
+} */
+
+/* .hilight {
+  background-color: transparent;
+  border: 2px solid #00f;
+  border-radius: 10px;
+  animation: neon 1.5s linear infinite;
+}
+
+@keyframes neon {
+  0% {
+    box-shadow: 0 0 10px rgba(255, 165, 0, 0.7), 0 0 20px rgba(255, 165, 0, 0.5),
+      0 0 30px rgba(255, 165, 0, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(255, 165, 0, 0.7), 0 0 30px rgba(255, 165, 0, 0.5),
+      0 0 40px rgba(255, 165, 0, 0.3);
+  }
+} */
+
+.hilight {
+  background-color: gold;
+  border: 2px solid gold;
+  border-radius: 10px;
+  animation: neon 1.5s linear infinite;
+}
+
+@keyframes neon {
+  0% {
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.7), 0 0 20px rgba(255, 215, 0, 0.5),
+      0 0 30px rgba(255, 215, 0, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.7), 0 0 30px rgba(255, 215, 0, 0.5),
+      0 0 40px rgba(255, 215, 0, 0.3);
+  }
 }
