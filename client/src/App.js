@@ -39,7 +39,7 @@ const App = () => {
     <>
       <userContext.Provider value={{ user, setUser }}>
         <Router>
-          {/* <Header /> */}
+          <Header />
           <Routes>
             <Route path="/" element={<WelcomePage />} />
             {/* <Route path="/" element={<HomePage />} /> */}
