@@ -5,7 +5,7 @@ import account from "../config/appwriteConfig.js";
 
 // context
 import userContext from "../context/userContext.js";
-
+import "./Header.css";
 // router
 // import { Link } from "react-router-dom";
 
@@ -33,19 +33,25 @@ const Header = () => {
   };
 
   return (
-    <header className="sticky bg-white w-full top-0">
-      <nav className="flex py-1 border-b-2 text-violet-800">
-        <span className="text-3xl font-medium ml-3 md:ml-40">TodoApp</span>
+    <header className="Topheader sticky w-full top-0">
+      <nav className="flex py-1  text-violet-800">
+        <span className="AppName ml-3 text-2xl md:text-4xl font-medium text-center">
+          &#123;TodoApp&#125;
+        </span>
         <ul className="w-full flex items-center flex-wrap justify-end gap-4">
           {
             user ? (
               <>
-                <li className="text-sm lg:text-xl font-medium">{user.name}</li>
-                <li
-                  className="text-sm lg:text-xl font-medium mr-3 md:mr-10 lg:mr-20 "
-                  onClick={handleLogout}
-                >
-                  Logout
+                <li className="account_name text-sm lg:text-xl font-medium mr-3 md:mr-3 lg:mr-5">
+                  {user.name}
+                </li>
+                <li className="text-sm lg:text-xl font-medium mr-3 md:mr-3 lg:mr-5 ">
+                  <button
+                    className="logout_button bg-violet-600  mt-2 md:mt-0 sm:ml-2  px-5  py-2 text-md  lg:text-lg   text-white  font-medium  rounded  active:bg-violet-400  active:text-gray-500"
+                    onClick={handleLogout}
+                  >
+                    Logout
+                  </button>
                 </li>
               </>
             ) : (
