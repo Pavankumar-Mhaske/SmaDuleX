@@ -22,6 +22,28 @@
   background: #000;
 }
 
+.homepagePro .header_createTodos {
+  background-image: linear-gradient(
+    to bottom,
+    #ffff00,
+    #ff0000
+  ); /* Replace with your desired gradient colors */
+  -webkit-background-clip: text; /* For webkit-based browsers like Chrome and Safari */
+  background-clip: text; /* Standard property for modern browsers */
+  color: transparent;
+}
+
+.homepagePro .header_todos {
+  background-image: linear-gradient(
+    to bottom,
+    #ffd700,
+    #00ffff
+  ); /* Replace with your desired gradient colors */
+  -webkit-background-clip: text; /* For webkit-based browsers like Chrome and Safari */
+  background-clip: text; /* Standard property for modern browsers */
+  color: transparent;
+}
+
 .homepagePro .hbig-ball-1 {
   position: absolute;
   content: "";
