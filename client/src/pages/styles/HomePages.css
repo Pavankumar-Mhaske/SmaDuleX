@@ -13,9 +13,10 @@
   height: 100%;
   width: 100%;
   padding: 0, 20px;
+  padding-top: 40px;
   background: rgba(255, 255, 255, 0.1);
   z-index: 10;
-  border-radius: 20px;
+  border-radius: 5px;
   border: 2px solid rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(20px);
   box-shadow: -15px 17px 17px rgba(10, 10, 10, 0.25);
@@ -25,8 +26,10 @@
 .homepagePro .header_createTodos {
   background-image: linear-gradient(
     to bottom,
-    #ffff00,
-    #ff0000
+    /* #ffff00,
+    #ff0000 */ #0220ff,
+    #00ffff,
+    #e6eee6
   ); /* Replace with your desired gradient colors */
   -webkit-background-clip: text; /* For webkit-based browsers like Chrome and Safari */
   background-clip: text; /* Standard property for modern browsers */
