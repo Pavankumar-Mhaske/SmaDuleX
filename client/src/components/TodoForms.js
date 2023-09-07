@@ -7,7 +7,8 @@ import axios from "axios";
 import userContext from "../context/userContext";
 
 // components
-import TitleInput from "./TitleInput";
+// import TitleInput from "./TitleInput";
+import TitleInput from "./TitleInputs";
 // import TaskInput from "./TaskInput";
 import TaskInput from "./TaskInputs";
 import TodoButton from "./TodoButton";
