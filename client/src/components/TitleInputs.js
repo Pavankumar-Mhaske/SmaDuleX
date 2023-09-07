@@ -19,7 +19,7 @@ const TitleInput = ({ title, setTitle }) => {
   return (
     <label htmlFor="title">
       <input
-        className=" text-2xl md:text-4xl  h-16  text-violet-800  w-full  lg:w-5/6 pl-2 pb-1  border-t-0  border-l-0  border-r-0  border-b-2  border-violet-300  focus:border-b-2  focus:border-violet-500  placeholder-violet-500 focus:ring-0
+        className="Todoform_inputs text-2xl md:text-4xl  h-16  text-violet-800  w-full  lg:w-5/6 pl-2 pb-1  border-t-0  border-l-0  border-r-0  border-b-2  border-violet-300  focus:border-b-2  focus:border-violet-500  placeholder-violet-500 focus:ring-0
               "
         type="text"
         id="title"
