@@ -48,6 +48,10 @@ const UserSchema = new Schema(
       type: String,
       required: [true, "Appwrite Id is required to create a user"],
     },
+    isVerified: {
+      type: Boolean,
+    },
+
     todos: [
       {
         type: Schema.Types.ObjectId, // This is a reference to the Todo model
