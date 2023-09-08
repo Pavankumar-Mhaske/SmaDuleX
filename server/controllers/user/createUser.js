@@ -81,6 +81,8 @@ exports.createUser = async (req, res) => {
       return res.status(400).json({ msg: "AppwriteId is required" });
     }
 
+    userObj.isVerified = false;
+
     /**
          * 
         const newUser = new User(userObj);
