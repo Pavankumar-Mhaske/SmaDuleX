@@ -36,7 +36,7 @@ exports.sendWhatsAppMessage = () => {
                 .create({
                   body: reminder.reminderMsg,
                   from: "whatsapp:+14155238886",
-                  to: "whatsapp:+918530470684",
+                  to: "whatsapp:+919881470684",
                 })
                 .then((message) => {
                   console.log("Message Id: ", message.sid);
@@ -56,6 +56,22 @@ exports.sendWhatsAppMessage = () => {
       }
     });
   }, 60000);
+};
+
+exports.sendOtpEvent = async (req, res) => {
+  console.log("req.body: ", req.body);
+  const { contactNumber, Otp } = req.body;
+  console.log("contactNumber: ", contactNumber);
+  console.log("Otp: ", Otp);
+
+  client.messages
+    .create({
+      body: "12345",
+      from: "+12565883356",
+      to: "+919881470684",
+    })
+    .then((message) => console.log(message.sid));
+  res.send("OTP sent successfully!");
 };
 
 // module.exports= client;
