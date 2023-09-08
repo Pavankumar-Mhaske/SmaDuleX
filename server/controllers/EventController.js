@@ -1,6 +1,6 @@
 // importing the Schemas
 
-const Reminder = require("../models/EventSchema");
+const Event = require("../models/EventSchema");
 const User = require("../models/UserSchema");
 
 /**
@@ -84,7 +84,7 @@ exports.createEvent = async (req, res) => {
     //   isReminded: false,
     // });
 
-    const reminder = await Reminder.create(eventObj);
+    const reminder = await Event.create(eventObj);
 
     if (!user[0].events) {
       user[0].events = [reminder._id];
@@ -121,7 +121,7 @@ exports.createEvent = async (req, res) => {
 
 exports.getEvents = async (req, res) => {
   try {
-    const events = await Reminder.find({});
+    const events = await Event.find({});
 
     if (!events) {
       throw new Error("No events found");
@@ -190,7 +190,7 @@ exports.getEvent = async (req, res) => {
       throw new Error("userId should be of type string");
     }
 
-    const event = await Reminder.findById(eventId);
+    const event = await Event.findById(eventId);
     const user = await User.find({ appwriteId: userId });
 
     if (!event) {
@@ -277,7 +277,7 @@ exports.deleteEvent = async (req, res) => {
     }
 
     const user = await User.find({ appwriteId: userId.trim() });
-    const event = await Reminder.findByIdAndDelete(eventId.trim());
+    const event = await Event.findByIdAndDelete(eventId.trim());
 
     if (!user) {
       throw new Error("User not found in DB");
