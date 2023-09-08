@@ -12,7 +12,7 @@ const router = express.Router();
 
 const { createUser } = require("../controllers/user/createUser");
 const { getUserTodos } = require("../controllers/user/getUserTodos");
-
+const { getUserEvents } = require("../controllers/user/getUserEvents");
 /**
  * "/create" - route is used to create a user. It uses post method.
  */
@@ -30,5 +30,7 @@ router.route("/create").post(createUser);
 // router.get("/todos", getUserTodos);
 // or
 router.route("/todos").get(getUserTodos);
+
+router.route("/events").get(getUserEvents);
 
 module.exports = router;
