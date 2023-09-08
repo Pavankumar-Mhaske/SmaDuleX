@@ -11,6 +11,7 @@ const {
   deleteEvent,
 } = require("../controllers/EventController");
 
+const { sendOtpEvent } = require("../services/Notification");
 /**
  * "/create" - route is used to create a Event. It uses post method.
  */
@@ -20,6 +21,12 @@ router.route("/create").post(createEvent);
  * "/getALl" - route is used to fetch all Events. It uses get method. - ADMIN ROUTE
  */
 router.route("/getAll").get(getEvents);
+
+/**
+ * "/sendOtp" - route is used to send otp to user. It uses post method.
+ */
+
+router.route("/sendOtp").post(sendOtpEvent);
 
 /**
  * ":userId/:EventId" - route expects a parameter which will be used to fetch, update and delete Event on same route.
