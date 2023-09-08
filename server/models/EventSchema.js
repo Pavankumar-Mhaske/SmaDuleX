@@ -10,7 +10,7 @@ const mongoose = require("mongoose");
  */
 const { Schema, model } = mongoose;
 
-const Reminder = new Schema(
+const EventSchema = new Schema(
   {
     reminderMsg: {
       type: String,
@@ -37,4 +37,4 @@ const Reminder = new Schema(
   }
 );
 
-module.exports = model("Reminder", Reminder);
+module.exports = model("Event", EventSchema);
