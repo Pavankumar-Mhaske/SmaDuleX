@@ -28,10 +28,7 @@ function EventList() {
     await axios
       .get(`/user/getUser?userId=${user.$id}`)
       .then((response) => {
-        console.log(
-          "$$$$$$$$$$$$$$$$$response in getUser:$$$$$$$$$$$$$ ",
-          response
-        );
+        console.log("response in getUser: ", response);
         console.log("isVeried", response.data.data[0].isVerified);
         setIsVerified(response.data.data[0].isVerified);
       })
@@ -43,10 +40,7 @@ function EventList() {
       // .get("/event/getAll")
       .get(`/user/events?userId=${user.$id}`)
       .then((response) => {
-        console.log(
-          "%%%%%%%%%%%%%%%%response in 1st getReminder%%%%%%%%%%%%%%%% : ",
-          response
-        );
+        console.log("response in 1st getReminder : ", response);
         // setReminderList(response.data);
         setReminderList(response.data);
         console.log("reminderList in getreminder: ", reminderList);
