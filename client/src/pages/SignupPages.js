@@ -207,6 +207,7 @@ const SignupPage = () => {
     }, 1000); // 3000 milliseconds = 3 seconds
   };
 
+  // navigate user to homePage when user is signed in
   if (user) return <Navigate to="/home" />;
 
   return (
