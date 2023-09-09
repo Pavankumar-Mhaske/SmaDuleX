@@ -16,6 +16,7 @@ const { MONGO_URL } = process.env;
  */
 
 exports.dbConnect = () => {
+  // console.log("MONGO_URL: ", MONGO_URL);
   mongoose
     .connect(MONGO_URL, {
       useNewUrlParser: true,
