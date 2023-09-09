@@ -126,7 +126,8 @@ exports.getEvents = async (req, res) => {
     if (!events) {
       throw new Error("No events found");
     }
-    // console.log(events);
+
+    console.log("events : ", events);
     res.status(200).json({
       success: true,
       message: "Events fetched successfully",
