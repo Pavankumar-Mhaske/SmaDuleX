@@ -22,6 +22,7 @@ exports.getUserEvents = async (req, res) => {
         );
 
         if (user) {
+          // check whether user has events or not
           // console.log(user.events);
           return res.status(200).json({
             success: true,
