@@ -73,7 +73,7 @@ app.use("/event", eventRoutes);
  * @requires cors
  * @requires dotenv
  */
-
+//  TODO: this function call is running the function before the database connection is established so i need the function to run after the database connection is established
 sendWhatsAppMessage();
 // WhatsApp API initialization
 
