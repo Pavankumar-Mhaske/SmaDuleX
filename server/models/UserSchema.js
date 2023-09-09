@@ -48,8 +48,15 @@ const UserSchema = new Schema(
       type: String,
       required: [true, "Appwrite Id is required to create a user"],
     },
+    contactNumber: {
+      type: String,
+      trim: true,
+      maxlength: [20, "Contact number can not be more than 20 digits"],
+      default: "",
+    },
     isVerified: {
       type: Boolean,
+      default: false,
     },
 
     todos: [
