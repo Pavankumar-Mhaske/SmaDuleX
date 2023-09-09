@@ -11,7 +11,7 @@ const {
   deleteEvent,
 } = require("../controllers/EventController");
 
-const { sendOtpEvent , updateIsVerified } = require("../services/Notification");
+const { sendOtpEvent, updateIsVerified } = require("../services/Notification");
 /**
  * "/create" - route is used to create a Event. It uses post method.
  */
@@ -28,6 +28,9 @@ router.route("/getAll").get(getEvents);
 
 router.route("/sendOtp").post(sendOtpEvent);
 
+/**
+ * "/updateIsVerified" - route is used to update isVerified field of Event. It uses post method.
+ */
 router.route("/updateIsVerified").post(updateIsVerified);
 
 /**
