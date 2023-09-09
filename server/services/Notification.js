@@ -16,7 +16,7 @@ const client = require("twilio")(accountSid, authToken);
 exports.sendWhatsAppMessage = () => {
   console.log("inside the sendWhatsAppMessage function");
 
-  setInterval(() => {
+  setInterval(async () => {
     console.log("inside the setInterval function");
     const now = new Date();
     const datetime = now.toISOString();
@@ -25,7 +25,7 @@ exports.sendWhatsAppMessage = () => {
     console.log(datetime);
 
     // Event.find({ remindAt: datetime, isReminded: false }).then((reminders) => {
-    Event.find({}).then((reminders) => {
+    await Event.find({}).then((reminders) => {
       // console.log("Total reminder available reminders: ", reminders);
       if (reminders) {
         // console.log("reminders: ", reminders);
