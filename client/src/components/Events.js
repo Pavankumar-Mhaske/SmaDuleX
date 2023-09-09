@@ -222,6 +222,7 @@ function EventList() {
       await axios.post("/event/updateIsVerified", {
         userId: user.$id,
         isVerified: true,
+        contactNumber: contactNumber,
       });
     } else {
       console.log("otp is not verified");
