@@ -3,34 +3,7 @@
  */
 
 const app = require("./app");
-const { sendWhatsAppMessage } = require("./services/Notification");
 
-/**
- * DB connection
- * dbConnect() - database connection
- *              - connecting application to database
- */
-const { dbConnect } = require("./config/dbConnect");
-dbConnect();
-
-// Wrap the database connection in an async function
-
-const startApp = async () => {
-  try {
-    await dbConnect();
-    console.log(`
-    Congratulations! .....Database connected successfully.....
-                      Now starting the app...`);
-    sendWhatsAppMessage();
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-// message to commit to git
-// ensured that the connection is established before proceeding with other tasks.
-
-startApp();
 
 /**
  * Destucturing PORT from .env file

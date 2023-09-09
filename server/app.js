@@ -77,6 +77,37 @@ app.use("/event", eventRoutes);
 // sendWhatsAppMessage();
 // WhatsApp API initialization
 
+
+const { dbConnect } = require("./config/dbConnect");
+
+const { sendWhatsAppMessage } = require("./services/Notification");
+
+/**
+ * DB connection
+ * dbConnect() - database connection
+ *              - connecting application to database
+ */
+// dbConnect();
+
+// Wrap the database connection in an async function
+
+const startApp = async () => {
+  try {
+    await dbConnect();
+    console.log(`
+    Congratulations! .....Database connected successfully.....
+                      Now starting the app...`);
+    sendWhatsAppMessage();
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// message to commit to git
+// ensured that the connection is established before proceeding with other tasks.
+
+startApp();
+
 // const accountSid = process.env.ACCOUNT_SID;
 // const authToken = process.env.AUTH_TOKEN;
 // const client = require("twilio")(accountSid, authToken);
