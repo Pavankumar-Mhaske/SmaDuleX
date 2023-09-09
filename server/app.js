@@ -77,7 +77,6 @@ app.use("/event", eventRoutes);
 // sendWhatsAppMessage();
 // WhatsApp API initialization
 
-
 const { dbConnect } = require("./config/dbConnect");
 
 const { sendWhatsAppMessage } = require("./services/Notification");
@@ -104,8 +103,7 @@ const startApp = async () => {
 };
 
 // message to commit to git
-// ensured that the connection is established before proceeding with other tasks.
-
+//
 startApp();
 
 // const accountSid = process.env.ACCOUNT_SID;
