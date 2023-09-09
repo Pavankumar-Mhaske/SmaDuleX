@@ -112,7 +112,8 @@ function EventList() {
 
         // get all reminders from db and set reminderList on every addReminder call
         await axios
-          .get("/event/getAll")
+          // .get("/event/getAll")
+          .get(`/user/events?userId=${user.$id}`)
           .then((response) => {
             console.log(
               "response in getReminder  inside the addReminder : ",
@@ -147,7 +148,8 @@ function EventList() {
         console.log("response in deleteReminder : ", res);
         // get all reminders from db and set reminderList on every addReminder call
         await axios
-          .get("/event/getAll")
+          // .get("/event/getAll")
+          .get(`/user/events?userId=${user.$id}`)
           .then((response) => {
             console.log(
               "response in getReminder  inside the deleteReminder : ",
