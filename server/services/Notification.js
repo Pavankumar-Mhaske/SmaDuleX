@@ -15,6 +15,7 @@ const client = require("twilio")(accountSid, authToken);
 // function for sending whatsapp message
 exports.sendWhatsAppMessage = () => {
   console.log("inside the sendWhatsAppMessage function");
+
   setInterval(() => {
     console.log("inside the setInterval function");
     const now = new Date();
@@ -25,20 +26,42 @@ exports.sendWhatsAppMessage = () => {
 
     // Event.find({ remindAt: datetime, isReminded: false }).then((reminders) => {
     Event.find({}).then((reminders) => {
-      console.log("Total reminder available reminders: ", reminders);
+      // console.log("Total reminder available reminders: ", reminders);
       if (reminders) {
         // console.log("reminders: ", reminders);
 
-        reminders.forEach((reminder) => {
+        reminders.forEach(async (reminder) => {
           if (reminder.isReminded === false) {
             const now = new Date();
             if (new Date(reminder.remindAt) <= now) {
+              console.log(
+                "*************************************************************"
+              );
               console.log("reminder Found: ", reminder);
+
+              // console.log("id: ", reminder.user._id);
+              // console.log("userId", reminder.user._id.toString());
+
+              const userId = reminder.user._id.toString();
+              console.log("userId: ", userId);
+              const user = await User.findOne({ _id: userId });
+              console.log("user: ", user);
+              const contactNumber = user.contactNumber;
+              console.log("contactNumber: ", contactNumber);
+              // const user = User.findById(userId);
+              // console.log("user: ", user);
+              // const contactNumber = user.contactNumber;
+              // console.log("contactNumber: ", contactNumber);
+              console.log(
+                "*************************************************************"
+              );
+
               client.messages
                 .create({
                   body: reminder.reminderMsg,
                   from: "whatsapp:+14155238886",
-                  to: "whatsapp:+919881470684",
+                  // to: "whatsapp:+919881470684",
+                  to: `whatsapp:${contactNumber}`,
                 })
                 .then((message) => {
                   console.log("Message Id: ", message.sid);
@@ -57,7 +80,7 @@ exports.sendWhatsAppMessage = () => {
         });
       }
     });
-  }, 60000);
+  }, 20000);
 };
 
 exports.sendOtpEvent = async (req, res) => {
@@ -86,7 +109,7 @@ exports.sendOtpEvent = async (req, res) => {
 exports.updateIsVerified = async (req, res) => {
   try {
     // const { userId } = req.body;
-    const { userId, isVerified } = req.body;
+    const { userId, isVerified, contactNumber } = req.body;
 
     if (!userId || typeof userId !== "string") {
       if (!userId) {
@@ -102,17 +125,18 @@ exports.updateIsVerified = async (req, res) => {
     if (!user) {
       throw new Error("User not found");
     }
-    user.isVerified = true;
+
+    user.contactNumber = contactNumber;
+
+    user.isVerified = isVerified;
 
     await user.save();
-    console.log("**************** inside the verify user:::::***********");
+    // console.log("**************** inside the verify user:::::***********");
     res.status(200).json({
       success: true,
       message: "User is verified successfully!",
       data: user,
     });
-
-    // if (user) { " " }
   } catch (error) {
     console.log("Error in updateIsVerified controller");
     console.log("ERROR: ", error);
