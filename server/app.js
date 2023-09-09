@@ -29,7 +29,7 @@ app.use(cors());
  * Home route for testing purpose
  */
 
-const { sendWhatsAppMessage } = require("./services/Notification");
+// const { sendWhatsAppMessage } = require("./services/Notification");
 
 app.get("/", (req, res) => {
   res.status(200).json({
@@ -74,7 +74,7 @@ app.use("/event", eventRoutes);
  * @requires dotenv
  */
 //  TODO: this function call is running the function before the database connection is established so i need the function to run after the database connection is established
-sendWhatsAppMessage();
+// sendWhatsAppMessage();
 // WhatsApp API initialization
 
 // const accountSid = process.env.ACCOUNT_SID;
