@@ -113,10 +113,13 @@ section {
   color: #fff;
 }
 
+/* if there is focus / hover on input fields then show lable translation  */
 .signup-box .input-box input:focus ~ label,
 .signup-box .input-box input:valid ~ label {
   top: -5px;
 }
+/* if there is no input (something presend at input field) then show lable translation  */
+
 .signup-box .input-box input:not(:placeholder-shown) ~ label {
   top: -5px;
 }
