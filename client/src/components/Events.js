@@ -229,6 +229,7 @@ function EventList() {
   return (
     <div className="eventPage">
       {console.log("user in eventList *********** : ", user.isVerified)}
+      {/* functionality of Verifying the users contact number and enabling him/her to use evets scheduling funtioanlity */}
       {!isVerified ? (
         <div className="verification_box w-[95%] sm:w-5/6 md:w-full m-auto">
           <h1 className="header_gradient_text mt-12 mb-6 text-2xl md:text-4xl font-medium text-center">
