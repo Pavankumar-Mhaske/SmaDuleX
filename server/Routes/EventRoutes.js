@@ -29,7 +29,7 @@ router.route("/getAll").get(getEvents);
 router.route("/sendOtp").post(sendOtpEvent);
 
 /**
- * "/updateIsVerified" - route is used to update isVerified field of Event. It uses post method.
+ * "/updateIsVerified" - route is used to update isVerified field of User. It uses post method.
  */
 router.route("/updateIsVerified").post(updateIsVerified);
 
