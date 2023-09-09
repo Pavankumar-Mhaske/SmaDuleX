@@ -117,6 +117,9 @@ section {
 .signup-box .input-box input:valid ~ label {
   top: -5px;
 }
+.signup-box .input-box input:not(:placeholder-shown) ~ label {
+  top: -5px;
+}
 
 .signup-box .input-box input {
   width: 100%;

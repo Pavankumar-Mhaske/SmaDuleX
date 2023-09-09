@@ -207,7 +207,7 @@ const SignupPage = () => {
     }, 1000); // 3000 milliseconds = 3 seconds
   };
 
-  if (user) return <Navigate to="/" />;
+  if (user) return <Navigate to="/home" />;
 
   return (
     <section className="w-screen ">

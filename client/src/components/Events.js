@@ -19,19 +19,59 @@ function EventList() {
   const [otp, setOtp] = useState("");
   const [responseOtp, SetResponseOtp] = useState("");
   const [isVerified, setIsVerified] = useState(user.isVerified);
+  const [allowSendOtp, setAllowSendOtp] = useState(false);
+  const [seconds, setSeconds] = useState(0);
 
   console.log("In EventsList user is  : ", user);
-  useEffect(() => {
-    axios
-      // .get("/event/getAll")
-      .get(`/user/events?userId=${user.$id}`)
+
+  const fetchData = async () => {
+    await axios
+      .get(`/user/getUser?userId=${user.$id}`)
       .then((response) => {
-        console.log("response in 1st getReminder : ", response);
-        setReminderList(response.data);
+        console.log(
+          "$$$$$$$$$$$$$$$$$response in getUser:$$$$$$$$$$$$$ ",
+          response
+        );
+        console.log("isVeried", response.data.data[0].isVerified);
+        setIsVerified(response.data.data[0].isVerified);
       })
       .catch((error) => {
         console.log("error", error);
       });
+
+    await axios
+      // .get("/event/getAll")
+      .get(`/user/events?userId=${user.$id}`)
+      .then((response) => {
+        console.log(
+          "%%%%%%%%%%%%%%%%response in 1st getReminder%%%%%%%%%%%%%%%% : ",
+          response
+        );
+        // setReminderList(response.data);
+        setReminderList(response.data);
+        console.log("reminderList in getreminder: ", reminderList);
+      })
+      .catch((error) => {
+        console.log("error", error);
+      });
+
+    // try {
+    //   const userResponse = await axios.get(`/user/getUser?userId=${user.$id}`);
+    //   console.log("User response:", userResponse);
+
+    //   setIsVerified(userResponse.data.data[0].isVerified);
+
+    //   const eventsResponse = await axios.get(`/user/events?userId=${user.$id}`);
+    //   console.log("Events response:", eventsResponse);
+
+    //   setReminderList(eventsResponse.data);
+    // } catch (error) {
+    //   console.error("Error fetching data:", error);
+    // }
+  };
+
+  useEffect(() => {
+    fetchData();
   }, []);
 
   // useEffect(() => {
@@ -85,6 +125,7 @@ function EventList() {
               response
             );
             setReminderList(response.data);
+            console.log("reminderList in addreminder : ", reminderList);
           })
           .catch((error) => {
             console.log(
@@ -132,16 +173,30 @@ function EventList() {
       });
   };
 
+  useEffect(() => {
+    // Function to update the time every second
+    console.log("inside the seconds decreaments:");
+    const interval = setInterval(() => {
+      if (seconds > 0) {
+        console.log("seconds : ", seconds);
+        setSeconds((prevSeconds) => prevSeconds - 1);
+      } else {
+        setAllowSendOtp(true);
+        console.log("during ending interval:", seconds);
+
+        clearInterval(interval); // Stop the timer when it reaches 0
+      }
+    }, 1000);
+
+    // Clean up the interval when the component unmounts
+    return () => clearInterval(interval);
+  }, [seconds]);
+
   // send otp
   const sendOtp = async () => {
     console.log("contactNumber in sendOtp : ", contactNumber);
 
-    // const Otp = otpGenerator.generate(6, {
-    //   upperCaseAlphabets: false,
-    //   specialChars: false,
-    // });
-    // const Otp = Math.floor(100000 + Math.random() * 900000);
-    const Otp = "1234";
+    const Otp = "0000";
 
     console.log("Otp is : ", Otp);
     setOtp(Otp);
@@ -151,18 +206,27 @@ function EventList() {
       contactNumber: contactNumber,
       Otp: Otp,
     });
+
+    setSeconds(30);
+    setAllowSendOtp(false);
+    // setTimeout(() => {
+    //   console.log("resend otp activated after 30sec");
+    //   setAllowSendOtp(true);
+    // }, 30000);
   };
 
   // contact number varification
-  const verifyOtp = () => {
-    console.log(
-      "************* inside verifyOtp function: ******************************"
-    );
+  const verifyOtp = async () => {
+    console.log("inside verifyOtp function");
 
     if (otp === responseOtp) {
       console.log("otp is verified successfully");
       setIsVerified(true);
       user.isVerified = true;
+      await axios.post("/event/updateIsVerified", {
+        userId: user.$id,
+        isVerified: true,
+      });
     } else {
       console.log("otp is not verified");
     }
@@ -170,52 +234,74 @@ function EventList() {
 
   return (
     <div className="eventPage">
-      {/* {console.log("reminderList is : ", reminderList)} */}
-
-      {/*conditionally rendered div element for contact number verification... */}
-      {console.log("insdie the eventpage")}
-      {console.log("contact number : ", contactNumber)}
-      {console.log("otp number : ", otp)}
-      {console.log("responce Otp : ", responseOtp)}
+      {console.log("user in eventList *********** : ", user.isVerified)}
       {!isVerified ? (
-        <div className="contactNumberVerification">
-          <h1 className="header_gradient_text mt-12 mb-6 text-2xl md:text-4xl font-medium text-violet-800 text-center">
+        <div className="verification_box w-[95%] sm:w-5/6 md:w-full m-auto">
+          <h1 className="header_gradient_text mt-12 mb-6 text-2xl md:text-4xl font-medium text-center">
+            Events Reminder
+          </h1>
+          <h1 className="header_gradient_text mb-6 text-2xl md:text-4xl font-medium text-center">
             Verify your contact number!
           </h1>
-          <div className="contactNumberVerification_body">
-            {/* sending otp */}
-            <h1>Enter your contact number</h1>
-            {/* <input
-              type="text"
-              placeholder="Enter your contact number here..."
-              value={contactNumber}
-              onChange={(e) => setContactNumber(e.target.value)}
-            /> */}
-
-            <PhoneInput
-              defaultCountry="RU"
-              placeholder="Enter phone number"
-              value={contactNumber}
-              onChange={setContactNumber}
-            />
-            <button className="border border-white-500" onClick={sendOtp}>
-              Send OTP
-            </button>
-
-            {/* verifying otp */}
-            <h1>Enter OTP</h1>
-            <input
-              type="text"
-              placeholder="Enter OTP here..."
-              value={responseOtp}
-              onChange={(e) => SetResponseOtp(e.target.value)}
-            />
-            <button
-              className="button border border-white-500"
-              onClick={verifyOtp}
+          <div className="verification_body">
+            {/* <h1>Enter your contact number</h1> */}
+            <div className="flex-container">
+              <PhoneInput
+                className="verification_input"
+                defaultCountry="RU"
+                placeholder="Enter phone number"
+                value={contactNumber}
+                onChange={setContactNumber}
+              />
+              <button
+                className={` ${
+                  allowSendOtp ? "" : "cursor-not-allowed"
+                } verification_button_sendotp mt-2 md:mt-0 sm:ml-2  px-5  py-2 text-md  lg:text-lg   text-white  font-medium  rounded  active:bg-violet-400  active:text-gray-500`}
+                onClick={() => {
+                  if (allowSendOtp) {
+                    sendOtp();
+                  }
+                }}
+                disabled={!allowSendOtp}
+              >
+                Send OTP
+              </button>
+            </div>
+            <div
+              className={`otp_dropdown 
+          transition-all duration-300
+          text-sm border border-red-200
+          flex flex-col justify-between mb-4
+          ${
+            !allowSendOtp
+              ? " validation-transition h-auto opacity-100"
+              : " validation-transition h-0 opacity-0"
+          }
+        `}
             >
-              Verify
-            </button>
+              <p className="text-center text-white">
+                OTP is send to your mobile number ✅
+                <br />
+                You can resend the OTP again after : {seconds}
+              </p>
+            </div>
+            {/* verifying otp */}
+            <div className="flex-container">
+              <h1>Enter OTP</h1>
+              <input
+                className="verification_input "
+                type="text"
+                placeholder="Enter OTP here..."
+                value={responseOtp}
+                onChange={(e) => SetResponseOtp(e.target.value)}
+              />
+              <button
+                className="verification_button_verify  mt-2 md:mt-0 sm:ml-2  px-5  py-2 text-md  lg:text-lg   text-white  font-medium  rounded "
+                onClick={verifyOtp}
+              >
+                Verify
+              </button>
+            </div>
           </div>
         </div>
       ) : (

@@ -13,6 +13,7 @@ const router = express.Router();
 const { createUser } = require("../controllers/user/createUser");
 const { getUserTodos } = require("../controllers/user/getUserTodos");
 const { getUserEvents } = require("../controllers/user/getUserEvents");
+const { getUser } = require("../controllers/user/getUser");
 /**
  * "/create" - route is used to create a user. It uses post method.
  */
@@ -22,6 +23,7 @@ const { getUserEvents } = require("../controllers/user/getUserEvents");
 
 router.route("/create").post(createUser);
 
+router.route("/getUser").get(getUser);
 /**
  * "/todos" - route is used to fetch the todos of a user. It uses get method.
  * It uses query parameter to fetch the todos of a user.

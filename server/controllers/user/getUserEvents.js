@@ -22,10 +22,11 @@ exports.getUserEvents = async (req, res) => {
         );
 
         if (user) {
+          // console.log(user.events);
           return res.status(200).json({
             success: true,
             message: "User Events fetched successfully",
-            user: user.events,
+            data: user.events,
             status: 200,
           });
         } else {

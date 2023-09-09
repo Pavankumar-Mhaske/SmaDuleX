@@ -126,7 +126,7 @@ exports.getEvents = async (req, res) => {
     if (!events) {
       throw new Error("No events found");
     }
-
+    // console.log(events);
     res.status(200).json({
       success: true,
       message: "Events fetched successfully",
@@ -319,7 +319,6 @@ exports.deleteEvent = async (req, res) => {
       });
     }
   }
-
   /**
      * try {
     const { id } = req.params;
