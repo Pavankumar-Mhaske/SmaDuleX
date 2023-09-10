@@ -242,18 +242,13 @@ section .backButton .btn-flip {
   }
 }
 
+/* Spinner  */
+
 .blur-background {
   background-color: black;
   filter: blur(15px); /* Adjust the blur amount as needed */
   transition: filter 0.2s;
 }
-
-/* body {
-  background: rgb(0, 0, 0);
-  height: 100vh;
-  display: flex;
-  overflow: hidden;
-} */
 
 .spinnersContainer {
   position: absolute;
