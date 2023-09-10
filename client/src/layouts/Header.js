@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 // appwrite
 import account from "../config/appwriteConfig.js";
@@ -15,14 +15,30 @@ const Header = () => {
    * login and signup.
    * It is also set to null if user logs out.
    */
+
   const { user, setUser } = useContext(userContext);
+  const [showSpinner, setShowSpinner] = useState(false);
+  const [showBlur, setShowBlur] = useState(false);
 
   /**
    * handleLogout() - Asynchronous Function
    *      - Logs the user out using deleteSession service of appwrite.
    *      - Updates the userContext to null meaning the user is logged out.
    */
+
+  const startSpinnerAnimation = () => {
+    setShowSpinner(true);
+    setShowBlur(true);
+
+    // Stop the spinner and blur animation after 2 seconds
+    setTimeout(() => {
+      setShowSpinner(false);
+      setShowBlur(false);
+    }, 500);
+  };
+
   const handleLogout = async () => {
+    startSpinnerAnimation();
     try {
       await account.deleteSession("current");
       setUser(null);
@@ -33,7 +49,11 @@ const Header = () => {
   };
 
   return (
-    <header className="Topheader sticky w-full top-0">
+    <header
+      className={`Topheader sticky w-full top-0 ${
+        showBlur ? "blur-background" : ""
+      }`}
+    >
       <nav className="flex py-1  text-violet-800">
         <span className="AppName ml-3 text-2xl md:text-4xl font-medium text-center">
           &#123;TodoApp&#125;
@@ -69,6 +89,15 @@ const Header = () => {
           )} */
           }
         </ul>
+
+        <div className={`spinnersContainer ${showSpinner ? "" : "hidden"} `}>
+          <div className={`spinner1`}>
+            <div className={`circle1`}></div>
+          </div>
+          <div className={`spinner2`}>
+            <div className={`circle2`}></div>
+          </div>
+        </div>
       </nav>
     </header>
   );
