@@ -35,6 +35,8 @@ const LoginPages = () => {
   // const [passwordConfirm, setPasswordConfirm] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [bothFieldsPresent, setBothFieldsPresent] = useState(false);
+  const [showSpinner, setShowSpinner] = useState(false);
+  const [showBlur, setShowBlur] = useState(false);
   // const [passwordFocus, setPasswordFocus] = useState(false);
 
   /**
@@ -45,9 +47,23 @@ const LoginPages = () => {
    *      - Navigate to homepage on successfull login
    *      - We set the Logged in user to userContext
    */
+  // Function to start the spinner and blur animation
+  const startSpinnerAnimation = () => {
+    setShowSpinner(true);
+    setShowBlur(true);
+
+    // Stop the spinner and blur animation after 2 seconds
+    setTimeout(() => {
+      setShowSpinner(false);
+      setShowBlur(false);
+    }, 20000);
+  };
 
   const handleLogin = async (e) => {
     e.preventDefault();
+
+    startSpinnerAnimation();
+
     try {
       const appwriteUser = await account.createEmailSession(email, password);
       console.log(appwriteUser);
@@ -107,7 +123,7 @@ const LoginPages = () => {
   if (user) return <Navigate to="/home" />;
   return (
     <section className="w-screen">
-      <div className="login-box">
+      <div className={`login-box ${showBlur ? "blur-background" : ""}`}>
         <form id="login-form" action="" onSubmit={(e) => handleLogin(e)}>
           <h2>Login</h2>
           <div className="input-box">
@@ -163,7 +179,19 @@ const LoginPages = () => {
             <a href="#login-form">Forgot Password?</a>
           </div>
           {/* <button type="submit">Login</button> */}
-          <TodoButton name="Login" passwordMatched={bothFieldsPresent} />
+
+          <TodoButton
+            name="Login"
+            passwordMatched={bothFieldsPresent}
+            // onClick={startSpinnerAnimation}
+          />
+          {/* <button
+            className=" absolute text-white border py-5 "
+            onClick={startSpinnerAnimation}
+          >
+            click me
+          </button> */}
+
           <div className="register-link">
             <p>Don't have an account?</p>
             <a href="/signup">Register</a>
@@ -173,6 +201,15 @@ const LoginPages = () => {
       <button className="backButton" onClick={navigateToWelcome}>
         <div className="btn-flip" data-back="Back" data-front="Front"></div>
       </button>
+
+      <div className={`spinnersContainer ${showSpinner ? "" : "hidden"} `}>
+        <div className={`spinner1`}>
+          <div className={`circle1`}></div>
+        </div>
+        <div className={`spinner2`}>
+          <div className={`circle2`}></div>
+        </div>
+      </div>
     </section>
   );
 };
