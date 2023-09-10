@@ -47,6 +47,8 @@ const SignupPage = () => {
   const [passwordMatched, setPasswordMatched] = useState(false);
   const [isValidationVisible, setIsValidationVisible] = useState(false);
   const [passwordValidationsMet, setPasswordValidationsMet] = useState(false);
+  const [showSpinner, setShowSpinner] = useState(false);
+  const [showBlur, setShowBlur] = useState(false);
   // const [validationTimeout, setValidationTimeout] = useState(false);
   // const [bothFieldsPresent, setBothFieldsPresent] = useState(false);
   /**
@@ -59,8 +61,21 @@ const SignupPage = () => {
    *          - We set the Registered user to userContext
    */
 
+  // Function to start the spinner and blur animation
+  const startSpinnerAnimation = () => {
+    setShowSpinner(true);
+    setShowBlur(true);
+
+    // Stop the spinner and blur animation after 2 seconds
+    setTimeout(() => {
+      setShowSpinner(false);
+      setShowBlur(false);
+    }, 20000);
+  };
+
   const handleSignup = async (e) => {
     e.preventDefault();
+    startSpinnerAnimation();
     try {
       const appwriteUser = await account.create(
         ID.unique(),
@@ -212,7 +227,7 @@ const SignupPage = () => {
 
   return (
     <section className="w-screen ">
-      <div className="signup-box ">
+      <div className={`signup-box ${showBlur ? "blur-background" : ""} `}>
         <form id="signup-form" action="" onSubmit={(e) => handleSignup(e)}>
           <h2>SignUp</h2>
 
@@ -478,6 +493,16 @@ const SignupPage = () => {
             <a href="/login">Login</a>
           </div>
         </form>
+      </div>
+
+      {/* spinner */}
+      <div className={`spinnersContainer ${showSpinner ? "" : "hidden"} `}>
+        <div className={`spinner1`}>
+          <div className={`circle1`}></div>
+        </div>
+        <div className={`spinner2`}>
+          <div className={`circle2`}></div>
+        </div>
       </div>
     </section>
   );
