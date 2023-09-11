@@ -40,7 +40,10 @@ const TaskInput = ({ tasks, setTasks }) => {
   return (
     <>
       <div className="h-24 md:h-48 border-2 rounded mb-4 py-1 md:py-2">
-        <div className="mb-6 min-h-fit max-h-20 md:max-h-44 overflow-auto flex flex-wrap">
+        <div
+          className="mb-6 min-h-fit max-h-20 md:max-h-44 overflow-auto flex flex-wrap 
+            "
+        >
           {tasks.length === 0 ? (
             <h1 className="text-[24px] sm:text-[30px] md:text-[42px] font-bold text-violet-400 pl-6">
               Add your tasks below
