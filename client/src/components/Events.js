@@ -115,7 +115,7 @@ function EventList() {
     const remindeAtISO = remindeAt.toISOString();
 
     console.log("***********************************************");
-    const toastId = showToastLoading(); // show loading toast
+    const toastId = showToastLoading("Adding an Event..."); // show loading toast
     await axios
       .post("/event/create", {
         reminderMsg: reminderMsg,
@@ -137,7 +137,7 @@ function EventList() {
             );
             setReminderList(response.data);
             console.log("reminderList in addreminder : ", reminderList);
-            showToastSuccess(toastId); // show success toast
+            showToastSuccess("Event added successfully!", toastId); // show success toast
           })
           .catch((error) => {
             console.log(
@@ -162,7 +162,7 @@ function EventList() {
       console.log("userId in deleteReminder : ", user.$id);
 
       // {params: { userId: user.$id, eventId: id },}
-      const toastId = showToastLoading(); // show loading toast
+      const toastId = showToastLoading("Deleting an Event..."); // show loading toast
       await axios
         .delete(`/event/${user.$id}/${id}`)
         .then(async (res) => {
@@ -177,7 +177,7 @@ function EventList() {
                 response
               );
               setReminderList(response.data);
-              showToastSuccess(toastId); // show success toast
+              showToastSuccess("Event deleted successfully!", toastId); // show success toast
             })
             .catch((error) => {
               console.log(
