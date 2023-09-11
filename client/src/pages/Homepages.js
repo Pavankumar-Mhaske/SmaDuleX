@@ -54,7 +54,7 @@ const Homepage = () => {
         <TodoList makeRequest={makeRequest} setMakeRequest={setMakeRequest} />
 
         <div className="w-[98%] sm:w-5/6 md:w-full">
-          <EventList />
+          <EventList  />
         </div>
       </div>
     );
