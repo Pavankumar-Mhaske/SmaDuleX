@@ -64,14 +64,16 @@ const Task = ({ body, tasks, setTasks }) => {
             border-l-violet-500 
             border-r-transparent 
             rounded-l 
-            p-0.5 
-            bg-violet-100"
+            bg-green-100
+            text-black
+            font-semibold
+            "
       >
         {body}
       </p>
 
       <button
-        className="border border-red-500 rounded-r p-0.5 active:bg-red-200 pl-2 pr-1"
+        className="border border-red-500 border-l-transparent  rounded-r p-0.5 bg-red-100 hover:bg-red-300 active:bg-red-300 pl-2 pr-1"
         onClick={deleteTask}
         type="button"
       >
