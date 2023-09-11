@@ -90,13 +90,21 @@ const Todo = ({ todo, makeRequest, setMakeRequest }) => {
         );
         // /api/todo/${user.uid}/${_id}
 
-        const response = await axios.put(`/todo/${user.$id}/${_id}`, {
-          isImportant,
-        });
-        console.log("before the setMakeRequest");
-        console.log(response);
-        // console.log(makeRequest, "type of setMakeRequest", typeof setMakeRequest);
-        setMakeRequest(!makeRequest);
+        await axios
+          .put(`/todo/${user.$id}/${_id}`, {
+            isImportant,
+          })
+          .then((response) => {
+            console.log("before the setMakeRequest");
+            console.log(response);
+            setMakeRequest(!makeRequest);
+          })
+          .catch((error) => {
+            console.log(
+              "Error while updating a todo in handleHightlight method"
+            );
+            console.log("Error: ", error);
+          });
       } catch (error) {
         console.log("Error while updating a todo in handleHightlight method");
         console.log("Error: ", error);
@@ -126,8 +134,18 @@ const Todo = ({ todo, makeRequest, setMakeRequest }) => {
         let { _id, isCompleted } = todo;
         isCompleted = !isCompleted;
         // /api/todo/${user.uid}/${_id}
-        await axios.put(`/todo/${user.$id}/${_id}`, { isCompleted });
-        setMakeRequest(!makeRequest);
+        await axios
+          .put(`/todo/${user.$id}/${_id}`, { isCompleted })
+          .then((response) => {
+            console.log("before the setMakeRequest");
+            setMakeRequest(!makeRequest);
+          })
+          .catch((error) => {
+            console.log(
+              " DB Call - Error while updating a todo in handleCompleted method"
+            );
+            console.log("Error: ", error);
+          });
       } catch (error) {
         console.log("Error while updating a todo in handleCompleted method");
         console.log("Error: ", error);
