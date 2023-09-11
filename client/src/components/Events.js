@@ -354,6 +354,7 @@ function EventList() {
           </h1>
 
           <div className="eventsBox_body">
+            {/* <Toast /> */}
             {console.log("inside the reminder List: ", reminderList)}
             {reminderList.data ? (
               reminderList.data.map((reminder) => (
