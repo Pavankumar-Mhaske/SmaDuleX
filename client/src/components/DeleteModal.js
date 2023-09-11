@@ -6,6 +6,13 @@ import axios from "axios";
 // import context
 import userContext from "../context/userContext";
 
+import {
+  showToastLoading,
+  showToastSuccess,
+  showToastError,
+  Toast,
+} from "./HotToastHandler";
+
 const DeleteModal = ({
   deleteTodo,
   setDeleteTodo,
@@ -25,15 +32,28 @@ const DeleteModal = ({
     try {
       event.preventDefault();
       // /api/todo/${user._id}/${todoId}
-      const response = await axios.delete(`/todo/${user.$id}/${todoId}`);
-      console.log("Response from handleDelete method: ", response);
-      setMakeRequest(!makeRequest);
-      setDeleteTodo(!deleteTodo);
+      const toastId = showToastLoading("Deleting Todo..."); // show loading toast
+      axios
+        .delete(`/todo/${user.$id}/${todoId}`)
+        .then((response) => {
+          console.log("Response from handleDelete method: ", response);
+          setMakeRequest(!makeRequest);
+          setDeleteTodo(!deleteTodo);
+
+          showToastSuccess("Todo deleted successfully!", toastId); // show success toast
+        })
+        .catch((error) => {
+          showToastError(error.message);
+          console.log("Error while deleting a todo in handleDelete method");
+          console.log("Error: ", error);
+        })
+        .finally(() => {
+          document.body.style.overflow = "auto";
+        });
     } catch (error) {
+      showToastError(error.message);
       console.log("Error while deleting a todo in handleDelete method");
       console.log("Error: ", error);
-    } finally {
-      document.body.style.overflow = "auto";
     }
   };
 
@@ -75,6 +95,8 @@ const DeleteModal = ({
           </button>
         </div>
       </div>
+
+      <Toast />
     </div>
   );
 };
