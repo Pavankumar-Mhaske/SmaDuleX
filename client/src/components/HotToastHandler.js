@@ -4,12 +4,12 @@ import toast, { Toaster } from "react-hot-toast";
 // import { ToastContainer, toast } from "react-toastify";
 // import "react-toastify/dist/ReactToastify.css";
 
-export const showToastLoading = () => {
-  return toast.loading("Please wait...");
+export const showToastLoading = (message) => {
+  return toast.loading(message);
 };
 
-export const showToastSuccess = (toastId) => {
-  toast.success("this worked", {
+export const showToastSuccess = (successMessage, toastId) => {
+  toast.success(successMessage, {
     id: toastId,
   });
 };
