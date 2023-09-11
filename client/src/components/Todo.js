@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useCallback, useContext, useEffect, useState } from "react";
 
 // import axios
 import axios from "axios";
@@ -34,8 +34,6 @@ import DeleteModal from "./DeleteModal";
  * @param todo - Todo Object to populate values.
  * @returns A Todo element.
  */
-
-
 
 const Todo = ({ todo, makeRequest, setMakeRequest }) => {
   // console.log("type of setMakeRequest", typeof setMakeRequest);
@@ -75,33 +73,42 @@ const Todo = ({ todo, makeRequest, setMakeRequest }) => {
    *                   - Updates makeRequest state
    */
 
-  const handleHighlight = async (event, todo) => {
-    try {
-      // prevent default behaviour of form submission (reloading)
-      console.log("inside the handleHighlight");
-      console.log("todo is ", todo);
+  const handleHighlight = useCallback(
+    async (event, todo) => {
+      try {
+        // prevent default behaviour of form submission (reloading)
+        console.log("inside the handleHighlight");
+        console.log("todo is ", todo);
 
-      event.preventDefault();
-      let { _id, isImportant } = todo;
+        event.preventDefault();
+        let { _id, isImportant } = todo;
 
-      console.log("todo is ", todo);
-      isImportant = !isImportant;
-      console.log(`before the put request,${user.$id} ${_id}, ${isImportant}`);
-      // /api/todo/${user.uid}/${_id}
+        console.log("todo is ", todo);
+        isImportant = !isImportant;
+        console.log(
+          `before the put request,${user.$id} ${_id}, ${isImportant}`
+        );
+        // /api/todo/${user.uid}/${_id}
 
-      const response = await axios.put(`/todo/${user.$id}/${_id}`, {
-        isImportant,
-      });
-      console.log("before the setMakeRequest");
-      console.log(response);
-      // console.log(makeRequest, "type of setMakeRequest", typeof setMakeRequest);
-      setMakeRequest(!makeRequest);
-    } catch (error) {
-      console.log("Error while updating a todo in handleHightlight method");
-      console.log("Error: ", error);
-    }
-  };
+        const response = await axios.put(`/todo/${user.$id}/${_id}`, {
+          isImportant,
+        });
+        console.log("before the setMakeRequest");
+        console.log(response);
+        // console.log(makeRequest, "type of setMakeRequest", typeof setMakeRequest);
+        setMakeRequest(!makeRequest);
+      } catch (error) {
+        console.log("Error while updating a todo in handleHightlight method");
+        console.log("Error: ", error);
+      }
+    },
+    [makeRequest, setMakeRequest, user.$id]
+  );
 
+  useEffect(() => {
+    console.log("inside the useeffect of todo");
+    handleHighlight();
+  }, [handleHighlight]);
   /**
    * @param todo - stores todo object which has to update its isImportant field
    * handleCompleted() - Prevent default behaviour of form submission (reloading).
