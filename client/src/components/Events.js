@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 import Calender from "./Calender";
 import "./styles/Events.css";
 import axios from "axios";
@@ -96,11 +96,12 @@ function EventList() {
   //   return () => clearInterval(interval);
   // }, [reminderList]);
 
-  const addReminder = async () => {
+  const addReminder = useCallback(async () => {
     console.log("reminderMsg : ", reminderMsg);
     console.log("remindeAt : ", remindeAt);
     const remindeAtISO = remindeAt.toISOString();
 
+    console.log("***********************************************");
     await axios
       .post("/event/create", {
         reminderMsg: reminderMsg,
@@ -111,6 +112,7 @@ function EventList() {
         console.log("response in addReminder : ", res);
 
         // get all reminders from db and set reminderList on every addReminder call
+
         await axios
           // .get("/event/getAll")
           .get(`/user/events?userId=${user.$id}`)
@@ -135,39 +137,42 @@ function EventList() {
 
     setReminderMsg("");
     setRemindeAt(new Date());
-  };
+  }, [reminderList, reminderMsg, remindeAt, user.$id]);
 
-  const deleteReminder = async (id) => {
-    console.log("id in deleteReminder : ", id);
-    console.log("userId in deleteReminder : ", user.$id);
+  const deleteReminder = useCallback(
+    async (id) => {
+      console.log("id in deleteReminder : ", id);
+      console.log("userId in deleteReminder : ", user.$id);
 
-    // {params: { userId: user.$id, eventId: id },}
-    await axios
-      .delete(`/event/${user.$id}/${id}`)
-      .then(async (res) => {
-        console.log("response in deleteReminder : ", res);
-        // get all reminders from db and set reminderList on every addReminder call
-        await axios
-          // .get("/event/getAll")
-          .get(`/user/events?userId=${user.$id}`)
-          .then((response) => {
-            console.log(
-              "response in getReminder  inside the deleteReminder : ",
-              response
-            );
-            setReminderList(response.data);
-          })
-          .catch((error) => {
-            console.log(
-              "error while getting reminders List in deleteReminder : ",
-              error
-            );
-          });
-      })
-      .catch((error) => {
-        console.log("error in deleteReminder : ", error);
-      });
-  };
+      // {params: { userId: user.$id, eventId: id },}
+      await axios
+        .delete(`/event/${user.$id}/${id}`)
+        .then(async (res) => {
+          console.log("response in deleteReminder : ", res);
+          // get all reminders from db and set reminderList on every addReminder call
+          await axios
+            // .get("/event/getAll")
+            .get(`/user/events?userId=${user.$id}`)
+            .then((response) => {
+              console.log(
+                "response in getReminder  inside the deleteReminder : ",
+                response
+              );
+              setReminderList(response.data);
+            })
+            .catch((error) => {
+              console.log(
+                "error while getting reminders List in deleteReminder : ",
+                error
+              );
+            });
+        })
+        .catch((error) => {
+          console.log("error in deleteReminder : ", error);
+        });
+    },
+    [user.$id]
+  );
 
   useEffect(() => {
     // Function to update the time every second
