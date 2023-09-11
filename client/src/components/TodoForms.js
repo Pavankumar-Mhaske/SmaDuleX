@@ -67,7 +67,7 @@ const TodoForm = ({
   const handleSubmit = async (event) => {
     try {
       event.preventDefault();
-      const toastId = showToastLoading(); // show loading toast
+      const toastId = showToastLoading("Adding Todo..."); // show loading toast
       if (task === "create") {
         await axios.post(`todo/create`, {
           title,
@@ -76,7 +76,7 @@ const TodoForm = ({
           userId: user.$id,
         });
         //do something else
-        showToastSuccess(toastId); // show success toast
+        showToastSuccess("Todo added successfully!", toastId); // show success toast
       } else {
         console.log("inside the update todo,userId  todoId is ", todo);
         const updatedUser = await axios.put(`todo/${user.$id}/${todo._id}`, {
