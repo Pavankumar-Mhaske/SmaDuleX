@@ -13,7 +13,7 @@ export const showToastSuccess = (toastId) => {
     type: "success",
     isLoading: false,
     position: "top-center",
-    autoClose: 1000,
+    autoClose: 5000,
     hideProgressBar: false,
     closeOnClick: true,
     pauseOnHover: true,
@@ -40,7 +40,7 @@ export const Toast = () => {
   return (
     <ToastContainer
       position="top-center"
-      autoClose={1000}
+      autoClose={5000}
       hideProgressBar={false}
       newestOnTop={false}
       closeOnClick
