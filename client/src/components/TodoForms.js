@@ -26,6 +26,7 @@ import TaskInput from "./TaskInputs";
 import TodoButton from "./TodoButton";
 // import TodoButton from "./TodoButtons";
 import "./styles/TodoForms.css";
+import toast from "react-hot-toast";
 /**
  * @param  task - Denotes the purpose of the form (create Todo / update Todo).
  * @param  buttonName - Denotes the name of submitting button (Create Todo / Update Todo).
@@ -68,26 +69,53 @@ const TodoForm = ({
   const handleSubmit = async (event) => {
     try {
       event.preventDefault();
-      const toastId = showToastLoading("Adding Todo..."); // show loading toast
+
       if (task === "create") {
-        await axios.post(`todo/create`, {
-          title,
-          tasks,
-          isImportant,
-          userId: user.$id,
-        });
+        const toastId = showToastLoading("Adding Todo..."); // show loading toast
+        await axios
+          .post(`todo/create`, {
+            title,
+            tasks,
+            isImportant,
+            userId: user.$id,
+          })
+          .then((response) => {
+            console.log("Response from handleDelete method: ", response);
+            showToastSuccess("Todo added successfully!", toastId); // show success toast
+          })
+          .catch((error) => {
+            showToastError(error.message);
+            console.log("Error while deleting a todo in handleDelete method");
+            console.log("Error: ", error);
+          });
+
         //do something else
-        showToastSuccess("Todo added successfully!", toastId); // show success toast
       } else {
+        const toastId = showToastLoading("Updating Todo...");
         console.log("inside the update todo,userId  todoId is ", todo);
-        const updatedUser = await axios.put(`todo/${user.$id}/${todo._id}`, {
-          title,
-          tasks,
-          isImportant,
-        });
-        console.log("updatedUser is ", updatedUser);
-        setEditTodo(false);
-        document.body.style.overflow = "auto";
+        await axios
+          .put(`todo/${user.$id}/${todo._id}`, {
+            title,
+            tasks,
+            isImportant,
+          })
+          .then((response) => {
+            console.log("Response from handleDelete method: ", response);
+            // console.log("updatedUser is ", updatedUser);
+            showToastSuccess("Todo updated successfully!", toastId); // show success toast
+            setEditTodo(false);
+          })
+          .catch((error) => {
+            showToastError(error.message);
+            console.log("Error while deleting a todo in handleDelete method");
+            console.log("Error: ", error);
+          })
+          .finally(() => {
+            document.body.style.overflow = "auto";
+          });
+        // console.log("updatedUser is ", updatedUser);
+        // setEditTodo(false);
+        // document.body.style.overflow = "auto";
       }
     } catch (error) {
       if (task === "create") {
@@ -114,7 +142,16 @@ const TodoForm = ({
    * Inverse the value of isImportant state
    */
   const handleHighlightTodo = () => {
-    setIsImportant(!isImportant);
+    if (isImportant) {
+      const toastId = showToastLoading("Unhighlighted Todo...");
+      setIsImportant(!isImportant);
+      showToastSuccess("Todo is unhighlighted!", toastId);
+    } else {
+      const toastId = showToastLoading("Highlighting Todo...");
+      setIsImportant(!isImportant);
+      showToastSuccess("Todo is highlighted!", toastId);
+    }
+    // setIsImportant(!isImportant);
   };
 
   return (
