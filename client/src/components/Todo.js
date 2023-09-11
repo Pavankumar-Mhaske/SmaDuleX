@@ -118,20 +118,28 @@ const Todo = ({ todo, makeRequest, setMakeRequest }) => {
    *                   - Updates makeRequest state
    */
 
-  const handleCompleted = async (event, todo) => {
-    try {
-      // prevent default behaviour of form submission (reloading)
-      event.preventDefault();
-      let { _id, isCompleted } = todo;
-      isCompleted = !isCompleted;
-      // /api/todo/${user.uid}/${_id}
-      await axios.put(`/todo/${user.$id}/${_id}`, { isCompleted });
-      setMakeRequest(!makeRequest);
-    } catch (error) {
-      console.log("Error while updating a todo in handleCompleted method");
-      console.log("Error: ", error);
-    }
-  };
+  const handleCompleted = useCallback(
+    async (event, todo) => {
+      try {
+        // prevent default behaviour of form submission (reloading)
+        event.preventDefault();
+        let { _id, isCompleted } = todo;
+        isCompleted = !isCompleted;
+        // /api/todo/${user.uid}/${_id}
+        await axios.put(`/todo/${user.$id}/${_id}`, { isCompleted });
+        setMakeRequest(!makeRequest);
+      } catch (error) {
+        console.log("Error while updating a todo in handleCompleted method");
+        console.log("Error: ", error);
+      }
+    },
+    [makeRequest, setMakeRequest, user.$id]
+  );
+
+  useEffect(() => {
+    console.log("inside the useeffect of todo");
+    handleCompleted();
+  }, [handleCompleted]);
 
   return (
     <>
