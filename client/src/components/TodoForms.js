@@ -1,4 +1,10 @@
 import { useState, useContext } from "react";
+import {
+  showToastLoading,
+  showToastSuccess,
+  showToastError,
+  Toast,
+} from "./ToastHandler";
 
 // axios
 import axios from "axios";
@@ -56,6 +62,7 @@ const TodoForm = ({
   const handleSubmit = async (event) => {
     try {
       event.preventDefault();
+      const toastId = showToastLoading(); // show loading toast
       if (task === "create") {
         await axios.post(`todo/create`, {
           title,
@@ -63,6 +70,8 @@ const TodoForm = ({
           isImportant,
           userId: user.$id,
         });
+        //do something else
+        showToastSuccess(toastId); // show success toast
       } else {
         console.log("inside the update todo,userId  todoId is ", todo);
         const updatedUser = await axios.put(`todo/${user.$id}/${todo._id}`, {
@@ -76,10 +85,11 @@ const TodoForm = ({
       }
     } catch (error) {
       if (task === "create") {
+        showToastError(error.message);
         // add alert
         console.log(`
-      Error while creating a new todo in todoForm handleSubmit
-      and the error : ${error}`);
+        Error while creating a new todo in todoForm handleSubmit
+        and the error : ${error}`);
       } else {
         // add alert
         console.log(`
@@ -150,6 +160,8 @@ const TodoForm = ({
           {/* // button for reseting data. */}
         </div>
       </form>
+      {/* Render the ToastContainer */}
+      <Toast />
     </div>
   );
 };
