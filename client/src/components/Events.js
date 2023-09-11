@@ -8,6 +8,19 @@ import userContext from "../context/userContext";
 import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
 
+// import {
+//   showToastLoading,
+//   showToastSuccess,
+//   showToastError,
+//   Toast,
+// } from "./ToastHandler";
+
+import {
+  showToastLoading,
+  showToastSuccess,
+  showToastError,
+  Toast,
+} from "./HotToastHandler";
 // const otpGenerator = require("otp-generator");
 
 function EventList() {
@@ -102,6 +115,7 @@ function EventList() {
     const remindeAtISO = remindeAt.toISOString();
 
     console.log("***********************************************");
+    const toastId = showToastLoading(); // show loading toast
     await axios
       .post("/event/create", {
         reminderMsg: reminderMsg,
@@ -123,16 +137,19 @@ function EventList() {
             );
             setReminderList(response.data);
             console.log("reminderList in addreminder : ", reminderList);
+            showToastSuccess(toastId); // show success toast
           })
           .catch((error) => {
             console.log(
               "error while getting reminders List in addReminder",
               error
             );
+            showToastError(error.message);
           });
       })
       .catch((error) => {
         console.log("error in addReminder : ", error);
+        showToastError(error.message);
       });
 
     setReminderMsg("");
@@ -145,6 +162,7 @@ function EventList() {
       console.log("userId in deleteReminder : ", user.$id);
 
       // {params: { userId: user.$id, eventId: id },}
+      const toastId = showToastLoading(); // show loading toast
       await axios
         .delete(`/event/${user.$id}/${id}`)
         .then(async (res) => {
@@ -159,16 +177,19 @@ function EventList() {
                 response
               );
               setReminderList(response.data);
+              showToastSuccess(toastId); // show success toast
             })
             .catch((error) => {
               console.log(
                 "error while getting reminders List in deleteReminder : ",
                 error
               );
+              showToastError(error.message);
             });
         })
         .catch((error) => {
           console.log("error in deleteReminder : ", error);
+          showToastError(error.message);
         });
     },
     [user.$id]
@@ -385,6 +406,7 @@ function EventList() {
           </div>
         </div>
       )}
+      <Toast />
     </div>
   );
 }
