@@ -35,6 +35,8 @@ import DeleteModal from "./DeleteModal";
  * @returns A Todo element.
  */
 
+
+
 const Todo = ({ todo, makeRequest, setMakeRequest }) => {
   // console.log("type of setMakeRequest", typeof setMakeRequest);
   // console.log("Inside Todo.js todo is ", todo);
