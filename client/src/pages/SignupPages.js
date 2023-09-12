@@ -211,17 +211,17 @@ const SignupPage = () => {
 
   const handlePasswordVisibility = () => {
     setShowPassword(!showPassword);
-    // After 3 seconds, toggle the password visibility back
+    // After 2 seconds, toggle the password visibility back
     setTimeout(() => {
       setShowPassword(false);
-    }, 2000); // 3000 milliseconds = 3 seconds
+    }, 2000); // 2000 milliseconds = 3 seconds
   };
   const handleConfirmPasswordVisibility = () => {
     setShowPasswordConfirm(!showPasswordConfirm);
-    // After 3 seconds, toggle the password visibility back
+    // After 2 seconds, toggle the password visibility back
     setTimeout(() => {
       setShowPasswordConfirm(false);
-    }, 2000); // 3000 milliseconds = 3 seconds
+    }, 2000); // 2000 milliseconds = 3 seconds
   };
 
   // navigate user to homePage when user is signed in
