@@ -235,11 +235,6 @@ const SignupPage = () => {
 
           {/* Name */}
           <div className="input-box">
-            <span className="icon">
-              {/* <ion-icon name="mail"></ion-icon> */}
-
-              {/* <Mail color={"#00000"} height="250px" width="250px" /> */}
-            </span>
             <input
               placeholder="Name"
               type="text"
@@ -255,11 +250,6 @@ const SignupPage = () => {
 
           {/* email */}
           <div className="input-box">
-            <span className="icon">
-              {/* <ion-icon name="mail"></ion-icon> */}
-
-              {/* <Mail color={"#00000"} height="250px" width="250px" /> */}
-            </span>
             <input
               placeholder="Email"
               type="email"
@@ -275,18 +265,6 @@ const SignupPage = () => {
 
           {/* password  */}
           <div className="input-box flex">
-            <span className="icon" onClick={handlePasswordVisibility}>
-              {/* {passwordFocus ? (
-                showPassword ? (
-                  <Eye color={"#00000"} height="250px" width="250px" />
-                ) : (
-                  <EyeOff color={"#00000"} height="250px" width="250px" />
-                )
-              ) : (
-                <LockClosed color={"#00000"} height="250px" width="250px" />
-              )} */}
-            </span>
-
             <input
               placeholder="Password"
               type={showPassword ? "text" : "password"}
@@ -396,7 +374,6 @@ const SignupPage = () => {
                 </div>
                 <p
                   className={`text-gray-400 ${
-                    // const regex =/[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/;
                     password.match(/[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/)
                       ? "valid-color"
                       : "invalid-color"
