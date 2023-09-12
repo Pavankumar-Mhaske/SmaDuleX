@@ -16,7 +16,7 @@ import LoginPages from "./pages/LoginPages";
 // import SignupPage from "./pages/SignupPage";
 import SignupPages from "./pages/SignupPages";
 import WelcomePage from "./pages/WelcomePage";
-
+import GuidePage from "./pages/GuidePages";
 /**
  * Importing layouts which has to be wrapped for every route
  */
@@ -48,6 +48,7 @@ const App = () => {
             <Route path="/login" element={<LoginPages />} />
             {/* <Route path="/signup" element={<SignupPage />} /> */}
             <Route path="/signup" element={<SignupPages />} />
+            <Route path="/guide" element={<GuidePage />} />
           </Routes>
           {/* <Footer /> */}
         </Router>
