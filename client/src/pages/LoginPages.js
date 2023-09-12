@@ -17,6 +17,9 @@ import TodoButton from "../components/TodoButtons";
 // importing Css file.
 import "./styles/LoginPages.css";
 
+import passwordHide from "../assets/icons/hidden.png";
+import passwordVisible from "../assets/icons/visible.png";
+
 // importing icons from react-ionicons
 // import { Mail,LockClosed,Eye,EyeOff } from "react-ionicons";
 
@@ -100,7 +103,7 @@ const LoginPages = () => {
     // After 3 seconds, toggle the password visibility back
     setTimeout(() => {
       setShowPassword(false);
-    }, 1000); // 3000 milliseconds = 3 seconds
+    }, 2000); // 3000 milliseconds = 3 seconds
   };
 
   /**  
@@ -144,19 +147,7 @@ const LoginPages = () => {
             />
             <label>Email</label>
           </div>
-          <div className="input-box">
-            <span className="icon" onClick={handlePasswordVisibility}>
-              {/* {passwordFocus ? (
-                showPassword ? (
-                  <Eye color={"#00000"} height="250px" width="250px" />
-                ) : (
-                  <EyeOff color={"#00000"} height="250px" width="250px" />
-                )
-              ) : (
-                <LockClosed color={"#00000"} height="250px" width="250px" />
-              )} */}
-            </span>
-
+          <div className="input-box flex">
             <input
               placeholder="Password"
               type={showPassword ? "text" : "password"}
@@ -170,6 +161,25 @@ const LoginPages = () => {
               // onBlur={setPasswordFocus(false)}
             />
             <label>Password</label>
+            <button
+              className="z-10"
+              type="button"
+              onClick={handlePasswordVisibility}
+            >
+              {showPassword ? (
+                <img
+                  src={passwordHide}
+                  alt="passwordHide"
+                  className="w-6 h-6"
+                />
+              ) : (
+                <img
+                  src={passwordVisible}
+                  alt="passwordVisible"
+                  className="w-6 h-6"
+                />
+              )}
+            </button>
           </div>
           <div className="remember-forgot">
             <label>
