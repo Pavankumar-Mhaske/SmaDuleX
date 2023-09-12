@@ -13,6 +13,8 @@ import axios from "axios";
 // import passwordVisible from "../assets/icons/visible.png";
 import okay from "../assets/icons/okay.png";
 import notOkay from "../assets/icons/notOkay.png";
+import passwordHide from "../assets/icons/hidden.png";
+import passwordVisible from "../assets/icons/visible.png";
 
 import "./styles/SignupPages.css";
 
@@ -212,14 +214,14 @@ const SignupPage = () => {
     // After 3 seconds, toggle the password visibility back
     setTimeout(() => {
       setShowPassword(false);
-    }, 1000); // 3000 milliseconds = 3 seconds
+    }, 2000); // 3000 milliseconds = 3 seconds
   };
   const handleConfirmPasswordVisibility = () => {
     setShowPasswordConfirm(!showPasswordConfirm);
     // After 3 seconds, toggle the password visibility back
     setTimeout(() => {
       setShowPasswordConfirm(false);
-    }, 1000); // 3000 milliseconds = 3 seconds
+    }, 2000); // 3000 milliseconds = 3 seconds
   };
 
   // navigate user to homePage when user is signed in
@@ -272,7 +274,7 @@ const SignupPage = () => {
           </div>
 
           {/* password  */}
-          <div className="input-box">
+          <div className="input-box flex">
             <span className="icon" onClick={handlePasswordVisibility}>
               {/* {passwordFocus ? (
                 showPassword ? (
@@ -298,6 +300,25 @@ const SignupPage = () => {
               // onBlur={setPasswordFocus(false)}
             />
             <label>Password</label>
+            <button
+              className="z-10"
+              type="button"
+              onClick={handlePasswordVisibility}
+            >
+              {showPassword ? (
+                <img
+                  src={passwordHide}
+                  alt="passwordHide"
+                  className="w-6 h-6"
+                />
+              ) : (
+                <img
+                  src={passwordVisible}
+                  alt="passwordVisible"
+                  className="w-6 h-6"
+                />
+              )}
+            </button>
           </div>
 
           {/* validation check */}
@@ -431,32 +452,37 @@ const SignupPage = () => {
           </div>
 
           {/* password confirm */}
-          <div className="input-box">
-            <span className="icon" onClick={handlePasswordVisibility}>
-              {/* {passwordFocus ? (
-                showPassword ? (
-                  <Eye color={"#00000"} height="250px" width="250px" />
-                ) : (
-                  <EyeOff color={"#00000"} height="250px" width="250px" />
-                )
-              ) : (
-                <LockClosed color={"#00000"} height="250px" width="250px" />
-              )} */}
-            </span>
-
+          <div className="input-box flex">
             <input
               placeholder="Confirm Password"
-              type={showPassword ? "text" : "password"}
+              type={showPasswordConfirm ? "text" : "password"}
               name="passwordConfirm"
               id="passwordConfirm"
               value={passwordConfirm}
               onChange={(e) => setPasswordConfirm(e.target.value)}
               autoComplete="off"
               required
-              // onFocus={setPasswordFocus(true)}
-              // onBlur={setPasswordFocus(false)}
             />
             <label>Confirm Password</label>
+            <button
+              className="z-10"
+              type="button"
+              onClick={handleConfirmPasswordVisibility}
+            >
+              {showPasswordConfirm ? (
+                <img
+                  src={passwordHide}
+                  alt="passwordHide"
+                  className="w-6 h-6"
+                />
+              ) : (
+                <img
+                  src={passwordVisible}
+                  alt="passwordVisible"
+                  className="w-6 h-6"
+                />
+              )}
+            </button>
           </div>
 
           {/* profession */}
