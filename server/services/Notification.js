@@ -80,7 +80,7 @@ exports.sendWhatsAppMessage = () => {
         });
       }
     });
-  }, 20000);
+  }, 60000);
 };
 
 exports.sendOtpEvent = async (req, res) => {
