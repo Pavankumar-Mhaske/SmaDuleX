@@ -56,7 +56,7 @@ const Header = () => {
     >
       <nav className="flex py-1  text-violet-800">
         <span className="AppName ml-3 text-2xl md:text-4xl font-medium text-center">
-          &#123;TodoApp&#125;
+          &#123;SmaDuleX&#125;
         </span>
         <ul className="w-full flex items-center flex-wrap justify-end gap-4">
           {
