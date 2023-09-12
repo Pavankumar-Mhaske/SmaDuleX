@@ -42,9 +42,13 @@ function WelcomePage() {
           <div className="section-1">
             <h1>WELCOME</h1>
             <h3>
-              To our<span> `</span>Glassmorphism<span>`</span> channel
+              To <span> `</span>SmaDuleX<span>`</span> Company
             </h3>
-            <p>please subscribe to our channel & press the bell icon</p>
+            <p>SmaDuleX - Your Smart Scheduling and Exploration Company</p>
+            <p>
+              "Unlock Your Day, Discover Your World with SmaDuleX" 
+            </p>
+
             <div className="button">
               <a href="#">More Info</a>
               <a href="#">Contact us</a>
