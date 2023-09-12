@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./styles/GuidePages.css";
 
-const GuidePage = () => {
+const GuidePages = () => {
   const navigate = useNavigate();
   const navigateToHome = () => {
     navigate("/home");
@@ -108,4 +108,4 @@ const GuidePage = () => {
   );
 };
 
-export default GuidePage;
+export default GuidePages;
