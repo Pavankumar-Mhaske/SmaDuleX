@@ -34,7 +34,7 @@ function WelcomePage() {
               <a href="#">SERVICES</a>
             </li>
             <li>
-              <a href="#">CONTACT</a>
+              <a href="#">Guide</a>
             </li>
           </ul>
         </nav>
