@@ -46,7 +46,14 @@ const TodoList = ({ makeRequest, setMakeRequest }) => {
   const getTodos = useCallback(async () => {
     try {
       // console.log("type of setMakeRequest", typeof setMakeRequest);
+      // console.log("inside the gettodos method in");
+      console.log(
+        "************************************************************************************************"
+      );
       console.log("inside the gettodos method in");
+      console.log(
+        "************************************************************************************************"
+      );
       const response = await axios.get(`/user/todos?userId=${user.$id}`);
       // const response = await axios.get("/user/todos", {
       //   params: { userId: user.$id },
@@ -134,7 +141,13 @@ const TodoList = ({ makeRequest, setMakeRequest }) => {
 
   const handleSort = (sort) => {
     const sortTodos = todos;
-
+    console.log(
+      "************************************************************************************************"
+    );
+    console.log("inside the handleSort method");
+    console.log(
+      "************************************************************************************************"
+    );
     if (
       sort !== "isImportant" &&
       sort !== "updatedAt" &&
