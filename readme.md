@@ -249,3 +249,13 @@ Any additional information goes here
  - [Checkout Uicolorpicker - to get more hands-on ](https://uicolorpicker.com/)
 
 
+
+## Contributing
+
+Contributions are always welcome!
+
+
+
+Please adhere to this project's `code of conduct`.
+
+
