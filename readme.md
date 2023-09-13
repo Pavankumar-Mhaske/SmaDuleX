@@ -293,3 +293,15 @@ To run this project, you will need to add the following environment variables to
 
 
 
+## FAQ
+
+#### Question 1
+
+Answer 1
+
+#### Question 2
+
+Answer 2
+
+
+
