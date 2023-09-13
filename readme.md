@@ -346,3 +346,10 @@ Here are some related projects
 
 [Awesome README](https://github.com/matiassingers/awesome-readme)
 
+
+## Roadmap
+
+- Additional browser support
+
+- Add more integrations
+
