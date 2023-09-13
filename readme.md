@@ -42,3 +42,9 @@ MERN, Node.js, Express, MongoDB, Mongoose,  Javascript, HTML, TailwindCSS, CSS, 
 
 - [@Pavankumar-Mhaske](https://github.com/Pavankumar-Mhaske)
 
+
+# 🚀 About project 💖
+# 🕔 ⚙ SmaDuleX  ✌🏻 ⭐
+### Welcome to SmaDuleX - Your Smart ♟, Scheduling ⌚and Exploration 🧪 Company.
+
+#### Unlock 🔓🗝 Your Day, Discover Your World 🌍 with SmaDuleX 🤝 - Where Scheduling Meets Adventure🏇🏻.
