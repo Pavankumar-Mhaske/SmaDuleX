@@ -286,27 +286,26 @@ const SignupPage = () => {
               // onBlur={setPasswordFocus(false)}
             />
             <label>Password</label>
-            <Suspense fallback={<div>Loading...</div>}>
-              <button
-                className="z-10"
-                type="button"
-                onClick={handlePasswordVisibility}
-              >
-                {showPassword ? (
-                  <img
-                    src={passwordHide}
-                    alt="passwordHide"
-                    className="w-6 h-6"
-                  />
-                ) : (
-                  <img
-                    src={passwordVisible}
-                    alt="passwordVisible"
-                    className="w-6 h-6"
-                  />
-                )}
-              </button>
-            </Suspense>
+
+            <button
+              className="z-10"
+              type="button"
+              onClick={handlePasswordVisibility}
+            >
+              {showPassword ? (
+                <img
+                  src={passwordHide}
+                  alt="passwordHide"
+                  className="w-6 h-6"
+                />
+              ) : (
+                <img
+                  src={passwordVisible}
+                  alt="passwordVisible"
+                  className="w-6 h-6"
+                />
+              )}
+            </button>
           </div>
 
           {/* validation check */}
@@ -500,7 +499,15 @@ const SignupPage = () => {
             <a href="#signup-form">Forgot Password?</a>
           </div> */}
           {/* <button type="submit">Login</button> */}
-          <TodoButton name="SignUp" passwordMatched={passwordMatched} />
+          <Suspense
+            fallback={
+              <div className="lazy-loading-box">
+                <h1 className="lazy-loading-text">Loading...</h1>
+              </div>
+            }
+          >
+            <TodoButton name="SignUp" passwordMatched={passwordMatched} />
+          </Suspense>
           <div className="register-link">
             <p>Already have account ?</p>
             <a href="/login">Login</a>
