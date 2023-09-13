@@ -230,4 +230,22 @@ Any additional information goes here
  - [How to write a Good readme](https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project)
 
 
+## Color Reference
+
+| Color             | Hex                                                                |
+| ----------------- | ------------------------------------------------------------------ |
+| Black | ![#000000](https://via.placeholder.com/10/0a192f?text=+) #000000 |
+| White | ![#FFFFFF](https://via.placeholder.com/10/FFFFFF?text=+) #FFFFFF |
+| Red | ![#FF0000](https://via.placeholder.com/10/FF0000?text=+) #FF0000 |
+| Green | ![#008000](https://via.placeholder.com/10/008000?text=+) #008000 |
+| Blue | ![#0000FF](https://via.placeholder.com/10/00b48a?text=+) #0000FF |
+| Yellow | ![#FFFF00](https://via.placeholder.com/10/FFFF00?text=+) #FFFF00 |
+| Cyan | ![#00FFFF](https://via.placeholder.com/10/00FFFF?text=+) #00FFFF |
+| Magenta | ![#FF00FF](https://via.placeholder.com/10/FF00FF?text=+) #FF00FF |
+| Gray | ![#808080](https://via.placeholder.com/10/808080?text=+) #808080 |
+| Orange | ![#FFA500](https://via.placeholder.com/10/FFA500?text=+) #FFA500 |
+
+
+ - [Checkout Uicolorpicker - to get more hands-on ](https://uicolorpicker.com/)
+
 
