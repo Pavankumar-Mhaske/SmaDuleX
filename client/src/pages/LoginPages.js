@@ -125,7 +125,7 @@ const LoginPages = () => {
 
   if (user) return <Navigate to="/home" />;
   return (
-    <section className="w-screen">
+    <section className="loginpage w-screen">
       <div className={`login-box ${showBlur ? "blur-background" : ""}`}>
         <form id="login-form" action="" onSubmit={(e) => handleLogin(e)}>
           <h2>Login</h2>
@@ -202,7 +202,7 @@ const LoginPages = () => {
             click me
           </button> */}
 
-          <div className="register-link">
+          <div className="register-link  flex">
             <p>Don't have an account?</p>
             <a href="/signup">Register</a>
           </div>
