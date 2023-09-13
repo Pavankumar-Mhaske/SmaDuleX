@@ -279,3 +279,17 @@ To deploy this project run
 
 
 
+## Environment Variables
+
+To run this project, you will need to add the following environment variables to your .env file
+
+`PORT`
+
+`MONGO_URL`
+
+`ACCOUNT_SID`
+
+`AUTH_TOKEN`
+
+
+
