@@ -1,6 +1,11 @@
-import React from "react";
-
-import { useState, useContext, useCallback, useEffect } from "react";
+import React, {
+  useState,
+  useContext,
+  useCallback,
+  useEffect,
+  lazy,
+  Suspense,
+} from "react";
 
 // appwrite
 import account from "../config/appwriteConfig";
@@ -13,13 +18,15 @@ import { Navigate, useNavigate } from "react-router-dom";
 
 // components
 // import TodoButton from "../components/TodoButton";
-import TodoButton from "../components/TodoButtons";
+
 // importing Css file.
 import "./styles/LoginPages.css";
 
 import passwordHide from "../assets/icons/hidden.png";
 import passwordVisible from "../assets/icons/visible.png";
 
+// import TodoButton from "../components/TodoButtons";
+const TodoButton = lazy(() => import("../components/TodoButtons"));
 // importing icons from react-ionicons
 // import { Mail,LockClosed,Eye,EyeOff } from "react-ionicons";
 
@@ -190,11 +197,19 @@ const LoginPages = () => {
           </div>
           {/* <button type="submit">Login</button> */}
 
-          <TodoButton
-            name="Login"
-            passwordMatched={bothFieldsPresent}
-            // onClick={startSpinnerAnimation}
-          />
+          <Suspense
+            fallback={
+              <div className="lazy-loading-box">
+                <h1 className="lazy-loading-text">Loading...</h1>
+              </div>
+            }
+          >
+            <TodoButton
+              name="Login"
+              passwordMatched={bothFieldsPresent}
+              // onClick={startSpinnerAnimation}
+            />
+          </Suspense>
           {/* <button
             className=" absolute text-white border py-5 "
             onClick={startSpinnerAnimation}
