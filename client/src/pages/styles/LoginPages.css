@@ -96,7 +96,7 @@ section {
   line-height: 57px;
 }
 
-.remember-forgot {
+.login-box .remember-forgot {
   margin: -15px 0 15px 0;
   font-size: 0.9em;
   color: #fff;
@@ -105,17 +105,17 @@ section {
   align-items: center;
 }
 
-.remember-forgot lable input {
+.login-box .remember-forgot lable input {
   margin-right: 3px;
 }
 
-.remember-forgot a {
+.login-box .remember-forgot a {
   color: #fff;
   text-decoration: none;
   font-size: 0.9em;
 }
 
-.remember-forgot a:hover {
+.login-box .remember-forgot a:hover {
   text-decoration: underline;
 }
 
@@ -132,20 +132,25 @@ section {
   font-weight: 500;
 } */
 
-.register-link {
+.login-box .register-link {
   font-size: 0.9em;
   color: #fff;
   text-align: center;
   margin: 25px 0 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.register-link a {
+.login-box .register-link a {
   color: #fff;
   text-decoration: none;
-  font-weight: 600;
+
+  font-weight: 700;
+  font-size: 1.3em;
 }
 
-.register-link a:hover {
+.login-box .register-link a:hover {
   text-decoration: underline;
 }
 
@@ -165,7 +170,7 @@ section {
 /*************************************************************************************
 ************       fliping button         ********************
 *************************************************************************************/
-section .backButton .btn-flip {
+.loginpage .backButton .btn-flip {
   position: absolute;
   bottom: 8%;
   left: 46%;
