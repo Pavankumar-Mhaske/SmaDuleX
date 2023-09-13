@@ -60,3 +60,151 @@ MERN, Node.js, Express, MongoDB, Mongoose,  Javascript, HTML, TailwindCSS, CSS, 
 
 [![AGPL License](https://img.shields.io/badge/license-AGPL-blue.svg)](http://www.gnu.org/licenses/agpl-3.0)
 
+
+
+## API Reference
+
+
+#### Create User
+
+```http
+  POST /user/create/
+```
+| Parameter  | Type     | Description                 |
+| :--------  | :------- | :-------------------------  |
+| `api_keys` | `string` | **Required**. Your API keys |
+
+#### Get User
+```http
+  GET /user/getUser/${id}
+```
+| Parameter | Type     | Description                        |
+| :-------- | :------- | :-------------------------         |
+| `id`      | `string` | **Required**. Id of item to fetch  |
+
+#### Get user todos
+```http
+  GET /user/todos/${id}
+```
+| Parameter | Type     | Description                        |
+| :-------- | :------- | :-------------------------         |
+| `id`      | `string` | **Required**. Id of item to fetch  |
+
+#### Get user events
+```http
+  GET /user/events/${id}
+```
+| Parameter | Type     | Description                        |
+| :-------- | :------- | :-------------------------         |
+| `id`      | `string` | **Required**. Id of item to fetch  |
+
+
+#### Create todo
+```http
+  POST /todo/create/
+```
+| Parameter  | Type     | Description                 |
+| :--------  | :------- | :-------------------------  |
+| `api_keys` | `string` | **Required**. Your API keys |
+
+#### Get all todos
+```http
+  GET /todo/getAll/
+```
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `   -   ` | `   -   ` |           -               |
+
+#### Get search todo
+```http
+  GET /todo/search/
+```
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `api_key` | `string` | **Required**. Your API key |
+
+#### Get a todo
+```http
+  GET /todo/:userId/:todoId/
+```
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `api_key` | `string` | **Required**. Your API key |
+
+#### Update a todo
+```http
+  PUT /todo/:userId/:todoId/
+```
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `api_key` | `string` | **Required**. Your API key |
+
+#### Delete a todo
+```http
+  DELETE /todo/:userId/:todoId/
+```
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `api_key` | `string` | **Required**. Your API key |
+
+
+
+#### Create event
+```http
+  POST /event/create/
+```
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `api_key` | `string` | **Required**. Your API key |
+
+#### Get all events
+```http
+  GET /event/getAll/
+```
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `api_key` | `string` | **Required**. Your API key |
+
+#### sendOtp 
+```http
+  POST /event/sendOtp/
+```
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `api_key` | `string` | **Required**. Your API key |
+
+#### Update user IsVerified field
+```http
+  POST /event/updateIsVerified/
+```
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `api_key` | `string` | **Required**. Your API key |
+
+#### Get a event
+```http
+  GET /event/:userId/:eventId/
+```
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `api_key` | `string` | **Required**. Your API key |
+
+#### Delete a event
+```http
+  DELETE /event/:userId/:eventId/
+```
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `api_key` | `string` | **Required**. Your API key |
+
+
+
+#### ******************************
+
+
+#### add(num1, num2)
+
+Takes two numbers and returns the sum.
+
+
+
