@@ -21,6 +21,7 @@
   backdrop-filter: blur(20px);
   box-shadow: -15px 17px 17px rgba(10, 10, 10, 0.25);
   background: #000;
+  overflow: hidden;
 }
 
 .homepagePro .header_createTodos {
