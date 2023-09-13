@@ -353,3 +353,54 @@ Here are some related projects
 
 - Add more integrations
 
+
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/Pavankumar-Mhaske/SmaDuleX.git/
+```
+
+Go to the project directory
+
+```bash
+  cd SmaDuleX
+```
+
+set proxy in package.json file
+```bash
+  "proxy": "http://localhost:4000",
+```
+
+add script to package.json file (server side)
+```bash
+"scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  }
+```
+
+Install dependencies
+
+server side - 
+```bash
+  npm install express mongoose dotenv twilio cors
+  npm install -D nodemon
+```
+
+client side -
+```bash
+  npm install express mongoose dotenv twilio cors
+```
+
+Start the server
+```bash
+  npm run dev
+``` 
+
+```bash
+  npm start
+```
+
