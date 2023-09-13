@@ -37,3 +37,8 @@ I'm a full stack developer...
 ## 🛠 Skills
 MERN, Node.js, Express, MongoDB, Mongoose,  Javascript, HTML, TailwindCSS, CSS, Context API, Third Party APIs, Angular, VueJS, Vue Cli, Next.js ...
 
+
+## Authors
+
+- [@Pavankumar-Mhaske](https://github.com/Pavankumar-Mhaske)
+
