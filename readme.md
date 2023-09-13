@@ -264,3 +264,12 @@ Please adhere to this project's `code of conduct`.
 Insert gif or link to demo
 
 
+## Deployment
+
+To deploy this project run
+
+```bash
+  npm run deploy
+```
+
+
