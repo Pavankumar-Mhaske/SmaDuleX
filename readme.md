@@ -418,3 +418,11 @@ Start the server
 For support, Give stars to the project... https://github.com/Pavankumar-Mhaske/SmaDuleX
 
 
+
+## Tech Stack
+
+**Client:** React, JavaScript, React Router, Redux, Axios, UI Framework( Material-UI ) and Components, Core CSS, TailwindCSS, Webpack, Babel, and Build Tools,
+
+**Server:** Node.js, Express.js, MongoDB, Mongoose, RESTful API,  JSON Web Tokens (JWT), Middleware, Database Hosting( MongoDB Atlas )
+
+
