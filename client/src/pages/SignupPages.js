@@ -1,4 +1,11 @@
-import { useCallback, useContext, useEffect, useState } from "react";
+import React, {
+  useCallback,
+  useContext,
+  useEffect,
+  useState,
+  lazy,
+  Suspense,
+} from "react";
 
 // appwrite
 import account from "../config/appwriteConfig";
@@ -15,6 +22,9 @@ import okay from "../assets/icons/okay.png";
 import notOkay from "../assets/icons/notOkay.png";
 import passwordHide from "../assets/icons/hidden.png";
 import passwordVisible from "../assets/icons/visible.png";
+// components
+// import TodoButton from "../components/TodoButton";
+// import TodoButton from "../components/TodoButtons";
 
 import "./styles/SignupPages.css";
 
@@ -24,9 +34,7 @@ import userContext from "../context/userContext";
 // router
 import { Navigate } from "react-router-dom";
 
-// components
-// import TodoButton from "../components/TodoButton";
-import TodoButton from "../components/TodoButtons";
+const TodoButton = lazy(() => import("../components/TodoButtons"));
 
 const SignupPage = () => {
   /**
@@ -278,25 +286,27 @@ const SignupPage = () => {
               // onBlur={setPasswordFocus(false)}
             />
             <label>Password</label>
-            <button
-              className="z-10"
-              type="button"
-              onClick={handlePasswordVisibility}
-            >
-              {showPassword ? (
-                <img
-                  src={passwordHide}
-                  alt="passwordHide"
-                  className="w-6 h-6"
-                />
-              ) : (
-                <img
-                  src={passwordVisible}
-                  alt="passwordVisible"
-                  className="w-6 h-6"
-                />
-              )}
-            </button>
+            <Suspense fallback={<div>Loading...</div>}>
+              <button
+                className="z-10"
+                type="button"
+                onClick={handlePasswordVisibility}
+              >
+                {showPassword ? (
+                  <img
+                    src={passwordHide}
+                    alt="passwordHide"
+                    className="w-6 h-6"
+                  />
+                ) : (
+                  <img
+                    src={passwordVisible}
+                    alt="passwordVisible"
+                    className="w-6 h-6"
+                  />
+                )}
+              </button>
+            </Suspense>
           </div>
 
           {/* validation check */}
