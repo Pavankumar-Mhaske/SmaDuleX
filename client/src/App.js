@@ -21,7 +21,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 /**
  * Importing layouts which has to be wrapped for every route
  */
-
+import "./App.css";
 import Header from "./layouts/Header";
 import Footer from "./layouts/Footer";
 
@@ -49,7 +49,13 @@ const App = () => {
       <userContext.Provider value={{ user, setUser }}>
         <Router>
           <Header />
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense
+            fallback={
+              <div className="lazy-loading-box">
+                <h1 className="lazy-loading-text">Loading...</h1>
+              </div>
+            }
+          >
             <Routes>
               <Route path="/" element={<WelcomePage />} />
               {/* <Route path="/" element={<HomePage />} /> */}
