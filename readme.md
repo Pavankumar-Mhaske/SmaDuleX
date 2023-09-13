@@ -426,3 +426,14 @@ For support, Give stars to the project... https://github.com/Pavankumar-Mhaske/S
 **Server:** Node.js, Express.js, MongoDB, Mongoose, RESTful API,  JSON Web Tokens (JWT), Middleware, Database Hosting( MongoDB Atlas )
 
 
+## Usage/Examples
+
+```javascript
+import Component from 'components' /* Use the components which are required */
+
+function App() {
+  return <Component />
+}
+```
+
+
