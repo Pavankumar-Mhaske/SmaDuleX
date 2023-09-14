@@ -14,7 +14,6 @@
 
 
 
-![7LoginPage](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/a809c95a-b700-4339-995d-46b8f803dd5f)
 
 ![8LoginpageLoading](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/d8cb899f-6e42-4a53-b208-558f13205733)
 
