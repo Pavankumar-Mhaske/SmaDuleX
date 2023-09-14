@@ -295,6 +295,10 @@ Insert gif or link to demo
 
 ![32DeleteEvents](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/65326cfe-87fd-4dd4-ad64-231bf8bef028)
 
+<p align="center">
+  <b>Event Deleted Successfully</b>
+</p>
+
 ![33DeleteEvents](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/c7cf45c2-b79c-4b26-974f-4551178b14b2)
 
 ## Tech Stack
