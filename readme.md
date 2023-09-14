@@ -277,6 +277,10 @@ Insert gif or link to demo
 
 ![29EventSet](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/fba96a86-f2c9-4c14-a41f-36a79f3e61da)
 
+<p align="center">
+  <b>Events</b>
+</p>
+
 ![30Events](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/478333af-eff2-434e-87c9-f9f565de6268)
 
 ![31WhatsAppReminder](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/97302da4-c468-4b96-9568-5bf64113cb54)
