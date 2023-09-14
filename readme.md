@@ -137,6 +137,8 @@ Insert gif or link to demo
 
 ![16Todoupdated](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/839ed14e-3a76-417f-ac9d-0f39042609fc)
 
+![17DeleteTodo](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/df800a86-5045-4ba2-ba8c-40d09be1bc1f)
+
 
 
 
