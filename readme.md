@@ -219,6 +219,10 @@ Insert gif or link to demo
 
 ![20Eventspage](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/f8a8d749-2eea-4187-bc8b-e65f210a6545)
 
+<p align="center">
+  <b>GuidePage</b>
+</p>
+
 ![21guidePage](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/01a505e2-ef63-43ca-99a8-ef29feae9419)
 
 ![22guidePageSetp1](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/380ccfbd-249f-4ba4-8415-b3e75c5b29ed)
