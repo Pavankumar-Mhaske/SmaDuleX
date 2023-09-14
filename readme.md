@@ -153,10 +153,14 @@ Insert gif or link to demo
 ![9Homepage](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/f6ac69b5-0483-4605-9dc6-777c0fe35e6b)
 
 <p align="center">
-  <b>Homepage CreateTodo</b>
+  <b>CreateTodo</b>
 </p>
 
 ![10HomepageCreateTodo](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/53d9ecc5-d6cd-4483-8bc9-983823d499d9)
+
+<p align="center">
+  <b>TodoCreated </b>
+</p>
 
 ![11HomepageCreatedTodo](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/35646330-9109-44a3-9089-848b679a5514)
 
