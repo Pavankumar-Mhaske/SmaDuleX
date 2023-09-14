@@ -111,11 +111,9 @@ Insert gif or link to demo
 
 ![3SignupPage](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/e46be2ac-946f-4c43-aaa1-5cef3d6d4aad)
 
-
 <p align="center">
   <b>Password Validations Page</b>
 </p>
-
 
 ![4Password Validations](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/2787f4c5-7f4a-4fa9-a821-024f65f77301)
 
@@ -123,13 +121,11 @@ Insert gif or link to demo
   <b>SignupPage All Filled</b>
 </p>
 
-
 ![5SignupPage](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/efd8a737-6131-478b-aec6-e2c70b4ea402)
 
 <p align="center">
   <b>LoadingSignuppage</b>
 </p>
-
 
 ![6LoadingSignuppage](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/7b5f4e83-305d-4144-ae5a-3544adc6ba87)
 
@@ -142,7 +138,6 @@ Insert gif or link to demo
 <p align="center">
   <b>LoginPageLoading</b>
 </p>
-
 
 ![8LoginpageLoading](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/d8cb899f-6e42-4a53-b208-558f13205733)
 
@@ -181,7 +176,6 @@ Insert gif or link to demo
 </p>
 
 ![14UpdateTodo](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/ac3c3340-9683-4113-bfc5-4cf97f923eb7)
-
 
 <p align="center">
   <b>Todo Updated</b>
@@ -225,13 +219,11 @@ Insert gif or link to demo
 
 ![21guidePage](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/01a505e2-ef63-43ca-99a8-ef29feae9419)
 
-
 <p align="center">
   <b>GuidePage Step-1</b>
 </p>
 
 ![22guidePageSetp1](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/380ccfbd-249f-4ba4-8415-b3e75c5b29ed)
-
 
 <p align="center">
   <b>GuidePage Step-2</b>
@@ -240,9 +232,8 @@ Insert gif or link to demo
 ![23GuidePageStep2](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/d8e8e1c9-79e1-45af-9082-5577f344279f)
 
 <p align="center">
-  <b>Vefication Page</b>
+  <b>Verification Page</b>
 </p>
-
 
 ![24Verification](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/7b7d8ee0-ea65-4eac-930b-29235fdbfbf3)
 
@@ -267,7 +258,6 @@ Insert gif or link to demo
 <p align="center">
   <b>Set Time</b>
 </p>
-
 
 ![28SetTime](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/70f90c1c-1dc2-4289-ba54-3bf08bc366f7)
 
@@ -365,9 +355,9 @@ Insert gif or link to demo
   GET /todo/getAll/
 ```
 
-| Parameter | Type  | Description |
-| :-------- | :---- | :---------- |
-| ` - `     | ` - ` | -           |
+| Parameter | Type | Description |
+| :-------- | :--- | :---------- |
+| `-`       | `-`  | -           |
 
 #### Get search todo
 
@@ -469,7 +459,7 @@ Insert gif or link to demo
 | :-------- | :------- | :------------------------- |
 | `api_key` | `string` | **Required**. Your API key |
 
-#### ******\*\*******\*\*******\*\*******
+#### **\*\***\*\***\*\***\*\***\*\***\*\***\*\***
 
 #### add(num1, num2)
 
