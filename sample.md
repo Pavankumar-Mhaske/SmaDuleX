@@ -27,7 +27,7 @@
 
 
 
-![17DeleteTodo](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/df800a86-5045-4ba2-ba8c-40d09be1bc1f)
+
 
 ![18priorirySet](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/6b062802-239e-41a2-9f78-1b0bac716d55)
 
