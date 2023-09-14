@@ -119,6 +119,11 @@ Insert gif or link to demo
 
 ![4Password Validations](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/2787f4c5-7f4a-4fa9-a821-024f65f77301)
 
+<p align="center">
+  <b>SignupPage All Filled</b>
+</p>
+
+
 ![5SignupPage](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/efd8a737-6131-478b-aec6-e2c70b4ea402)
 
 ![6LoadingSignuppage](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/7b5f4e83-305d-4144-ae5a-3544adc6ba87)
