@@ -18,7 +18,7 @@
 
 
 
-![10HomepageCreateTodo](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/53d9ecc5-d6cd-4483-8bc9-983823d499d9)
+
 
 ![11HomepageCreatedTodo](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/35646330-9109-44a3-9089-848b679a5514)
 
