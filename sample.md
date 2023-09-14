@@ -25,7 +25,6 @@
 
 
 
-![15TodoUpdated](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/e8a7983a-03ed-4a59-9363-f04406e7bc6b)
 
 ![16Todoupdated](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/839ed14e-3a76-417f-ac9d-0f39042609fc)
 
