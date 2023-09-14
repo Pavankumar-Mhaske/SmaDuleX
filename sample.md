@@ -47,7 +47,6 @@
 
 
 
-![30Events](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/478333af-eff2-434e-87c9-f9f565de6268)
 
 ![31WhatsAppReminder](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/97302da4-c468-4b96-9568-5bf64113cb54)
 
