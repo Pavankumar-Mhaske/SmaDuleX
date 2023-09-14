@@ -120,6 +120,7 @@ Insert gif or link to demo
 
 ![9Homepage](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/f6ac69b5-0483-4605-9dc6-777c0fe35e6b)
 
+![10HomepageCreateTodo](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/53d9ecc5-d6cd-4483-8bc9-983823d499d9)
 
 
 
