@@ -44,7 +44,7 @@
 
 
 
-![26EventsPage](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/aa5bcd65-eb1e-4352-ae2c-f23de27a3908)
+
 
 
 ![27SetDate](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/9c95cee9-dcda-4b80-98ec-b75929617a5e)
