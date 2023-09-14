@@ -143,6 +143,8 @@ Insert gif or link to demo
 
 ![19setedPrioriry](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/409866c2-cc03-4848-af07-2dad756e5c02)
 
+![20Eventspage](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/f8a8d749-2eea-4187-bc8b-e65f210a6545)
+
 
 
 
