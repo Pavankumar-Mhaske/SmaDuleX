@@ -112,6 +112,9 @@ Insert gif or link to demo
 
 ![5SignupPage](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/efd8a737-6131-478b-aec6-e2c70b4ea402)
 
+![6LoadingSignuppage](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/7b5f4e83-305d-4144-ae5a-3544adc6ba87)
+
+
 
 ## Tech Stack
 
