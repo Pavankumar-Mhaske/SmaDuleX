@@ -40,7 +40,7 @@
 
 
 
-![24Verification](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/7b7d8ee0-ea65-4eac-930b-29235fdbfbf3)
+
 
 ![25VerificationOtp](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/74c55004-f903-4d69-8bb5-f59f9bff4ba6)
 
