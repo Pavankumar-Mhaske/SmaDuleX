@@ -164,6 +164,10 @@ Insert gif or link to demo
 
 ![11HomepageCreatedTodo](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/35646330-9109-44a3-9089-848b679a5514)
 
+<p align="center">
+  <b>Created Todo in TodoList</b>
+</p>
+
 ![12Todocreated](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/a2618948-2289-40fe-8c0a-4f5ea25afb96)
 
 ![13TodoList](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/215a10e8-e25a-4596-87f6-5a5c317a79e9)
