@@ -93,9 +93,9 @@ Insert gif or link to demo
 
 ## Screenshots
 
-<div style="text-align:center">
-WelcomePage
-</div>
+<p align="center">
+  <b>WelcomePage</b>
+</p>
 
 ![1WelcomePage](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/5654f096-df24-4532-ba15-7a6e4bd1d15d)
 
