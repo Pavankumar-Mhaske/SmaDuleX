@@ -264,6 +264,11 @@ Insert gif or link to demo
 
 ![27SetDate](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/9c95cee9-dcda-4b80-98ec-b75929617a5e)
 
+<p align="center">
+  <b>Set Time</b>
+</p>
+
+
 ![28SetTime](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/70f90c1c-1dc2-4289-ba54-3bf08bc366f7)
 
 ![29EventSet](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/fba96a86-f2c9-4c14-a41f-36a79f3e61da)
