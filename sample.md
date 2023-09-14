@@ -32,7 +32,7 @@
 
 
 
-![20Eventspage](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/f8a8d749-2eea-4187-bc8b-e65f210a6545)
+
 
 ![20Eventspage](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/29534380-5a91-4dc4-b524-c18124217a0e)
 
