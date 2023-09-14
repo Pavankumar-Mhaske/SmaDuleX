@@ -246,6 +246,10 @@ Insert gif or link to demo
 
 ![24Verification](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/7b7d8ee0-ea65-4eac-930b-29235fdbfbf3)
 
+<p align="center">
+  <b>Vefication by OTP (SMS)</b>
+</p>
+
 ![25VerificationOtp](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/74c55004-f903-4d69-8bb5-f59f9bff4ba6)
 
 ![26EventsPage](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/aa5bcd65-eb1e-4352-ae2c-f23de27a3908)
