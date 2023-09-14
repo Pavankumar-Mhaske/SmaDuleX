@@ -409,6 +409,7 @@ Start the server
 ## Screenshots
 
 ![App Screenshot](./screenshots/Github.png)
+![Screenshot (671)](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/687512fb-2755-4695-8b44-7d24968ccfc5)
 
 ![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
 
