@@ -170,6 +170,10 @@ Insert gif or link to demo
 
 ![12Todocreated](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/a2618948-2289-40fe-8c0a-4f5ea25afb96)
 
+<p align="center">
+  <b>TodoList</b>
+</p>
+
 ![13TodoList](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/215a10e8-e25a-4596-87f6-5a5c317a79e9)
 
 ![14UpdateTodo](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/ac3c3340-9683-4113-bfc5-4cf97f923eb7)
