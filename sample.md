@@ -7,7 +7,7 @@
 
 
 
-![3SignupPage](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/e46be2ac-946f-4c43-aaa1-5cef3d6d4aad)
+
 
 ![4Password Validations](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/2787f4c5-7f4a-4fa9-a821-024f65f77301)
 
