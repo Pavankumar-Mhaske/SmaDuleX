@@ -94,13 +94,10 @@ Insert gif or link to demo
 ## Screenshots
 
 <div style="text-align:center">
-  
 WelcomePage
-
 </div>
 
 ![1WelcomePage](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/5654f096-df24-4532-ba15-7a6e4bd1d15d)
-
 
 ![2Loading](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/5fbee14c-78e8-4fc3-b7f4-844dc46ea33b)
 
@@ -230,9 +227,9 @@ WelcomePage
   GET /todo/getAll/
 ```
 
-| Parameter | Type    | Description |
-| :-------- | :------ | :---------- |
-| `  -  `   | `  -  ` | -           |
+| Parameter | Type  | Description |
+| :-------- | :---- | :---------- |
+| ` - `     | ` - ` | -           |
 
 #### Get search todo
 
@@ -334,7 +331,7 @@ WelcomePage
 | :-------- | :------- | :------------------------- |
 | `api_key` | `string` | **Required**. Your API key |
 
-#### **************\*\***************
+#### ******\*\*******\*\*******\*\*******
 
 #### add(num1, num2)
 
