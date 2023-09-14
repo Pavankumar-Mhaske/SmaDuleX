@@ -2,7 +2,7 @@
 
 ## 🚀 About Me
 
-I'm a full stack developer...
+"I am a tech-savvy software engineer entering the industry with a strong foundation in technology and a specialization in full-stack development..."
 
 ## 🔗 Links
 
