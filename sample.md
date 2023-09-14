@@ -47,8 +47,6 @@
 
 
 
-![28SetTime](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/70f90c1c-1dc2-4289-ba54-3bf08bc366f7)
-
 ![29EventSet](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/fba96a86-f2c9-4c14-a41f-36a79f3e61da)
 
 ![30Events](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/478333af-eff2-434e-87c9-f9f565de6268)
