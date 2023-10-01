@@ -49,11 +49,8 @@ Any additional information goes here
 
 [Documentation](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/React_getting_started)
 
-## Demo
 
-Insert gif or link to demo
-
-## Screenshots
+## 📸 Screenshots 📷🎥
 
 <p align="center">
   <b> 🌴🎄🌳🌲 ⭐💖 - WelcomePage - 💖⭐ 🌲🌳🎄🌴 </b>
