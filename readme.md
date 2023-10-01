@@ -39,7 +39,6 @@
 
 Contributions are always welcome!
 
-Please adhere to this project's `code of conduct`.
 
 ## Appendix
 
