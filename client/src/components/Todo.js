@@ -230,7 +230,7 @@ const Todo = ({ todo, makeRequest, setMakeRequest }) => {
           onClick={() => {
             window.scrollTo({
               top: 0,
-              bahaivior: "auto",
+              behavior: "auto",
             });
             document.body.style.overflow = "hidden";
             setEditTodo(true);
@@ -247,7 +247,7 @@ const Todo = ({ todo, makeRequest, setMakeRequest }) => {
           onClick={() => {
             window.scrollTo({
               top: 0,
-              bahaivior: "auto",
+              behavior: "auto",
             });
             document.body.style.overflow = "hidden";
             setDeleteTodo(true);
