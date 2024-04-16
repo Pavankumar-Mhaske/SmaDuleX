@@ -21,6 +21,15 @@ const cors = require("cors");
  *      - express.urlencoded({extended: true}) - To handle data coming from URL in encoded format
  *      - cors - To handle cross origin requests
  */
+
+// global middleware
+app.use(
+  cors({
+    // origin: process.env.CORS_ORIGIN,
+    origin: [process.env.CORS_ORIGIN],
+    credentials: true,
+  })
+);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
