@@ -22,10 +22,19 @@ const cors = require("cors");
  *      - cors - To handle cross origin requests
  */
 
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
+// app.use(cors());
+
+// Define CORS options
+const corsOptions = {
+  origin: "*", // Allow requests from any origin (not recommended for production)
+  methods: ["POST", "GET", "PUT", "OPTIONS", "DELETE"], // Allow specified HTTP methods
+  allowedHeaders: ["Content-Type", "Authorization", "Origin", "X-Auth-Token"], // Allow specified headers
+};
+
+// Use CORS middleware with custom options
+app.use(cors(corsOptions));
 
 /**
  * Home route for testing purpose
