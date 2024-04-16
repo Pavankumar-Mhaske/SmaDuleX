@@ -28,18 +28,19 @@ const allowedOrigins = [
 ];
 
 // CORS middleware
-app.use(
-  cors({
-    origin: function (origin, callback) {
-      // Check if the origin is allowed or is undefined (for same-origin requests)
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
-  })
-);
+// Define the allowed origin
+const allowedOrigin = 'https://smadulex-3toq97k5k-pavankumarmhaskes-projects.vercel.app';
+
+// CORS middleware with custom logic
+app.use((req, res, next) => {
+  const requestOrigin = req.headers.origin;
+  if (requestOrigin && requestOrigin === allowedOrigin) {
+    res.setHeader('Access-Control-Allow-Origin', requestOrigin);
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  }
+  next();
+});
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
