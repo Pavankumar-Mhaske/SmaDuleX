@@ -40,8 +40,8 @@ const LoginPages = () => {
   /**
    * Used to store user email and password from input fields and pass them to appwrite service.
    */
-  const [email, setEmail] = useState("me@gmail.com");
-  const [password, setPassword] = useState("Pavan@2020");
+  const [email, setEmail] = useState("mhaskepavankumar@gmail.com");
+  const [password, setPassword] = useState("Pavan@1234");
   // const [passwordConfirm, setPasswordConfirm] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [bothFieldsPresent, setBothFieldsPresent] = useState(false);
