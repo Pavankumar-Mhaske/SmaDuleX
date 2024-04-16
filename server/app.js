@@ -23,13 +23,16 @@ const cors = require("cors");
  */
 
 // global middleware
-app.use(
-  cors({
-    // origin: process.env.CORS_ORIGIN,
-    origin: process.env.CORS_ORIGIN,
-    credentials: true,
-  })
-);
+// Custom CORS options
+const corsOptions = {
+  origin: "https://smadulex-3toq97k5k-pavankumarmhaskes-projects.vercel.app",
+  methods: ["GET", "POST"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+};
+
+// Use CORS middleware with custom options
+app.use(cors(corsOptions));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // app.use(cors());
