@@ -22,25 +22,10 @@ const cors = require("cors");
  *      - cors - To handle cross origin requests
  */
 
-// global middleware
-// Custom CORS options
-const corsOptions = {
-  origin: "https://smadulex-3toq97k5k-pavankumarmhaskes-projects.vercel.app",
-  methods: ["GET", "POST"],
-  allowedHeaders: [
-    "Content-Type",
-    "Authorization",
-    "https://smadulex-3toq97k5k-pavankumarmhaskes-projects.vercel.app",
-  ],
-  credentials: true, // If your application requires credentials
-};
-
-// Use CORS middleware with custom options
-app.use(cors(corsOptions));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-// app.use(cors());
+app.use(cors());
 
 /**
  * Home route for testing purpose
