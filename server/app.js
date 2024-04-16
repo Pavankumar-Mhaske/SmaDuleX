@@ -21,16 +21,29 @@ const cors = require("cors");
  *      - express.urlencoded({extended: true}) - To handle data coming from URL in encoded format
  *      - cors - To handle cross origin requests
  */
+// Allow requests from specified origins
+const allowedOrigins = [
+  "https://smadulex-3toq97k5k-pavankumarmhaskes-projects.vercel.app",
+  "https://localhost",
+];
+
+// CORS middleware
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      // Check if the origin is allowed or is undefined (for same-origin requests)
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+  })
+);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // app.use(cors());
-
-// Define CORS options
-const corsOptions = {
-  origin: "https://smadulex-3toq97k5k-pavankumarmhaskes-projects.vercel.app", // Allow requests from any origin (not recommended for production)
-  credentials: true,
-};
 
 // Use CORS middleware with custom options
 app.use(cors(corsOptions));
