@@ -28,6 +28,7 @@ const corsOptions = {
   origin: "https://smadulex-3toq97k5k-pavankumarmhaskes-projects.vercel.app",
   methods: ["GET", "POST"],
   allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true, // If your application requires credentials
 };
 
 // Use CORS middleware with custom options
