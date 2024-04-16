@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "proxy": "http://localhost:4000",
+  "proxy": "https://smadulex-3toq97k5k-pavankumarmhaskes-projects.vercel.app/",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
