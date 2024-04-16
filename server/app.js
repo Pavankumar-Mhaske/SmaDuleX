@@ -28,9 +28,8 @@ app.use(express.urlencoded({ extended: true }));
 
 // Define CORS options
 const corsOptions = {
-  origin: "*", // Allow requests from any origin (not recommended for production)
-  methods: ["POST", "GET", "PUT", "OPTIONS", "DELETE"], // Allow specified HTTP methods
-  allowedHeaders: ["Content-Type", "Authorization", "Origin", "X-Auth-Token"], // Allow specified headers
+  origin: "https://smadulex-3toq97k5k-pavankumarmhaskes-projects.vercel.app", // Allow requests from any origin (not recommended for production)
+  credentials: true,
 };
 
 // Use CORS middleware with custom options
