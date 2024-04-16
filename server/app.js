@@ -46,7 +46,6 @@ app.use(express.urlencoded({ extended: true }));
 // app.use(cors());
 
 // Use CORS middleware with custom options
-app.use(cors(corsOptions));
 
 /**
  * Home route for testing purpose
