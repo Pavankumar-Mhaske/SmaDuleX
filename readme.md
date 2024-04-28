@@ -10,43 +10,6 @@
 
 #### Unlock 🔓🗝 Your Day, Discover Your World 🌍 with SmaDuleX 🤝 - Where Scheduling Meets Adventure🏇🏻.
 
-## Badges
-
-[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
-
-[![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
-
-[![AGPL License](https://img.shields.io/badge/license-AGPL-blue.svg)](http://www.gnu.org/licenses/agpl-3.0)
-
-## Color Reference
-
-| Color   | Hex                                                              |
-| ------- | ---------------------------------------------------------------- |
-| Black   | ![#000000](https://via.placeholder.com/10/0a192f?text=+) #000000 |
-| White   | ![#FFFFFF](https://via.placeholder.com/10/FFFFFF?text=+) #FFFFFF |
-| Red     | ![#FF0000](https://via.placeholder.com/10/FF0000?text=+) #FF0000 |
-| Green   | ![#008000](https://via.placeholder.com/10/008000?text=+) #008000 |
-| Blue    | ![#0000FF](https://via.placeholder.com/10/00b48a?text=+) #0000FF |
-| Yellow  | ![#FFFF00](https://via.placeholder.com/10/FFFF00?text=+) #FFFF00 |
-| Cyan    | ![#00FFFF](https://via.placeholder.com/10/00FFFF?text=+) #00FFFF |
-| Magenta | ![#FF00FF](https://via.placeholder.com/10/FF00FF?text=+) #FF00FF |
-| Gray    | ![#808080](https://via.placeholder.com/10/808080?text=+) #808080 |
-| Orange  | ![#FFA500](https://via.placeholder.com/10/FFA500?text=+) #FFA500 |
-
-- [Checkout Uicolorpicker - to get more hands-on ](https://uicolorpicker.com/)
-
-## Contributing
-
-Contributions are always welcome!
-
-## Appendix
-
-Any additional information goes here
-
-## 📃 Documentation 📄
-
-[Documentation](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/React_getting_started)
-
 ## 📸 Screenshots 📷🎥
 
 <p align="center">
@@ -246,6 +209,43 @@ Any additional information goes here
 </p>
 
 ![33DeleteEvents](https://github.com/Pavankumar-Mhaske/SmaDuleX/assets/104865937/c7cf45c2-b79c-4b26-974f-4551178b14b2)
+
+## Badges
+
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+
+[![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
+
+[![AGPL License](https://img.shields.io/badge/license-AGPL-blue.svg)](http://www.gnu.org/licenses/agpl-3.0)
+
+## Color Reference
+
+| Color   | Hex                                                              |
+| ------- | ---------------------------------------------------------------- |
+| Black   | ![#000000](https://via.placeholder.com/10/0a192f?text=+) #000000 |
+| White   | ![#FFFFFF](https://via.placeholder.com/10/FFFFFF?text=+) #FFFFFF |
+| Red     | ![#FF0000](https://via.placeholder.com/10/FF0000?text=+) #FF0000 |
+| Green   | ![#008000](https://via.placeholder.com/10/008000?text=+) #008000 |
+| Blue    | ![#0000FF](https://via.placeholder.com/10/00b48a?text=+) #0000FF |
+| Yellow  | ![#FFFF00](https://via.placeholder.com/10/FFFF00?text=+) #FFFF00 |
+| Cyan    | ![#00FFFF](https://via.placeholder.com/10/00FFFF?text=+) #00FFFF |
+| Magenta | ![#FF00FF](https://via.placeholder.com/10/FF00FF?text=+) #FF00FF |
+| Gray    | ![#808080](https://via.placeholder.com/10/808080?text=+) #808080 |
+| Orange  | ![#FFA500](https://via.placeholder.com/10/FFA500?text=+) #FFA500 |
+
+- [Checkout Uicolorpicker - to get more hands-on ](https://uicolorpicker.com/)
+
+## Contributing
+
+Contributions are always welcome!
+
+## Appendix
+
+Any additional information goes here
+
+## 📃 Documentation 📄
+
+[Documentation](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/React_getting_started)
 
 ## Tech Stack
 
